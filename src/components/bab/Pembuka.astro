@@ -1,63 +1,49 @@
 ---
-interface Props {
-  poster?: string;
-}
-
-const { poster = "/foto/penutup-01.png" } = Astro.props;
+// Bab 00: Pembuka (Hero Editorial)
 ---
 
 <header
   id="pembuka"
   data-tema="pembuka"
-  class="relative h-screen w-full flex flex-col justify-between items-center text-center px-4 py-8 sm:py-12 overflow-hidden select-none"
-  style="background-color: var(--bg); color: var(--teks);"
+  class="relative h-screen w-full flex flex-col justify-between items-center text-center px-4 py-8 sm:py-12 overflow-hidden select-none bg-transparent"
 >
-  <!-- Background Image with Overlay Scrim -->
-  <div class="absolute inset-0 z-0">
-    <img
-      src={poster}
-      alt="Pemandangan malam dan fajar Gunung Andong"
-      fetchpriority="high"
-      class="w-full h-full object-cover object-center opacity-35 scale-105 transition-transform duration-1000"
-    />
-    <div class="absolute inset-0 bg-gradient-to-b from-[#0F1A14]/85 via-[#0F1A14]/65 to-[#0F1A14]"></div>
-  </div>
-
   <!-- Top Minimalist Meta -->
-  <div class="relative z-10 w-full max-w-5xl flex flex-col sm:flex-row justify-between sm:items-center text-[10px] sm:text-[11px] font-mono tracking-widest text-[var(--aksen)] uppercase pt-2 sm:pt-4 pr-32 sm:pr-0 opacity-85 text-left sm:text-center">
+  <div class="relative z-10 w-full max-w-5xl flex flex-col sm:flex-row justify-between sm:items-center text-[10px] sm:text-[11px] font-mono tracking-widest text-sky-900 uppercase pt-2 sm:pt-4 pr-32 sm:pr-0 font-medium text-left sm:text-center">
     <span>Gunung Andong • 1.726 mdpl</span>
     <span class="hidden sm:inline">Magelang, Jawa Tengah</span>
   </div>
 
   <!-- Center Editorial Title Hero -->
   <div class="relative z-10 max-w-3xl mx-auto my-auto py-12 flex flex-col items-center">
-    <span class="font-mono text-xs md:text-sm tracking-[0.25em] text-[var(--aksen)] uppercase mb-3 font-medium">
+    <span class="font-mono text-xs md:text-sm tracking-[0.25em] text-sky-900 uppercase mb-3 font-semibold">
       Catatan Visual & Perjalanan Dua Hati
     </span>
 
     <h1
       id="hero-title"
-      class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-[var(--teks)] leading-[1.05] drop-shadow-sm"
+      class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-slate-900 leading-[1.05] drop-shadow-[0_2px_20px_rgba(255,255,255,0.85)]"
     >
       Andong, Berdua
     </h1>
 
-    <p class="font-serif italic text-xl sm:text-2xl md:text-3xl text-amber-200/90 font-light mt-4 mb-6">
+    <p class="font-serif italic text-xl sm:text-2xl md:text-3xl text-sky-950 font-light mt-4 mb-6 drop-shadow-xs">
       Kenangan kami di bawah langit cerah
     </p>
 
-    <p class="font-sans text-sm sm:text-base text-[var(--teks-muted)] max-w-xl font-light leading-relaxed px-4">
-      "Tentang napas yang terengah di jalur berbatu, dingin malam yang melunak oleh genggaman, dan fajar yang menyalakan langit untuk kita berdua."
-    </p>
+    <div class="backdrop-blur-sm bg-white/45 px-6 py-4 rounded-xl border border-white/60 shadow-xs max-w-xl mx-auto">
+      <p class="font-sans text-sm sm:text-base text-slate-800 font-light leading-relaxed">
+        "Tentang napas yang terengah di jalur berbatu, dingin malam yang melunak oleh genggaman, dan fajar yang menyalakan langit untuk kita berdua."
+      </p>
+    </div>
   </div>
 
   <!-- Bottom Scroll Cue -->
-  <div class="relative z-10 flex flex-col items-center gap-2 pb-6 opacity-80 transition hover:opacity-100">
-    <span class="font-mono text-[10px] sm:text-xs tracking-widest text-[var(--teks-muted)] uppercase">
+  <div class="relative z-10 flex flex-col items-center gap-2 pb-6 opacity-90 transition hover:opacity-100">
+    <span class="font-mono text-[10px] sm:text-xs tracking-widest text-sky-900 uppercase font-medium">
       Gulir Untuk Memulai
     </span>
-    <div class="w-5 h-9 rounded-full border border-[var(--aksen)] flex items-start justify-center p-1" aria-hidden="true">
-      <div class="w-1 h-2 rounded-full bg-[var(--aksen)] animate-bounce mt-1"></div>
+    <div class="w-5 h-9 rounded-full border border-sky-800 flex items-start justify-center p-1" aria-hidden="true">
+      <div class="w-1 h-2 rounded-full bg-sky-800 animate-bounce mt-1"></div>
     </div>
   </div>
 </header>

@@ -1,7 +1,6 @@
 ---
 import Bab from "../Bab.astro";
 import Galeri from "../Galeri";
-import CanvasLangit from "../CanvasLangit.astro";
 import type { Slide } from "../ui/polaroid-line-carousel";
 
 interface Props {
@@ -20,9 +19,6 @@ const { slides } = Astro.props;
   tema="langit"
   className="relative"
 >
-  <!-- Ambient 2D Light Canvas Overlay -->
-  <CanvasLangit />
-
   <div class="relative z-10 w-full flex flex-col items-center">
     <blockquote class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-10 font-light">
       "Kami berharap lautan awan. Yang datang: langit biru tanpa cela, dan itu lebih dari cukup."
