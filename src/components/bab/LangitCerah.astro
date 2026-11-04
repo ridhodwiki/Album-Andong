@@ -1,0 +1,79 @@
+---
+import Bab from "../Bab.astro";
+import Galeri from "../Galeri";
+import CanvasLangit from "../CanvasLangit.astro";
+import type { Slide } from "../ui/polaroid-line-carousel";
+
+interface Props {
+  slides: Slide[];
+}
+
+const { slides } = Astro.props;
+---
+
+<Bab
+  id="langit-cerah"
+  nomor="04"
+  nama="Langit Cerah"
+  subjudul="Delapan Momen di Bawah Biru Abadi"
+  elevasi="1.726 mdpl"
+  tema="langit"
+  className="relative"
+>
+  <!-- Ambient 2D Light Canvas Overlay -->
+  <CanvasLangit />
+
+  <div class="relative z-10 w-full flex flex-col items-center">
+    <blockquote class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-10 font-light">
+      "Kami berharap lautan awan. Yang datang: langit biru tanpa cela, dan itu lebih dari cukup."
+    </blockquote>
+
+    <!-- Horizon Silhouette Panorama Card -->
+    <div class="w-full max-w-3xl mx-auto mb-12 p-4 rounded-xl bg-white/60 backdrop-blur-md border border-white/70 shadow-sm text-center">
+      <div class="flex justify-around items-end h-16 px-4 border-b border-sky-200/60 pb-2">
+        <div class="flex flex-col items-center">
+          <span class="w-8 h-8 rounded-full bg-sky-200/50 mb-1"></span>
+          <span class="text-[10px] font-mono text-sky-900 font-semibold">G. Telomoyo</span>
+          <span class="text-[9px] font-mono text-sky-700">Utara</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="w-12 h-12 rounded-full bg-sky-300/60 mb-1"></span>
+          <span class="text-[10px] font-mono text-sky-950 font-bold">G. Merbabu 3.145 mdpl</span>
+          <span class="text-[9px] font-mono text-sky-700">Selatan</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="w-10 h-10 rounded-full bg-sky-200/50 mb-1"></span>
+          <span class="text-[10px] font-mono text-sky-900 font-semibold">G. Merapi</span>
+          <span class="text-[9px] font-mono text-sky-700">Tenggara</span>
+        </div>
+      </div>
+      <p class="text-xs text-sky-800/80 font-sans mt-2 font-light">
+        Pandangan terbuka 360° tanpa halangan kabut tipis sekalipun.
+      </p>
+    </div>
+
+    <!-- Authentic Field Conversation Quote Card -->
+    <div class="w-full max-w-2xl mx-auto mb-10 p-5 rounded-lg bg-white/50 border border-sky-100 shadow-xs text-stone-700 space-y-2">
+      <p class="font-serif italic text-sm md:text-base text-stone-800">
+        "Kirain bakal ada samudra awan putih kayak di reels orang-orang."
+      </p>
+      <p class="font-serif italic text-sm md:text-base text-sky-900">
+        "Gak ada sama sekali. Malah birunya tembus pandang gini."
+      </p>
+      <p class="font-serif italic text-sm md:text-base text-stone-800">
+        "Bagusan gini malah. Kalau berawan, gunung Merbabu yang megah di depan itu ketutup dong?"
+      </p>
+    </div>
+
+    <!-- Interactive React Island Galeri -->
+    <Galeri
+      client:visible
+      slides={slides}
+      tampil="keduanya"
+      background="transparent"
+      ink="#0F172A"
+      string="#0284C7"
+      ariaLabel="Galeri Foto Langit Cerah Gunung Andong"
+    />
+  </div>
+</Bab>

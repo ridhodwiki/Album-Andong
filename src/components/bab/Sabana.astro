@@ -1,0 +1,45 @@
+---
+import Bab from "../Bab.astro";
+import Galeri from "../Galeri";
+import type { Slide } from "../ui/polaroid-line-carousel";
+
+interface Props {
+  slides: Slide[];
+}
+
+const { slides } = Astro.props;
+---
+
+<Bab
+  id="sabana"
+  nomor="01"
+  nama="Sabana"
+  subjudul="Padang Rumput & Desir Ilalang"
+  elevasi="1.540 mdpl"
+  tema="sabana"
+>
+  <!-- Chapter Narrative Intro -->
+  <blockquote class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-8 font-light">
+    "Napas masih ngos-ngosan, tapi pemandangannya bayar semuanya."
+  </blockquote>
+
+  <!-- Trail Elevation SVG Curve -->
+  <div class="w-full max-w-md mx-auto mb-10 flex items-center justify-between text-xs font-mono text-[var(--aksen)] opacity-80" aria-hidden="true">
+    <span>Pos 2 Dewandaru</span>
+    <svg class="flex-1 mx-4 h-4 overflow-visible" viewBox="0 0 100 10" preserveAspectRatio="none">
+      <path d="M 0 8 Q 50 -2 100 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" />
+    </svg>
+    <span>Sabana Atas</span>
+  </div>
+
+  <!-- Interactive React Island Galeri -->
+  <Galeri
+    client:visible
+    slides={slides}
+    tampil="keduanya"
+    background="transparent"
+    ink="#1E2B1C"
+    string="#3E6B3A"
+    ariaLabel="Galeri Foto Sabana Gunung Andong"
+  />
+</Bab>

@@ -1,0 +1,178 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Untuk Kamu — Bagian Pribadi" noindex={true}>
+  <div class="min-h-screen w-full flex flex-col items-center justify-center px-4 py-16 relative bg-[#1E1B4B] text-[#FEF3C7]">
+    
+    <!-- Top Back Navigation -->
+    <div class="fixed top-6 left-6 z-50">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 text-xs font-mono text-amber-200/80 hover:text-amber-100 transition px-3 py-1.5 rounded-full bg-black/40 border border-white/10 backdrop-blur-sm"
+      >
+        ← Kembali ke Album Publik
+      </a>
+    </div>
+
+    <!-- 1. Password Prompt Box (Active before unlocking) -->
+    <div id="kotak-kunci" class="w-full max-w-md mx-auto p-8 rounded-2xl bg-black/40 border border-amber-300/20 backdrop-blur-md shadow-2xl text-center">
+      <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-300">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </div>
+
+      <h1 class="font-serif text-2xl sm:text-3xl font-normal text-amber-200 tracking-tight mb-2">
+        Halaman Khusus
+      </h1>
+
+      <p class="font-sans text-xs sm:text-sm text-amber-100/70 font-light mb-6">
+        Bagian ini memuat foto dan pesan pribadi yang dienkripsi langsung di browser. Masukkan kata sandi rahasia untuk membuka.
+      </p>
+
+      <form id="form-sandi" class="space-y-4 text-left">
+        <div>
+          <label for="input-sandi" class="block text-xs font-mono text-amber-200/90 uppercase tracking-wider mb-2">
+            Kata Sandi Rahasia
+          </label>
+          <input
+            type="password"
+            id="input-sandi"
+            required
+            placeholder="Masukkan kata sandi..."
+            class="w-full px-4 py-3 rounded-lg bg-black/60 border border-white/20 text-white placeholder-white/30 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-amber-300 transition"
+          />
+        </div>
+
+        <button
+          type="submit"
+          id="btn-buka"
+          class="w-full py-3 px-4 rounded-lg bg-amber-400 hover:bg-amber-300 text-stone-950 font-sans font-medium text-sm transition duration-200 shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-100 flex items-center justify-center gap-2"
+        >
+          <span>Buka Kenangan</span>
+        </button>
+
+        <p id="pesan-error" class="hidden text-xs text-rose-300 text-center font-sans mt-2" aria-live="polite">
+          Kata sandi belum pas. Silakan coba lagi.
+        </p>
+
+        <p class="text-[11px] text-center text-amber-200/50 font-mono mt-4">
+          Petunjuk pengujian: <code class="text-amber-200 font-bold">andong-berdua</code>
+        </p>
+      </form>
+    </div>
+
+    <!-- 2. Unlocked Secret Content (Hidden initially) -->
+    <div id="konten-rahasia" class="hidden w-full max-w-4xl mx-auto my-auto flex flex-col items-center py-10 space-y-12 animate-fade-in">
+      <header class="text-center max-w-2xl mx-auto">
+        <span class="inline-block font-mono text-xs uppercase tracking-widest text-amber-300 mb-2">
+          Surat Terbuka • Gunung Andong
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl font-normal text-amber-100 tracking-tight mb-4">
+          Untuk Kamu,
+        </h2>
+      </header>
+
+      <!-- Personal Love Letter -->
+      <article class="p-8 sm:p-12 rounded-2xl bg-black/40 border border-amber-300/20 backdrop-blur-md shadow-2xl max-w-2xl text-stone-200 font-serif leading-relaxed text-base sm:text-lg whitespace-pre-line space-y-4">
+        <p id="teks-surat" class="font-light italic text-amber-50">
+          <!-- Populated dynamically via decryption -->
+        </p>
+
+        <div class="pt-6 border-t border-white/10 flex justify-between items-center text-xs font-mono text-amber-300/80 not-italic">
+          <span id="penulis-surat">Ridho</span>
+          <span id="tanggal-surat">23 September 2024</span>
+        </div>
+      </article>
+
+      <!-- Private Polaroid Gallery -->
+      <section class="w-full">
+        <h3 class="font-serif text-2xl text-center text-amber-200 mb-8 font-normal">
+          Momen di Luar Rekaman Publik
+        </h3>
+        <div id="galeri-pribadi" class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- Final Loving Reminder Quote -->
+      <blockquote class="text-center font-serif italic text-lg sm:text-xl text-amber-200/90 max-w-xl mx-auto pt-6 border-t border-white/10">
+        <p id="pesan-akhir"></p>
+      </blockquote>
+    </div>
+
+  </div>
+
+  <script>
+    import { dekripsi } from "../lib/kripto";
+
+    const form = document.getElementById("form-sandi") as HTMLFormElement | null;
+    const inputSandi = document.getElementById("input-sandi") as HTMLInputElement | null;
+    const btnBuka = document.getElementById("btn-buka") as HTMLButtonElement | null;
+    const pesanError = document.getElementById("pesan-error");
+    const kotakKunci = document.getElementById("kotak-kunci");
+    const kontenRahasia = document.getElementById("konten-rahasia");
+
+    const teksSurat = document.getElementById("teks-surat");
+    const penulisSurat = document.getElementById("penulis-surat");
+    const tanggalSurat = document.getElementById("tanggal-surat");
+    const pesanAkhir = document.getElementById("pesan-akhir");
+    const galeriPribadi = document.getElementById("galeri-pribadi");
+
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!inputSandi || !btnBuka) return;
+
+      const sandi = inputSandi.value.trim();
+      if (!sandi) return;
+
+      pesanError?.classList.add("hidden");
+      btnBuka.disabled = true;
+      btnBuka.innerHTML = `<span>Membuka...</span>`;
+
+      try {
+        const response = await fetch("/rahasia.bin");
+        if (!response.ok) throw new Error("File rahasia.bin tidak ditemukan.");
+
+        const paketBase64 = await response.text();
+        const jsonStr = await dekripsi(paketBase64.trim(), sandi);
+        const data = JSON.parse(jsonStr);
+
+        // Populate Unlocked Content
+        if (teksSurat) teksSurat.textContent = data.surat;
+        if (penulisSurat) penulisSurat.textContent = `— ${data.penulis}`;
+        if (tanggalSurat) tanggalSurat.textContent = data.tanggal;
+        if (pesanAkhir) pesanAkhir.textContent = `"${data.pesanAkhir}"`;
+
+        if (galeriPribadi && Array.isArray(data.fotos)) {
+          galeriPribadi.innerHTML = data.fotos
+            .map(
+              (f: { image: string; title: string; caption: string; alt: string }) => `
+            <div class="bg-[#fbfaf7] p-3 pb-5 rounded-sm shadow-xl text-stone-900 group">
+              <div class="aspect-square overflow-hidden bg-stone-200 rounded-[1px] mb-3">
+                <img src="${f.image}" alt="${f.alt || ''}" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" />
+              </div>
+              <h4 class="font-serif italic font-medium text-sm text-center text-stone-800">${f.title || ''}</h4>
+              <p class="font-sans text-xs text-center text-stone-500 mt-1">${f.caption || ''}</p>
+            </div>
+          `
+            )
+            .join("");
+        }
+
+        // Toggle UI
+        kotakKunci?.classList.add("hidden");
+        kontenRahasia?.classList.remove("hidden");
+      } catch (err) {
+        if (pesanError) {
+          pesanError.classList.remove("hidden");
+        }
+      } finally {
+        btnBuka.disabled = false;
+        btnBuka.innerHTML = `<span>Buka Kenangan</span>`;
+      }
+    });
+  </script>
+</Layout>

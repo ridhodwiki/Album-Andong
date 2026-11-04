@@ -1,0 +1,258 @@
+[
+  {
+    "id": "pembuka",
+    "nomor": "00",
+    "nama": "Pembuka",
+    "subjudul": "Langkah Awal di Kaki Gunung",
+    "elevasi": "1.300 mdpl",
+    "suasana": "Hening Hutan Malam",
+    "kutipan": "Tentang napas yang terengah di jalur berbatu, dingin malam yang melunak oleh genggaman, dan fajar yang menyalakan langit untuk kita berdua.",
+    "items": [
+      {
+        "id": "pembuka-01",
+        "jenis": "foto",
+        "berkas": "/foto/pembuka-hero.jpg",
+        "judul": "Awal Langkah",
+        "caption": "Basecamp Sawit, Magelang. Udara dingin menyapa, langkah dimulai dalam hening.",
+        "alt": "Suasana awal pendakian di Basecamp Sawit Gunung Andong",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": true
+      }
+    ]
+  },
+  {
+    "id": "sabana",
+    "nomor": "01",
+    "nama": "Sabana",
+    "subjudul": "Padang Rumput & Desir Ilalang",
+    "elevasi": "1.540 mdpl",
+    "suasana": "Hangat & Segar",
+    "kutipan": "Napas masih ngos-ngosan, tapi pemandangannya bayar semuanya.",
+    "items": [
+      {
+        "id": "sabana-01",
+        "jenis": "foto",
+        "berkas": "/foto/sabana-01.png",
+        "judul": "Tawa di Bawah Selimut",
+        "caption": "Di sabana ini kita berhenti cukup lama, hanya mendengarkan desir ilalang dan menghela napas lega bersama.",
+        "alt": "Pasangan tersenyum hangat berdua di hamparan sabana Gunung Andong",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": true
+      },
+      {
+        "id": "sabana-02",
+        "jenis": "foto",
+        "berkas": "/foto/sabana-02.png",
+        "judul": "Menatap Merbabu",
+        "caption": "Siluet Merbabu membentang megah di kejauhan, menemani tiap teguk teh hangat.",
+        "alt": "Pemandangan cakrawala pegunungan dari punggungan sabana",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": true
+      },
+      {
+        "id": "sabana-03",
+        "jenis": "foto",
+        "berkas": "/foto/sabana-03.png",
+        "judul": "Genggaman Erat",
+        "caption": "Tangan yang saling menghangatkan di tengah embusan angin gunung yang menusuk.",
+        "alt": "Genggaman tangan bersarung wol di jalur sabana",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": true
+      },
+      {
+        "id": "sabana-04",
+        "jenis": "foto",
+        "berkas": "/foto/sabana-cover.jpg",
+        "judul": "Punggung Hijau",
+        "caption": "Garis punggungan bukit berbaris rapi seperti permadani hijau tak berujung.",
+        "alt": "Pemandangan punggung bukit sabana Gunung Andong nan asri",
+        "ukuran": "besar",
+        "tampil": "grid",
+        "publik": true,
+        "placeholder": true
+      }
+    ]
+  },
+  {
+    "id": "tanpa-dokumentasi",
+    "nomor": "02",
+    "nama": "Tanpa Dokumentasi",
+    "subjudul": "Jalur Tanjakan Tanpa Kamera",
+    "elevasi": "1.680 mdpl",
+    "suasana": "Hening & Tanjakan Nyata",
+    "kutipan": "Bagian ini tidak ada dokumentasinya karena kami terlalu capek untuk memotret. Percayalah, tanjakannya nyata.",
+    "items": []
+  },
+  {
+    "id": "puncak",
+    "nomor": "03",
+    "nama": "Puncak",
+    "subjudul": "Titik Tertinggi 1.726 mdpl",
+    "elevasi": "1.726 mdpl",
+    "suasana": "Bangga & Lega",
+    "kutipan": "Semua lelah di jalur malam tadi lunas seketika. Berdiri di sini bersamamu, dunia terasa begitu luas dan hening.",
+    "items": [
+      {
+        "id": "puncak-01",
+        "jenis": "foto",
+        "berkas": "/foto/puncak-cover.jpg",
+        "judul": "Akhirnya Sampai",
+        "caption": "Plang kayu 1.726 mdpl tersenyum menyambut dua pasang tapak kaki yang pantang menyerah.",
+        "alt": "Puncak Makam dan Alap-alap Gunung Andong berlatar awan pagi",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": true
+      },
+      {
+        "id": "puncak-02",
+        "jenis": "foto",
+        "berkas": "/foto/penutup-01.png",
+        "judul": "Bivak & Tenda",
+        "caption": "Malam berbintang di puncak sebelum fajar menyapa punggungan naga.",
+        "alt": "Tenda hangat di puncak di bawah gemerlap malam",
+        "ukuran": "sedang",
+        "tampil": "carousel",
+        "publik": true,
+        "placeholder": true
+      }
+    ]
+  },
+  {
+    "id": "langit-cerah",
+    "nomor": "04",
+    "nama": "Langit Cerah",
+    "subjudul": "Delapan Momen di Bawah Biru Abadi",
+    "elevasi": "1.726 mdpl",
+    "suasana": "Cerah, Lapang, Megah",
+    "kutipan": "Kami berharap lautan awan. Yang datang: langit biru tanpa cela, dan itu lebih dari cukup.",
+    "items": [
+      {
+        "id": "langit-01",
+        "jenis": "foto",
+        "berkas": "/foto/langit-01.png",
+        "judul": "Cakrawala Bersih",
+        "caption": "Langit biru membentang tanpa batas, membalas tuntas semua lelah dari bawah.",
+        "alt": "Pemandangan luas puncak dengan langit biru cerah tanpa awan",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": true
+      },
+      {
+        "id": "langit-02",
+        "jenis": "foto",
+        "berkas": "/foto/langit-02.png",
+        "judul": "Senyum di Atas Angin",
+        "caption": "Topi kupluk dan senyum lepas saat embusan angin sepoi-sepoi menemani obrolan santai.",
+        "alt": "Pasangan duduk tersenyum menatap langit biru lapang di puncak Andong",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": true
+      },
+      {
+        "id": "langit-03",
+        "jenis": "foto",
+        "berkas": "/foto/langit-cover.jpg",
+        "judul": "Matahari Pagi Penuh",
+        "caption": "Punggung Gunung Telomoyo dan Merbabu tampak berdiri gagah dan tajam.",
+        "alt": "Panorama pegunungan sekitar Gunung Andong di pagi hari yang cerah",
+        "ukuran": "besar",
+        "tampil": "grid",
+        "publik": true,
+        "placeholder": true
+      }
+    ]
+  },
+  {
+    "id": "sunrise",
+    "nomor": "05",
+    "nama": "Sunrise",
+    "subjudul": "Garis Emas Pertama Membelah Horison",
+    "elevasi": "1.726 mdpl",
+    "suasana": "Hangat & Penuh Harapan",
+    "kutipan": "Di puncak ini, fajar bukan sekadar terbitnya matahari, melainkan tanda bahwa kita telah sampai bersama.",
+    "items": [
+      {
+        "id": "sunrise-01",
+        "jenis": "foto",
+        "berkas": "/foto/sunrise-01.png",
+        "judul": "Cahaya Pertama",
+        "caption": "Semburat emas perlahan membakar garis horison timur, menghangatkan tangan yang semalaman beku.",
+        "alt": "Momen matahari terbit menyinari puncak Gunung Andong",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": true
+      },
+      {
+        "id": "sunrise-02",
+        "jenis": "foto",
+        "berkas": "/foto/sunrise-02.png",
+        "judul": "Secangkir Teh Fajar",
+        "caption": "Uap panas dari cangkir seng mengepul ke udara pagi yang menusuk hidung.",
+        "alt": "Dua cangkir teh hangat diangkat berlatar sunrise keemasan",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": true
+      },
+      {
+        "id": "sunrise-03",
+        "jenis": "foto",
+        "berkas": "/foto/sunrise-03.png",
+        "judul": "Siluet Bersama",
+        "caption": "Kita berdua berdiri bersisian dalam diam, menyaksikan langit malam meleleh jadi jingga.",
+        "alt": "Siluet dua orang berpegangan tangan menatap fajar terbit",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": true
+      },
+      {
+        "id": "sunrise-04",
+        "jenis": "foto",
+        "berkas": "/foto/sunrise-cover.jpg",
+        "judul": "Matahari Sempurna",
+        "caption": "Ketika matahari bulat sempurna menyapa, segala lelah dan gigil malam tadi lunas.",
+        "alt": "Pemandangan matahari terbit utuh di atas lautan kabut",
+        "ukuran": "besar",
+        "tampil": "grid",
+        "publik": true,
+        "placeholder": true
+      }
+    ]
+  },
+  {
+    "id": "penutup",
+    "nomor": "06",
+    "nama": "Penutup",
+    "subjudul": "Catatan Akhir Pendakian",
+    "elevasi": "1.726 mdpl",
+    "suasana": "Haru & Hangat",
+    "kutipan": "Beberapa puncak didaki untuk melihat dunia, yang ini kami daki untuk mengingat bagaimana cara berjalan bersama.",
+    "items": [
+      {
+        "id": "penutup-01",
+        "jenis": "foto",
+        "berkas": "/foto/penutup-cover.jpg",
+        "judul": "Terpatri Abadi",
+        "caption": "Setiap langkah yang terjal dan dingin yang menusuk selalu punya cerita saat dibagi berdua.",
+        "alt": "Foto kenangan penutup pendakian Gunung Andong",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": true
+      }
+    ]
+  }
+]

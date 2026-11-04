@@ -1,0 +1,47 @@
+---
+import Bab from "../Bab.astro";
+import Galeri from "../Galeri";
+import type { Slide } from "../ui/polaroid-line-carousel";
+
+interface Props {
+  slides: Slide[];
+}
+
+const { slides } = Astro.props;
+---
+
+<Bab
+  id="sunrise"
+  nomor="05"
+  nama="Sunrise"
+  subjudul="Garis Emas Pertama Membelah Horison"
+  elevasi="1.726 mdpl"
+  tema="sunrise"
+  className="relative"
+>
+  <!-- Chapter Narrative Intro -->
+  <blockquote class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-10 font-light">
+    "Di puncak ini, fajar bukan sekadar terbitnya matahari, melainkan tanda bahwa kita telah sampai bersama."
+  </blockquote>
+
+  <!-- Warm Fajar Atmosphere Note -->
+  <div class="w-full max-w-xl mx-auto mb-8 p-4 rounded-lg bg-white/40 border border-orange-200/60 shadow-xs flex items-center justify-between text-xs font-mono text-orange-950">
+    <span class="flex items-center gap-1.5">
+      <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+      Golden Hour Fajar
+    </span>
+    <span>Suhu: Dingin Subuh</span>
+    <span>Arah: Horison Timur</span>
+  </div>
+
+  <!-- Interactive React Island Galeri -->
+  <Galeri
+    client:visible
+    slides={slides}
+    tampil="keduanya"
+    background="transparent"
+    ink="#431407"
+    string="#C2410C"
+    ariaLabel="Galeri Foto Sunrise Gunung Andong"
+  />
+</Bab>

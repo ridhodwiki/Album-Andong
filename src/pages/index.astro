@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Pembuka from "../components/bab/Pembuka.astro";
+import Sabana from "../components/bab/Sabana.astro";
+import TanpaDokumentasi from "../components/bab/TanpaDokumentasi.astro";
+import Puncak from "../components/bab/Puncak.astro";
+import LangitCerah from "../components/bab/LangitCerah.astro";
+import Sunrise from "../components/bab/Sunrise.astro";
+import Penutup from "../components/bab/Penutup.astro";
+
+import mediaData from "../data/media.json";
+
+// Map slides per chapter
+interface MediaItemRaw {
+  berkas: string;
+  judul?: string;
+  caption: string;
+  alt: string;
+  fokus?: string;
+}
+
+const getSlidesForBab = (babId: string) => {
+  const bab = mediaData.find((b) => b.id === babId);
+  if (!bab) return [];
+  return bab.items.map((item: MediaItemRaw) => ({
+    image: item.berkas,
+    title: item.judul || item.caption,
+    caption: item.caption,
+    alt: item.alt,
+    fokus: item.fokus,
+  }));
+};
+
+const sabanaSlides = getSlidesForBab("sabana");
+const puncakSlides = getSlidesForBab("puncak");
+const langitSlides = getSlidesForBab("langit-cerah");
+const sunriseSlides = getSlidesForBab("sunrise");
+---
+
+<Layout>
+  <!-- Bab 00: Pembuka -->
+  <Pembuka poster="/foto/penutup-01.png" />
+
+  <!-- Bab 01: Sabana -->
+  <Sabana slides={sabanaSlides} />
+
+  <!-- Bab 02: Tanpa Dokumentasi -->
+  <TanpaDokumentasi />
+
+  <!-- Bab 03: Puncak -->
+  <Puncak slides={puncakSlides} />
+
+  <!-- Bab 04: Langit Cerah -->
+  <LangitCerah slides={langitSlides} />
+
+  <!-- Bab 05: Sunrise -->
+  <Sunrise slides={sunriseSlides} />
+
+  <!-- Bab 06: Penutup -->
+  <Penutup coverPhoto="/foto/penutup-cover.jpg" />
+</Layout>

@@ -1,0 +1,126 @@
+---
+interface Props {
+  audioSrc?: string;
+}
+
+const { audioSrc = "/audio/musik.mp3" } = Astro.props;
+---
+
+<div class="fixed top-5 right-5 z-50">
+  <button
+    id="btn-musik-toggle"
+    type="button"
+    class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 text-white/90 hover:text-white backdrop-blur-md text-xs font-sans font-medium tracking-wide shadow-lg transition duration-200 outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
+    aria-label="Putar musik latar angin gunung"
+    aria-pressed="false"
+  >
+    <!-- Equalizer / Wave Animated Bars -->
+    <span class="flex items-end gap-0.5 h-3.5 w-3.5" aria-hidden="true">
+      <span class="eq-bar w-0.5 h-1.5 bg-amber-300 rounded-full"></span>
+      <span class="eq-bar w-0.5 h-3 bg-amber-300 rounded-full"></span>
+      <span class="eq-bar w-0.5 h-2 bg-amber-300 rounded-full"></span>
+    </span>
+    <span id="musik-label">Suara Alam</span>
+  </button>
+
+  <audio id="audio-latar" loop preload="none">
+    <source src={audioSrc} type="audio/mpeg" />
+  </audio>
+</div>
+
+<script>
+  let isPlaying = false;
+  let audioCtx: AudioContext | null = null;
+  let noiseNode: AudioNode | null = null;
+
+  const btn = document.getElementById("btn-musik-toggle");
+  const audio = document.getElementById("audio-latar") as HTMLAudioElement | null;
+  const label = document.getElementById("musik-label");
+  const bars = document.querySelectorAll(".eq-bar");
+
+  // Fallback gentle procedural mountain wind tone via Web Audio API if mp3 file is absent
+  function startProceduralWind() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+    }
+    if (audioCtx.state === "suspended") {
+      audioCtx.resume();
+    }
+
+    const bufferSize = audioCtx.sampleRate * 2;
+    const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    const output = noiseBuffer.getChannelData(0);
+    let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+
+    for (let i = 0; i < bufferSize; i++) {
+      const white = Math.random() * 2 - 1;
+      b0 = 0.99886 * b0 + white * 0.0555179;
+      b1 = 0.99332 * b1 + white * 0.0750759;
+      b2 = 0.96900 * b2 + white * 0.1538520;
+      b3 = 0.86650 * b3 + white * 0.3104856;
+      b4 = 0.55000 * b4 + white * 0.5329522;
+      b5 = -0.7616 * b5 - white * 0.0168980;
+      output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.04;
+      b6 = white * 0.115926;
+    }
+
+    const whiteNoise = audioCtx.createBufferSource();
+    whiteNoise.buffer = noiseBuffer;
+    whiteNoise.loop = true;
+
+    const filter = audioCtx.createBiquadFilter();
+    filter.type = "lowpass";
+    filter.frequency.setValueAtTime(380, audioCtx.currentTime);
+
+    const gainNode = audioCtx.createGain();
+    gainNode.gain.setValueAtTime(0.35, audioCtx.currentTime);
+
+    whiteNoise.connect(filter);
+    filter.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+    whiteNoise.start();
+
+    noiseNode = whiteNoise;
+  }
+
+  function stopProceduralWind() {
+    if (noiseNode) {
+      try {
+        (noiseNode as AudioBufferSourceNode).stop();
+      } catch {}
+      noiseNode = null;
+    }
+  }
+
+  function toggleMusic() {
+    isPlaying = !isPlaying;
+    btn?.setAttribute("aria-pressed", isPlaying ? "true" : "false");
+
+    if (isPlaying) {
+      if (label) label.textContent = "Angin Gunung Aktif";
+      bars.forEach((b, i) => {
+        b.classList.add("animate-pulse");
+        (b as HTMLElement).style.animationDuration = `${0.6 + i * 0.25}s`;
+      });
+
+      if (audio && audio.src && !audio.src.endsWith(".undefined")) {
+        audio.play().catch(() => {
+          // Fallback to procedural wind
+          startProceduralWind();
+        });
+      } else {
+        startProceduralWind();
+      }
+    } else {
+      if (label) label.textContent = "Suara Alam";
+      bars.forEach((b) => b.classList.remove("animate-pulse"));
+
+      if (audio) {
+        audio.pause();
+      }
+      stopProceduralWind();
+    }
+  }
+
+  btn?.addEventListener("click", toggleMusic);
+</script>

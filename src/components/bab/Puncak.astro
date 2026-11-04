@@ -1,0 +1,73 @@
+---
+import Bab from "../Bab.astro";
+import Galeri from "../Galeri";
+import Video from "../Video.astro";
+import type { Slide } from "../ui/polaroid-line-carousel";
+
+interface Props {
+  slides: Slide[];
+}
+
+const { slides } = Astro.props;
+---
+
+<Bab
+  id="puncak"
+  nomor="03"
+  nama="Puncak"
+  subjudul="Puncak Makam & Alap-alap (1.726 mdpl)"
+  elevasi="1.726 mdpl"
+  tema="puncak"
+>
+  <!-- Achievement Banner -->
+  <div class="w-full max-w-4xl mx-auto text-center mb-12">
+    <blockquote class="font-serif italic text-xl sm:text-2xl text-[var(--teks)] max-w-xl mx-auto mb-6 font-light">
+      "Semua lelah di jalur malam tadi lunas seketika. Berdiri di sini bersamamu, dunia terasa begitu luas dan hening."
+    </blockquote>
+
+    <!-- Milestone Pos Checkpoints Trail -->
+    <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 max-w-3xl mx-auto my-6 text-left">
+      <div class="p-2.5 rounded bg-white/40 border border-white/60 shadow-xs">
+        <span class="block text-[10px] font-mono uppercase text-stone-600">01. Basecamp</span>
+        <span class="font-bold text-xs text-stone-900">1.300 mdpl</span>
+      </div>
+      <div class="p-2.5 rounded bg-white/40 border border-white/60 shadow-xs">
+        <span class="block text-[10px] font-mono uppercase text-stone-600">02. Pos 1 Kemuning</span>
+        <span class="font-bold text-xs text-stone-900">1.420 mdpl</span>
+      </div>
+      <div class="p-2.5 rounded bg-white/40 border border-white/60 shadow-xs">
+        <span class="block text-[10px] font-mono uppercase text-stone-600">03. Pos 2 Dewandaru</span>
+        <span class="font-bold text-xs text-stone-900">1.540 mdpl</span>
+      </div>
+      <div class="p-2.5 rounded bg-white/40 border border-white/60 shadow-xs">
+        <span class="block text-[10px] font-mono uppercase text-stone-600">04. Watu Belah</span>
+        <span class="font-bold text-xs text-stone-900">1.680 mdpl</span>
+      </div>
+      <div class="p-2.5 rounded bg-amber-200/90 border border-amber-300 shadow-sm col-span-2 sm:col-span-1">
+        <span class="block text-[10px] font-mono uppercase text-amber-900 font-bold">05. Puncak Andong</span>
+        <span class="font-bold text-xs text-amber-950">1.726 mdpl ✓</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Puncak Video / Poster Section -->
+  <div class="w-full max-w-4xl mx-auto mb-12 shadow-xl rounded-lg overflow-hidden border border-white/50">
+    <Video
+      poster="/foto/puncak-cover.jpg"
+      alt="Video panorama puncak Gunung Andong"
+      caption="Momen angin berembus kencang di punggung puncak Alap-alap."
+      className="aspect-video w-full"
+    />
+  </div>
+
+  <!-- Interactive React Island Galeri -->
+  <Galeri
+    client:visible
+    slides={slides}
+    tampil="carousel"
+    background="transparent"
+    ink="#10233A"
+    string="#1F4E79"
+    ariaLabel="Galeri Foto Puncak Gunung Andong"
+  />
+</Bab>

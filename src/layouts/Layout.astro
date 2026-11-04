@@ -1,0 +1,70 @@
+---
+import "../styles/global.css";
+import RelKetinggian from "../components/RelKetinggian.astro";
+import TitikBab from "../components/TitikBab.astro";
+import MusikToggle from "../components/MusikToggle.astro";
+import VantaCloudsGlobal from "../components/VantaCloudsGlobal.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = "Andong, Berdua — Album Kenangan Pendakian",
+  description = "Album digital kenangan pendakian Gunung Andong 1.726 mdpl. Menembus dingin, menyusuri sabana, dan menyapa fajar berdua.",
+  image = "/foto/pembuka-hero.jpg",
+  noindex = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Open Graph / Social Sharing Cards -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+  </head>
+  <body class="bg-transparent text-[#F4F1E8] antialiased selection:bg-amber-400 selection:text-stone-950 min-h-screen relative">
+    <!-- 3D Vanta Clouds Background (Global Option C) -->
+    <VantaCloudsGlobal />
+
+    <!-- Accessible Skip to Content -->
+    <a
+      href="#konten-utama"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-amber-400 focus:text-stone-900 focus:rounded-md focus:font-medium"
+    >
+      Lewati ke konten utama
+    </a>
+
+    <!-- Global Floating Mountain Elements -->
+    <MusikToggle />
+    <RelKetinggian />
+    <TitikBab />
+
+    <main id="konten-utama" class="relative z-10">
+      <slot />
+    </main>
+
+    <script>
+      import { initScroll } from "../lib/scroll";
+      document.addEventListener("DOMContentLoaded", initScroll);
+    </script>
+  </body>
+</html>

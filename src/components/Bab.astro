@@ -1,0 +1,55 @@
+---
+interface Props {
+  id: string;
+  nomor?: string;
+  nama?: string;
+  subjudul?: string;
+  elevasi?: string;
+  tema?: "pembuka" | "sabana" | "gelap" | "puncak" | "langit" | "sunrise" | "penutup";
+  className?: string;
+}
+
+const {
+  id,
+  nomor,
+  nama,
+  subjudul,
+  elevasi,
+  tema = "sabana",
+  className = "",
+} = Astro.props;
+---
+
+<section
+  id={id}
+  data-tema={tema}
+  class={`relative w-full py-20 md:py-28 px-4 sm:px-6 md:px-12 transition-colors duration-700 overflow-hidden backdrop-blur-xs ${className}`}
+  style="background-color: color-mix(in srgb, var(--bg) 84%, transparent); color: var(--teks);"
+>
+  <div class="max-w-6xl mx-auto flex flex-col items-center">
+    <!-- Chapter Header (if provided) -->
+    {(nomor || nama || subjudul) && (
+      <header class="text-center max-w-2xl mx-auto mb-10 md:mb-14 data-muncul">
+        {nomor && (
+          <span class="inline-block font-mono text-[11px] md:text-xs uppercase tracking-widest text-[var(--aksen)] mb-2 font-medium">
+            Bab {nomor} {elevasi ? `• ${elevasi}` : ""}
+          </span>
+        )}
+        {nama && (
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-[var(--teks)] mb-3">
+            {nama}
+          </h2>
+        )}
+        {subjudul && (
+          <p class="font-sans text-sm md:text-base text-[var(--teks-muted)] font-light leading-relaxed">
+            {subjudul}
+          </p>
+        )}
+        <div class="w-12 h-0.5 mx-auto mt-4 bg-[var(--aksen)] opacity-40 rounded-full"></div>
+      </header>
+    )}
+
+    <!-- Chapter Content Slot -->
+    <slot />
+  </div>
+</section>

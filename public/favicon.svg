@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Sun / Dawn Circle -->
+  <circle cx="32" cy="22" r="12" fill="#F59E0B" opacity="0.9" />
+  
+  <!-- Back Mountain Ridge -->
+  <path d="M12 52L28 26L44 52H12Z" fill="#1F4E79" opacity="0.8" />
+  
+  <!-- Front Mountain Ridge (Gunung Andong) -->
+  <path d="M22 52L38 18L56 52H22Z" fill="#0F1A14" />
+  
+  <!-- Golden Peak Light -->
+  <path d="M38 18L43 28L38 27L33 28L38 18Z" fill="#E8C872" />
+  
+  <!-- Horizon Base Line -->
+  <line x1="8" y1="52" x2="58" y2="52" stroke="#E8C872" stroke-width="2" stroke-linecap="round" />
+</svg>

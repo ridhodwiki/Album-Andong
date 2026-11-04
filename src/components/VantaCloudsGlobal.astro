@@ -1,0 +1,62 @@
+---
+// Global 3D Vanta.js Clouds Background (Option C)
+// Berbasis Three.js r134 dengan touch control aman untuk scrolling mobile
+---
+
+<div
+  id="vanta-clouds-bg"
+  class="fixed inset-0 pointer-events-none z-0 overflow-hidden"
+  aria-hidden="true"
+></div>
+
+<script is:inline src="/vendor/three.r134.min.js"></script>
+<script is:inline src="/vendor/vanta.clouds.min.js"></script>
+
+<script is:inline>
+  (function () {
+    // Respect user's motion preference
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    function initVanta() {
+      const el = document.getElementById("vanta-clouds-bg");
+      if (!el || !window.VANTA || !window.VANTA.CLOUDS) return;
+
+      // Avoid duplicate instantiation
+      if (window._vantaInstance) {
+        window._vantaInstance.destroy();
+      }
+
+      window._vantaInstance = window.VANTA.CLOUDS({
+        el: el,
+        mouseControls: true,
+        touchControls: false, // Nonaktifkan di touch agar gesture scrolling di HP tidak tertahan
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        skyColor: 0x5a9cc8,
+        cloudColor: 0xc8d8e8,
+        cloudShadowColor: 0x1a334d,
+        sunColor: 0xffa323,
+        sunGlareColor: 0xff7038,
+        sunlightColor: 0xffa338,
+        speed: 0.85,
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initVanta);
+    } else {
+      initVanta();
+    }
+
+    // Cleanup on page transitions if SPA/Astro swap
+    document.addEventListener("astro:before-swap", function () {
+      if (window._vantaInstance) {
+        window._vantaInstance.destroy();
+        window._vantaInstance = null;
+      }
+    });
+  })();
+</script>

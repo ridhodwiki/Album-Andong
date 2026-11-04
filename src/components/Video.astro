@@ -1,0 +1,75 @@
+---
+interface Props {
+  src?: string;
+  poster: string;
+  alt: string;
+  caption?: string;
+  className?: string;
+}
+
+const { src, poster, alt, caption, className = "" } = Astro.props;
+---
+
+<div class={`relative overflow-hidden rounded-lg bg-stone-900 video-wrapper ${className}`}>
+  {src ? (
+    <video
+      class="w-full h-full object-cover block lazy-video"
+      poster={poster}
+      muted
+      playsinline
+      loop
+      preload="none"
+      data-src={src}
+      aria-label={alt}
+    >
+      <source src="" type="video/mp4" />
+      <img src={poster} alt={alt} class="w-full h-full object-cover" />
+    </video>
+  ) : (
+    <img
+      src={poster}
+      alt={alt}
+      class="w-full h-full object-cover block"
+      loading="lazy"
+      decoding="async"
+    />
+  )}
+
+  {caption && (
+    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-white/90">
+      <p class="text-xs md:text-sm font-sans font-light">{caption}</p>
+    </div>
+  )}
+</div>
+
+<script>
+  function initLazyVideos() {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    const videos = document.querySelectorAll<HTMLVideoElement>("video.lazy-video");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          const dataSrc = video.getAttribute("data-src");
+
+          if (entry.isIntersecting) {
+            if (dataSrc && !video.src) {
+              video.src = dataSrc;
+              video.load();
+            }
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { rootMargin: "100px" }
+    );
+
+    videos.forEach((v) => observer.observe(v));
+  }
+
+  document.addEventListener("DOMContentLoaded", initLazyVideos);
+</script>
