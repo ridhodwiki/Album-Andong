@@ -88,7 +88,7 @@ const PL_CSS = [
   ".pl-count{font:500 13px/1 var(--font-sans, monospace);font-variant-numeric:tabular-nums;letter-spacing:.12em;color:var(--pl-muted)}",
   ".pl-count b{color:var(--pl-ink);font-weight:600}",
   ".pl-btn{appearance:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--pl-line);background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer;transition:background .2s ease,color .2s ease,transform .15s ease}",
-  ".pl-btn:hover{background:var(--pl-ink);color:var(--pl-bg);transform:scale(1.05)}",
+  ".pl-btn:hover{background:#fbfaf7;color:#0f172a;transform:scale(1.05)}",
   ".pl-btn:focus-visible{outline:2px solid var(--pl-ink);outline-offset:2px}",
   ".pl-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}",
   "@keyframes pl-in{from{transform:translateY(80%);opacity:0}to{transform:none;opacity:1}}",
@@ -223,6 +223,7 @@ export default function PolaroidLineCarousel({
 
     raf = requestAnimationFrame(frame);
     const io = new IntersectionObserver(([entry]) => {
+      cancelAnimationFrame(raf);
       visible = entry.isIntersecting;
       if (visible) {
         lt = performance.now();
@@ -310,6 +311,7 @@ export default function PolaroidLineCarousel({
   };
 
   const onKey = (e: React.KeyboardEvent) => {
+    if (e.target !== e.currentTarget) return;
     if (e.key === "ArrowRight") step(1);
     else if (e.key === "ArrowLeft") step(-1);
     else if (e.key === "Enter" || e.key === " ") {

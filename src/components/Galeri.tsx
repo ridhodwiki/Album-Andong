@@ -57,7 +57,9 @@ export default function Galeri({
         <div className="w-full max-w-6xl px-4 md:px-8 mt-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-start">
             {slides.map((s, idx) => (
-              <div
+              <button
+                type="button"
+                aria-label={`Perbesar ${s.alt || s.title || `foto ${idx + 1}`}`}
                 key={idx}
                 onClick={() => handleOpen(s, idx)}
                 className={`group cursor-pointer bg-[#fbfaf7] p-3 pb-4 rounded-sm shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_28px_rgba(0,0,0,0.22)] ${
@@ -86,7 +88,7 @@ export default function Galeri({
                     {s.caption}
                   </p>
                 )}
-              </div>
+              </button>
             ))}
           </div>
         </div>

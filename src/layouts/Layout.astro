@@ -55,8 +55,7 @@ const {
 
     <!-- Global Floating Mountain Elements -->
     <MusikToggle />
-    <RelKetinggian />
-    <TitikBab />
+    {Astro.url.pathname === "/" && <><RelKetinggian /><TitikBab /></>}
 
     <main id="konten-utama" class="relative z-10">
       <slot />

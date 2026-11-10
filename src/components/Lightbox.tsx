@@ -17,15 +17,19 @@ export default function Lightbox({
   onIndexChange,
 }: LightboxProps) {
   const touchStart = React.useRef<{ x: number; y: number } | null>(null);
+  const dialogRef = React.useRef<HTMLDialogElement>(null);
 
   React.useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    const dialog = dialogRef.current;
+    if (!isOpen || !dialog) return;
+    const overflow = document.body.style.overflow;
+    const trigger = document.activeElement as HTMLElement | null;
+    dialog.showModal();
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "";
+      dialog.close();
+      document.body.style.overflow = overflow;
+      trigger?.focus();
     };
   }, [isOpen]);
 
@@ -77,10 +81,12 @@ export default function Lightbox({
   if (!isOpen || !slide) return null;
 
   return (
-    <div
-      role="dialog"
+    <dialog
+      ref={dialogRef}
+      onCancel={(e) => { e.preventDefault(); onClose(); }}
       aria-modal="true"
-      className="fixed inset-0 z-[100] m-0 h-full w-full bg-black/92 backdrop-blur-md p-0 text-white flex flex-col justify-between outline-none"
+      className="fixed inset-0 z-[100] m-0 h-full w-full max-w-none max-h-none border-0 bg-black/92 backdrop-blur-md p-0 text-white flex flex-col justify-between outline-none"
+      data-lenis-prevent
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
@@ -159,6 +165,6 @@ export default function Lightbox({
           </p>
         )}
       </div>
-    </div>
+    </dialog>
   );
 }

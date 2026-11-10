@@ -7,7 +7,6 @@ import { enkripsi } from "../src/lib/kripto.ts";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-const SANDI = process.env.RAHASIA_SANDI || "andong-berdua";
 
 const kontenPribadi = {
   surat: `Mungkin orang lain cuma melihat foto-foto puncak, jalur yang terjal, atau kabut yang dingin. Tapi buat aku, setiap langkah 1.726 meter ini adalah tentang caramu menoleh ke belakang untuk memastikan aku masih ada di sana.
@@ -33,12 +32,14 @@ Terima kasih sudah melangkah bersama, menepis lelah dengan tawa, dan berbagi sec
 };
 
 async function main() {
+  const SANDI = process.env.RAHASIA_SANDI;
+  if (!SANDI?.trim()) throw new Error("RAHASIA_SANDI wajib diisi sebelum mengenkripsi.");
   const jsonStr = JSON.stringify(kontenPribadi);
   const hasilTerenkripsi = await enkripsi(jsonStr, SANDI);
 
   const outPath = path.resolve(process.cwd(), "public", "rahasia.bin");
   await fs.writeFile(outPath, hasilTerenkripsi, "utf-8");
-  console.log(`[SUKSES] Berhasil membuat public/rahasia.bin terenkripsi (sandi default: ${SANDI})`);
+  console.log("[SUKSES] Berhasil membuat public/rahasia.bin terenkripsi.");
 }
 
-main().catch(console.error);
+main().catch((error) => { console.error(error); process.exitCode = 1; });

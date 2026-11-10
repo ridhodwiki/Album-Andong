@@ -103,10 +103,10 @@ const { audioSrc = "/audio/musik.mp3" } = Astro.props;
         (b as HTMLElement).style.animationDuration = `${0.6 + i * 0.25}s`;
       });
 
-      if (audio && audio.src && !audio.src.endsWith(".undefined")) {
+      if (audio) {
         audio.play().catch(() => {
           // Fallback to procedural wind
-          startProceduralWind();
+          if (isPlaying) startProceduralWind();
         });
       } else {
         startProceduralWind();
