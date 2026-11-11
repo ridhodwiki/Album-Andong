@@ -28,6 +28,16 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
 
+    <!-- Preload LCP Hero Image (PRD §10 & Gerbang 4) -->
+    <link
+      rel="preload"
+      as="image"
+      href="/foto/responsive/pembuka-hero-1200.webp"
+      imagesrcset="/foto/responsive/pembuka-hero-600.webp 600w, /foto/responsive/pembuka-hero-1200.webp 1200w, /foto/responsive/pembuka-hero-1920.webp 1920w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Open Graph / Social Sharing Cards -->
