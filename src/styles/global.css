@@ -128,3 +128,14 @@ html[data-ringan="true"] { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .data-muncul { opacity: 1 !important; transform: none !important; }
 }
+
+/* Reserve the enhanced carousel before hydration; no-JS keeps the complete grid. */
+.carousel-slot { display: none; }
+html[data-motion="full"] .carousel-slot { display:flex; min-height:calc(max(640px, 70svh) + 5rem); }
+.pl-bar { flex-wrap:wrap; }
+.pl-cap { flex-basis:100%; }
+.pl-title, .pl-sub { overflow:visible; white-space:normal; overflow-wrap:anywhere; }
+.pl-cap>* { animation:none; }
+#penutup .w-64 { max-width:100%; }
+@media (max-width:599px) { #penutup > div > div { padding-inline:1rem; } }
+@media (prefers-reduced-motion:reduce) { .carousel-slot { display:none !important; } }

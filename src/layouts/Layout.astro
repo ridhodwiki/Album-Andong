@@ -23,6 +23,12 @@ const {
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
+    <script is:inline>
+      const connection = navigator.connection;
+      const calm = matchMedia("(prefers-reduced-motion: reduce)").matches || new URLSearchParams(location.search).get("ringan") === "1" || connection?.saveData || /^(slow-2g|2g|3g)$/.test(connection?.effectiveType || "");
+      document.documentElement.dataset.motion = calm ? "calm" : "full";
+      document.documentElement.dataset.ringan = String(calm);
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>

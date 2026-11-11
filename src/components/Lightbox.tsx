@@ -85,7 +85,7 @@ export default function Lightbox({
       ref={dialogRef}
       onCancel={(e) => { e.preventDefault(); onClose(); }}
       aria-modal="true"
-      className="fixed inset-0 z-[100] m-0 h-full w-full max-w-none max-h-none border-0 bg-black/92 backdrop-blur-md p-0 text-white flex flex-col justify-between outline-none"
+      className="fixed inset-0 z-[100] m-0 h-full w-full max-w-none max-h-none border-0 bg-black/92 backdrop-blur-md p-0 text-white flex flex-col justify-between overflow-y-auto outline-none"
       data-lenis-prevent
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
@@ -113,7 +113,7 @@ export default function Lightbox({
       </div>
 
       {/* Main Photo View Area */}
-      <div className="relative flex-1 flex items-center justify-center px-4 md:px-16 overflow-hidden" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="relative flex-1 min-h-48 flex items-center justify-center px-4 md:px-16 overflow-hidden" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
         {/* Nav Left */}
         {n > 1 && (
           <button

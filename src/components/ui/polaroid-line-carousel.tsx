@@ -78,17 +78,17 @@ const PL_CSS = [
   ".pl-card[data-on='0'] .pl-print{transform:scale(.92);filter:saturate(.75) brightness(.92)}",
   ".pl-shot{position:relative;aspect-ratio:1;overflow:hidden;background:#d9d5cc}",
   ".pl-shot img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block;pointer-events:none}",
-  ".pl-note{height:46px;display:flex;align-items:center;justify-content:center;padding:0 8px;font:italic 400 15px/1.2 var(--font-serif, ui-serif, Georgia, serif);color:#2d2926;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}",
+  ".pl-note{min-height:46px;display:flex;align-items:center;justify-content:center;padding:0 8px;font:italic 400 16px/1.2 var(--font-serif, ui-serif, Georgia, serif);color:#2d2926;white-space:normal;overflow-wrap:anywhere}",
   ".pl-peg{position:absolute;left:50%;top:0;width:10px;height:26px;margin-left:-5px;border-radius:2px;background:linear-gradient(90deg,#c9a67a,#e3c9a1 45%,#b8915f);box-shadow:0 2px 4px rgba(0,0,0,.3)}",
   ".pl-peg::after{content:'';position:absolute;left:4px;top:8px;width:2px;height:7px;background:rgba(80,60,30,.5);border-radius:1px}",
   ".pl-bar{position:absolute;left:clamp(16px,4vw,56px);right:clamp(16px,4vw,56px);bottom:clamp(16px,3vh,32px);display:flex;align-items:center;gap:clamp(12px,2vw,24px);cursor:default}",
   ".pl-cap{flex:1;min-width:0;overflow:hidden;padding-bottom:.15em}",
   ".pl-cap>*{display:block;animation:pl-in .45s cubic-bezier(.2,.8,.2,1) both}",
-  ".pl-title{font:500 clamp(18px,2.2vw,24px)/1.2 var(--font-serif, ui-serif, Georgia, serif);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}",
-  ".pl-sub{margin-top:4px;font:400 16px/1.5 var(--font-sans, ui-sans-serif, system-ui, sans-serif);color:var(--pl-muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}",
+  ".pl-title{font:500 clamp(18px,2.2vw,24px)/1.2 var(--font-serif, ui-serif, Georgia, serif);white-space:normal;overflow-wrap:anywhere}",
+  ".pl-sub{margin-top:4px;font:400 16px/1.5 var(--font-sans, ui-sans-serif, system-ui, sans-serif);color:var(--pl-muted);display:block}",
   ".pl-count{font:500 13px/1 var(--font-sans, monospace);font-variant-numeric:tabular-nums;letter-spacing:.12em;color:var(--pl-muted)}",
   ".pl-count b{color:var(--pl-ink);font-weight:600}",
-  ".pl-btn{appearance:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--pl-line);background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer;transition:background .2s ease,color .2s ease,transform .15s ease}",
+  ".pl-btn{appearance:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--pl-line);background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer;transition:background .2s ease,color .2s ease,transform .15s ease}",
   ".pl-btn:hover{background:#fbfaf7;color:#0f172a;transform:scale(1.05)}",
   ".pl-btn:focus-visible{outline:2px solid var(--pl-ink);outline-offset:2px}",
   ".pl-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}",
@@ -217,7 +217,7 @@ export default function PolaroidLineCarousel({
         cardEl.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${deg}deg)`;
       }
 
-      if (visible) {
+      if (visible && !document.hidden) {
         raf = requestAnimationFrame(frame);
       }
     };
@@ -232,10 +232,16 @@ export default function PolaroidLineCarousel({
       }
     });
     io.observe(el);
+    const visibility = () => {
+      cancelAnimationFrame(raf);
+      if (visible && !document.hidden) { lt = performance.now(); raf = requestAnimationFrame(frame); }
+    };
+    document.addEventListener("visibilitychange", visibility);
 
     return () => {
       cancelAnimationFrame(raf);
       io.disconnect();
+      document.removeEventListener("visibilitychange", visibility);
     };
   }, [n, size, spacing, autoplay, goTo, onChange]);
 
@@ -339,7 +345,7 @@ export default function PolaroidLineCarousel({
         height,
         ["--pl-bg" as string]: background,
         ["--pl-ink" as string]: ink,
-        ["--pl-muted" as string]: "color-mix(in srgb, var(--pl-ink) 70%, transparent)",
+        ["--pl-muted" as string]: "var(--pl-ink)",
         ["--pl-line" as string]: "color-mix(in srgb, var(--pl-ink) 25%, transparent)",
         ["--pl-cw" as string]: size.cw + "px",
         ...style,
@@ -395,7 +401,7 @@ export default function PolaroidLineCarousel({
         </div>
       ))}
       <div className="pl-bar">
-        <div lang="en" className="pl-cap" key={active} aria-hidden="true">
+        <div lang="en" className="pl-cap" key={active} >
           {s.title ? <span className="pl-title">{s.title}</span> : null}
           {s.caption ? <span className="pl-sub">{s.caption}</span> : null}
         </div>

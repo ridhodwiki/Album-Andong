@@ -45,16 +45,16 @@ export default function Galeri({
   return (
     <div className="w-full flex flex-col items-center gap-10 my-6">
       {/* 1. Carousel Mode */}
-      {animated && (tampil === "carousel" || tampil === "keduanya") && (
-        <div className="w-full relative flex flex-col items-center">
-          <PolaroidLineCarousel
+      {(tampil === "carousel" || tampil === "keduanya") && (
+        <div className="carousel-slot w-full relative flex flex-col items-center">
+          {animated && <PolaroidLineCarousel
             slides={slides}
             background={background}
             ink={ink}
             string={string}
             ariaLabel={ariaLabel}
             onOpen={handleOpen}
-          />
+          />}
           <p className="mt-3 text-base font-mono tracking-wider opacity-100 text-center select-none" style={{ color: ink }}>
             ← Geser tali atau gunakan panah · Klik polaroid untuk memperbesar →
           </p>
@@ -62,7 +62,7 @@ export default function Galeri({
       )}
 
       {/* 2. Asymmetric Grid Mode */}
-      {(!animated || tampil === "grid" || tampil === "keduanya") && (
+      {slides.length > 0 && (
         <div className="w-full max-w-6xl px-4 md:px-8 mt-4">
           <div className="grid grid-cols-1 min-[600px]:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-start">
             {slides.map((s, idx) => (
@@ -70,8 +70,9 @@ export default function Galeri({
                 type="button"
                 key={idx}
                 onClick={() => handleOpen(s, idx)}
+                data-gallery-card
                 className={`group cursor-pointer bg-[#fbfaf7] p-3 pb-4 rounded-sm shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_28px_rgba(0,0,0,0.22)] ${
-                  idx === 0 && tampil === "keduanya" ? "sm:col-span-2 lg:col-span-2" : ""
+                  idx === 0 && tampil === "keduanya" ? "min-[600px]:col-span-2 lg:col-span-2" : ""
                 }`}
               >
                 <div className="relative aspect-[4/3] sm:aspect-square overflow-hidden bg-stone-200 rounded-[1px]">
