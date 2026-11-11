@@ -17,29 +17,50 @@ const { slides } = Astro.props;
   subjudul="A Pause in the Grass"
   elevasi="1.540 mdpl"
   tema="sabana"
+  className="relative"
 >
-  <!-- Chapter Narrative Intro -->
-  <blockquote lang="en" class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-8 font-light">
-    "Still catching our breath. A good place to stop."
-  </blockquote>
-
-  <!-- Trail Elevation SVG Curve -->
-  <div class="w-full max-w-md mx-auto mb-10 flex items-center justify-between text-base font-mono text-green-950" aria-hidden="true">
-    <span>Pos 2 Dewandaru</span>
-    <svg class="flex-1 mx-4 h-4 overflow-visible" viewBox="0 0 100 10" preserveAspectRatio="none">
-      <path d="M 0 8 Q 50 -2 100 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" />
+  <!-- 3 Decorative Grass Parallax Layers (PRD §7: Sabana parallax 3 lapis rumput) -->
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-44 overflow-hidden z-0" aria-hidden="true">
+    <!-- Lapis 1 (Jauh - lambat) -->
+    <svg id="sabana-rumput-1" viewBox="0 0 1200 120" preserveAspectRatio="none" class="absolute bottom-0 inset-x-0 w-full h-24 fill-[#2D522A]/20">
+      <path d="M0,120 L0,80 Q150,40 300,70 T600,50 T900,75 T1200,60 L1200,120 Z"></path>
     </svg>
-    <span>Sabana Atas</span>
+    <!-- Lapis 2 (Tengah - sedang) -->
+    <svg id="sabana-rumput-2" viewBox="0 0 1200 120" preserveAspectRatio="none" class="absolute bottom-0 inset-x-0 w-full h-20 fill-[#2D522A]/35">
+      <path d="M0,120 L0,90 Q200,60 400,85 T800,65 T1200,80 L1200,120 Z"></path>
+    </svg>
+    <!-- Lapis 3 (Dekat - cepat) -->
+    <svg id="sabana-rumput-3" viewBox="0 0 1200 120" preserveAspectRatio="none" class="absolute bottom-0 inset-x-0 w-full h-16 fill-[#1E2B1C]/45">
+      <path d="M0,120 L0,95 Q100,75 250,90 T550,80 T850,95 T1200,85 L1200,120 Z"></path>
+    </svg>
   </div>
 
-  <!-- Interactive React Island Galeri -->
-  <Galeri
-    client:visible
-    slides={slides}
-    tampil="keduanya"
-    background="transparent"
-    ink="#1E2B1C"
-    string="#3E6B3A"
-    ariaLabel="Galeri Foto Sabana Gunung Andong"
-  />
+  <div class="relative z-10 w-full flex flex-col items-center">
+    <!-- Chapter Narrative Intro -->
+    <blockquote lang="en" class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-8 font-light">
+      "Still catching our breath. A good place to stop."
+    </blockquote>
+
+    <!-- Trail Elevation SVG Curve -->
+    <div class="w-full max-w-md mx-auto mb-10 flex items-center justify-between text-base font-mono text-[#1E2B1C]" aria-hidden="true">
+      <span class="font-semibold">Pos 2 Dewandaru</span>
+      <svg class="flex-1 mx-4 h-4 overflow-visible" viewBox="0 0 100 10" preserveAspectRatio="none">
+        <path d="M 0 8 Q 50 -2 100 6" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" />
+      </svg>
+      <span class="font-semibold">Sabana Atas</span>
+    </div>
+
+    <!-- Interactive React Island Galeri -->
+    <div class="w-full">
+      <Galeri
+        client:visible
+        slides={slides}
+        tampil="keduanya"
+        background="transparent"
+        ink="#1E2B1C"
+        string="#2D522A"
+        ariaLabel="Galeri Foto Sabana Gunung Andong"
+      />
+    </div>
+  </div>
 </Bab>
