@@ -33,3 +33,5 @@ private/
 .idea/
 
 /public/foto/responsive/
+
+/src/generated/

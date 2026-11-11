@@ -139,3 +139,7 @@ html[data-motion="full"] .carousel-slot { display:flex; min-height:calc(max(640p
 #penutup .w-64 { max-width:100%; }
 @media (max-width:599px) { #penutup > div > div { padding-inline:1rem; } }
 @media (prefers-reduced-motion:reduce) { .carousel-slot { display:none !important; } }
+
+html[data-ringan="true"] #langit-flare { display:none; }
+html[data-ringan="true"] #meter-progress-bar { transform:scaleY(1) !important; }
+#sunrise .carousel-slot { color:var(--sunrise-ink, #2A1B3D); }

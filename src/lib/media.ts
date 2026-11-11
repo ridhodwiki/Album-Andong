@@ -1,7 +1,6 @@
+import images from '../generated/media.json';
 export function responsiveImage(path: string) {
-  const base = path.replace(/^\/foto\//, '').replace(/\.[^.]+$/, '');
-  return {
-    image: `/foto/responsive/${base}-1200.webp`,
-    srcSet: [600, 1200, 1920].map(width => `/foto/responsive/${base}-${width}.webp ${width}w`).join(', '),
-  };
+  const image = images[path as keyof typeof images];
+  if (!image) throw new Error('Public image missing from generated manifest: ' + path);
+  return image;
 }
