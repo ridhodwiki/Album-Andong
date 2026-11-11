@@ -174,13 +174,13 @@
     ]
   },
   {
-    "id": "sunrise",
+    "id": "sunset",
     "nomor": "05",
-    "nama": "Sunrise",
-    "subjudul": "First Light on the Ridge",
+    "nama": "Sunset",
+    "subjudul": "The Last Light",
     "elevasi": "1.726 mdpl",
     "suasana": "Hangat & Penuh Harapan",
-    "kutipan": "Up early enough to watch the light change.",
+    "kutipan": "The day ended in colors no camera could get right.",
     "items": [
       {
         "id": "sunrise-01",

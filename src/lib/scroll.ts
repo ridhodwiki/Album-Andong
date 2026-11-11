@@ -1,54 +1,33 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+import { isLightMode } from "./gerak";
 
 export function initScroll() {
-  if (typeof window === "undefined") return;
-
   gsap.registerPlugin(ScrollTrigger);
-  ScrollTrigger.config({ ignoreMobileResize: true });
-
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (!prefersReducedMotion) {
-    const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-
-    lenis.on("scroll", ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-
-    gsap.ticker.lagSmoothing(0);
-  }
-
-  // Initialize chapter-based scroll reveals
-  const revealElements = document.querySelectorAll<HTMLElement>(".data-muncul");
-  revealElements.forEach((el) => {
-    if (prefersReducedMotion) {
-      el.style.opacity = "1";
-      el.style.transform = "none";
-      return;
+  gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
+    if (isLightMode()) return;
+    const desktop = matchMedia("(min-width: 1024px)").matches;
+    const lenis = desktop ? new Lenis({ duration: 1.1, smoothWheel: true }) : null;
+    const tick = (time: number) => lenis?.raf(time * 1000);
+    if (lenis) {
+      lenis.on("scroll", ScrollTrigger.update);
+      gsap.ticker.add(tick);
     }
-
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 32 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 88%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
+    document.querySelectorAll<HTMLElement>(".data-muncul").forEach(el => {
+      gsap.fromTo(el, { opacity: 0, y: 40 }, {
+        opacity: 1, y: 0, duration: 0.6,
+        scrollTrigger: { trigger: el, start: "top 85%", once: true },
+      });
+    });
+    gsap.timeline({ scrollTrigger: { trigger: "#sunset", start: "top bottom", end: "bottom top", scrub: true } })
+      .fromTo("#sunset", { backgroundColor: "#F2A65A" }, { backgroundColor: "#8E4585" })
+      .to("#sunset", { backgroundColor: "#1A1030" });
+    if (desktop) ScrollTrigger.create({ trigger: "#panorama-puncak", start: "top 10%", end: "+=150%", pin: true });
+    if (desktop) gsap.fromTo(".sky-light", { yPercent: -5 }, { yPercent: 5, scrollTrigger: { trigger: "#langit-cerah", start: "top bottom", end: "bottom top", scrub: true } });
+    return () => {
+      gsap.ticker.remove(tick);
+      lenis?.destroy();
+    };
   });
 }

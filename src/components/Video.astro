@@ -16,6 +16,7 @@ const { src, poster, alt, caption, className = "" } = Astro.props;
       class="w-full h-full object-cover block lazy-video"
       poster={poster}
       muted
+      controls
       playsinline
       loop
       preload="none"
@@ -43,9 +44,9 @@ const { src, poster, alt, caption, className = "" } = Astro.props;
 </div>
 
 <script>
+  import { isLightMode } from "../lib/gerak";
   function initLazyVideos() {
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) return;
+    if (isLightMode()) return;
 
     const videos = document.querySelectorAll<HTMLVideoElement>("video.lazy-video");
     const observer = new IntersectionObserver(

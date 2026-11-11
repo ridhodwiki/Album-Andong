@@ -19,9 +19,10 @@ const { slides } = Astro.props;
   tema="langit"
   className="relative"
 >
+  <div class="sky-light" aria-hidden="true"></div>
   <div class="relative z-10 w-full flex flex-col items-center">
-    <blockquote class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-10 font-light">
-      "We came for the clouds. We got a clear view of the mountains instead."
+    <blockquote lang="en" class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-10 font-light">
+      "We hoped for a sea of clouds. We got a clear blue sky, and it was enough."
     </blockquote>
 
     <!-- Horizon Silhouette Panorama Card -->
@@ -43,20 +44,20 @@ const { slides } = Astro.props;
           <span class="text-[9px] font-mono text-sky-700">Tenggara</span>
         </div>
       </div>
-      <p class="text-xs text-sky-800/80 font-sans mt-2 font-light">
+      <p lang="en" class="text-xs text-sky-800/80 font-sans mt-2 font-light">
         A clear view in every direction.
       </p>
     </div>
 
     <!-- Authentic Field Conversation Quote Card -->
     <div class="w-full max-w-2xl mx-auto mb-10 p-5 rounded-lg bg-white/50 border border-sky-100 shadow-xs text-stone-700 space-y-2">
-      <p class="font-serif italic text-sm md:text-base text-stone-800">
+      <p lang="en" class="font-serif italic text-base text-stone-800">
         "I thought there would be clouds below us."
       </p>
-      <p class="font-serif italic text-sm md:text-base text-sky-900">
+      <p lang="en" class="font-serif italic text-base text-sky-900">
         "Clear skies all the way."
       </p>
-      <p class="font-serif italic text-sm md:text-base text-stone-800">
+      <p lang="en" class="font-serif italic text-base text-stone-800">
         "At least we get a good view of Merbabu."
       </p>
     </div>

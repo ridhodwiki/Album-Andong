@@ -1,6 +1,7 @@
 import * as React from "react";
 import PolaroidLineCarousel, { type Slide } from "./ui/polaroid-line-carousel";
 import Lightbox from "./Lightbox";
+import { isLightMode } from "../lib/gerak";
 
 export type GaleriProps = {
   slides: Slide[];
@@ -21,6 +22,14 @@ export default function Galeri({
 }: GaleriProps) {
   const [lightboxOpen, setLightboxOpen] = React.useState(false);
   const [activeIndex, setActiveIndex] = React.useState(0);
+  const [animated, setAnimated] = React.useState(false);
+  React.useEffect(() => {
+    const preference = matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setAnimated(!isLightMode());
+    update();
+    preference.addEventListener("change", update);
+    return () => preference.removeEventListener("change", update);
+  }, []);
 
   const handleOpen = (_: Slide, index: number) => {
     setActiveIndex(index);
@@ -36,7 +45,7 @@ export default function Galeri({
   return (
     <div className="w-full flex flex-col items-center gap-10 my-6">
       {/* 1. Carousel Mode */}
-      {(tampil === "carousel" || tampil === "keduanya") && (
+      {animated && (tampil === "carousel" || tampil === "keduanya") && (
         <div className="w-full relative flex flex-col items-center">
           <PolaroidLineCarousel
             slides={slides}
@@ -46,20 +55,19 @@ export default function Galeri({
             ariaLabel={ariaLabel}
             onOpen={handleOpen}
           />
-          <p className="mt-3 text-[11px] md:text-xs font-mono tracking-wider opacity-60 text-center select-none" style={{ color: ink }}>
+          <p className="mt-3 text-base font-mono tracking-wider opacity-100 text-center select-none" style={{ color: ink }}>
             ← Geser tali atau gunakan panah · Klik polaroid untuk memperbesar →
           </p>
         </div>
       )}
 
       {/* 2. Asymmetric Grid Mode */}
-      {(tampil === "grid" || tampil === "keduanya") && slides.length > 1 && (
+      {(!animated || tampil === "grid" || tampil === "keduanya") && (
         <div className="w-full max-w-6xl px-4 md:px-8 mt-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-start">
+          <div className="grid grid-cols-1 min-[600px]:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-start">
             {slides.map((s, idx) => (
               <button
                 type="button"
-                aria-label={`Perbesar ${s.alt || s.title || `foto ${idx + 1}`}`}
                 key={idx}
                 onClick={() => handleOpen(s, idx)}
                 className={`group cursor-pointer bg-[#fbfaf7] p-3 pb-4 rounded-sm shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_28px_rgba(0,0,0,0.22)] ${
@@ -70,6 +78,10 @@ export default function Galeri({
                   {s.image && (
                     <img
                       src={s.image}
+                      srcSet={s.srcSet}
+                      sizes="(max-width: 599px) 90vw, (max-width: 1023px) 45vw, 600px"
+                      width={600}
+                      height={600}
                       alt={s.alt || s.title || ""}
                       loading="lazy"
                       decoding="async"
@@ -79,12 +91,12 @@ export default function Galeri({
                   )}
                 </div>
                 {s.title && (
-                  <p className="mt-3 text-center font-serif italic text-sm md:text-base text-stone-800 tracking-wide line-clamp-1">
+                  <p lang="en" className="mt-3 text-center font-serif italic text-base text-stone-800 tracking-wide">
                     {s.title}
                   </p>
                 )}
                 {s.caption && (
-                  <p className="mt-1 text-center font-sans text-xs text-stone-500 line-clamp-2 px-2">
+                  <p lang="en" className="mt-1 text-center font-sans text-base text-stone-700 px-2">
                     {s.caption}
                   </p>
                 )}

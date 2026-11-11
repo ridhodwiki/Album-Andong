@@ -60,7 +60,8 @@ const { basecampMdpl = 1300, puncakMdpl = 1726 } = Astro.props;
     const labelDesktop = document.getElementById("live-elevasi-angka");
     const labelMobile = document.getElementById("live-elevasi-mobile");
 
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const summit = document.getElementById("puncak");
+    const scrollHeight = summit ? summit.getBoundingClientRect().top + window.scrollY : 0;
     if (scrollHeight <= 0) return;
 
     const progress = Math.min(Math.max(window.scrollY / scrollHeight, 0), 1);

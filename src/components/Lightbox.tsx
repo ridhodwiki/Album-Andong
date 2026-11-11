@@ -113,7 +113,7 @@ export default function Lightbox({
       </div>
 
       {/* Main Photo View Area */}
-      <div className="relative flex-1 flex items-center justify-center px-4 md:px-16 overflow-hidden">
+      <div className="relative flex-1 flex items-center justify-center px-4 md:px-16 overflow-hidden" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
         {/* Nav Left */}
         {n > 1 && (
           <button
@@ -131,6 +131,8 @@ export default function Lightbox({
         <div className="max-w-4xl max-h-[70vh] flex flex-col items-center select-none">
           <img
             src={slide.image}
+            srcSet={slide.srcSet}
+            sizes="90vw"
             alt={slide.alt || slide.title || ""}
             className="max-h-[65vh] w-auto max-w-full object-contain rounded shadow-2xl transition duration-300"
             draggable={false}
@@ -153,14 +155,14 @@ export default function Lightbox({
       </div>
 
       {/* Bottom Caption */}
-      <div className="px-6 py-6 text-center max-w-2xl mx-auto z-10">
+      <div lang="en" className="px-6 py-6 text-center max-w-2xl mx-auto z-10">
         {slide.title && (
           <h3 className="font-serif text-xl md:text-2xl font-normal text-amber-200 tracking-wide mb-1">
             {slide.title}
           </h3>
         )}
         {slide.caption && (
-          <p className="text-sm md:text-base text-white/80 font-light leading-relaxed">
+          <p className="text-base text-white/80 font-light leading-relaxed">
             {slide.caption}
           </p>
         )}

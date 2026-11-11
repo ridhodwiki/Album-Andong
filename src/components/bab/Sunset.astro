@@ -11,27 +11,27 @@ const { slides } = Astro.props;
 ---
 
 <Bab
-  id="sunrise"
+  id="sunset"
   nomor="05"
-  nama="Sunrise"
-  subjudul="First Light on the Ridge"
+  nama="Sunset"
+  subjudul="The Last Light"
   elevasi="1.726 mdpl"
-  tema="sunrise"
+  tema="sunset"
   className="relative"
 >
   <!-- Chapter Narrative Intro -->
-  <blockquote class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-10 font-light">
-    "Up early enough to watch the light change."
+  <blockquote lang="en" class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-10 font-light">
+    "The day ended in colors no camera could get right."
   </blockquote>
 
   <!-- Warm Fajar Atmosphere Note -->
-  <div class="w-full max-w-xl mx-auto mb-8 p-4 rounded-lg bg-white/40 border border-orange-200/60 shadow-xs flex items-center justify-between text-xs font-mono text-orange-950">
+  <div class="w-full max-w-xl mx-auto mb-8 p-4 rounded-lg bg-orange-100 border border-orange-200 shadow-xs flex flex-wrap gap-3 items-center justify-between text-base font-mono text-orange-950">
     <span class="flex items-center gap-1.5">
       <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
-      Golden Hour Fajar
+      Cahaya Senja
     </span>
-    <span>Suhu: Dingin Subuh</span>
-    <span>Arah: Horison Timur</span>
+    <span>Menjelang malam</span>
+    <span>Horison barat</span>
   </div>
 
   <!-- Interactive React Island Galeri -->
@@ -40,8 +40,8 @@ const { slides } = Astro.props;
     slides={slides}
     tampil="keduanya"
     background="transparent"
-    ink="#431407"
+    ink="#FFF4E0"
     string="#C2410C"
-    ariaLabel="Galeri Foto Sunrise Gunung Andong"
+    ariaLabel="Galeri Foto Sunset Gunung Andong"
   />
 </Bab>

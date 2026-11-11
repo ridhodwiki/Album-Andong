@@ -104,3 +104,29 @@
 .tabular-nums {
   font-variant-numeric: tabular-nums;
 }
+
+/* Static palettes remain readable when JavaScript or animation is unavailable. */
+[data-tema="pembuka"] { background: #eaf3f1; }
+[data-tema="sabana"] { background: #dce8c8; }
+[data-tema="gelap"] { background: #0a0a0a; }
+[data-tema="puncak"] { background: #bfd7e8; }
+[data-tema="langit"] { background: #eaf3f1; }
+[data-tema="sunset"] { background: #512b46; --teks: #fff4e0; --teks-muted: #fff4e0; --aksen: #ffd9a0; }
+[data-tema="sunset"] > div { background: #1a1030; border-radius: 16px; padding: 24px 0; }
+[data-tema="penutup"] { background: #1a1030; }
+main p { font-size: max(1rem, 1em); }
+.pl-sub { font-size: 1rem; color: var(--pl-ink); }
+.pl-btn { flex-shrink: 0; }
+.pl-root { min-height: 640px; }
+.sky-light { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 80% 5%, #fff2c480, transparent 60%), linear-gradient(170deg, transparent 60%, #bfd7e860 60%, transparent 80%); }
+#pembuka > img { height: 125%; top: -10%; }
+#rel-ketinggian-desktop { background: #17202a; padding: 12px; border-radius: 16px; }
+html[data-ringan="true"] *, html[data-ringan="true"] *::before, html[data-ringan="true"] *::after {
+  animation: none !important; transition: none !important;
+}
+html[data-ringan="true"] { scroll-behavior: auto; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .data-muncul { opacity: 1 !important; transform: none !important; }
+}

@@ -1,6 +1,7 @@
 import * as React from "react";
 
 export type Slide = {
+  srcSet?: string;
   image?: string;
   title?: string;
   caption?: string;
@@ -84,7 +85,7 @@ const PL_CSS = [
   ".pl-cap{flex:1;min-width:0;overflow:hidden;padding-bottom:.15em}",
   ".pl-cap>*{display:block;animation:pl-in .45s cubic-bezier(.2,.8,.2,1) both}",
   ".pl-title{font:500 clamp(18px,2.2vw,24px)/1.2 var(--font-serif, ui-serif, Georgia, serif);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}",
-  ".pl-sub{margin-top:4px;font:400 13px/1.4 var(--font-sans, ui-sans-serif, system-ui, sans-serif);color:var(--pl-muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}",
+  ".pl-sub{margin-top:4px;font:400 16px/1.5 var(--font-sans, ui-sans-serif, system-ui, sans-serif);color:var(--pl-muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}",
   ".pl-count{font:500 13px/1 var(--font-sans, monospace);font-variant-numeric:tabular-nums;letter-spacing:.12em;color:var(--pl-muted)}",
   ".pl-count b{color:var(--pl-ink);font-weight:600}",
   ".pl-btn{appearance:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--pl-line);background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer;transition:background .2s ease,color .2s ease,transform .15s ease}",
@@ -376,6 +377,10 @@ export default function PolaroidLineCarousel({
               {sl.image ? (
                 <img
                   src={sl.image}
+                  srcSet={sl.srcSet}
+                  sizes="300px"
+                  width={600}
+                  height={600}
                   alt={sl.alt || sl.title || ""}
                   loading="lazy"
                   decoding="async"
@@ -384,13 +389,13 @@ export default function PolaroidLineCarousel({
                 />
               ) : null}
             </div>
-            <div className="pl-note">{sl.title || ""}</div>
+            <div lang="en" className="pl-note">{sl.title || ""}</div>
           </div>
           <div className="pl-peg" />
         </div>
       ))}
       <div className="pl-bar">
-        <div className="pl-cap" key={active} aria-hidden="true">
+        <div lang="en" className="pl-cap" key={active} aria-hidden="true">
           {s.title ? <span className="pl-title">{s.title}</span> : null}
           {s.caption ? <span className="pl-sub">{s.caption}</span> : null}
         </div>

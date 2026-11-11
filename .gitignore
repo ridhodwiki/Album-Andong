@@ -31,3 +31,5 @@ private/
 
 # jetbrains setting folder
 .idea/
+
+/public/foto/responsive/

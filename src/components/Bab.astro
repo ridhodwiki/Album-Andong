@@ -5,7 +5,7 @@ interface Props {
   nama?: string;
   subjudul?: string;
   elevasi?: string;
-  tema?: "pembuka" | "sabana" | "gelap" | "puncak" | "langit" | "sunrise" | "penutup";
+  tema?: "pembuka" | "sabana" | "gelap" | "puncak" | "langit" | "sunset" | "penutup";
   className?: string;
 }
 
@@ -31,7 +31,7 @@ const {
     {(nomor || nama || subjudul) && (
       <header class="text-center max-w-2xl mx-auto mb-10 md:mb-14 data-muncul">
         {nomor && (
-          <span class="inline-block font-mono text-[11px] md:text-xs uppercase tracking-widest text-[var(--aksen)] mb-2 font-medium bg-white/60 backdrop-blur-xs px-3 py-1 rounded-full border border-white/80 shadow-2xs">
+          <span class="inline-block font-mono text-[11px] md:text-xs uppercase tracking-widest text-[var(--teks)] mb-2 font-medium  px-3 py-1 rounded-full border border-white/80 shadow-2xs">
             Bab {nomor} {elevasi ? `• ${elevasi}` : ""}
           </span>
         )}
@@ -41,7 +41,7 @@ const {
           </h2>
         )}
         {subjudul && (
-          <p class="font-sans text-sm md:text-base text-[var(--teks-muted)] font-light leading-relaxed">
+          <p lang="en" class="font-sans text-base text-[var(--teks-muted)] font-light leading-relaxed">
             {subjudul}
           </p>
         )}
