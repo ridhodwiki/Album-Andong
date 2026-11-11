@@ -22,7 +22,7 @@ const { basecampMdpl = 1300, puncakMdpl = 1726 } = Astro.props;
     <div
       id="meter-progress-bar"
       class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-amber-400 via-emerald-400 to-sky-400 rounded-full transition-all duration-150"
-      style="height: 0%;"
+      style="height: 100%;"
     ></div>
   </div>
 
@@ -37,7 +37,7 @@ const { basecampMdpl = 1300, puncakMdpl = 1726 } = Astro.props;
   >
     <span class="w-2 h-2 rounded-full bg-amber-400"></span>
     <span id="live-elevasi-angka" class="font-mono text-xs font-semibold text-amber-200 tabular-nums">
-      {basecampMdpl} mdpl
+      {puncakMdpl} mdpl
     </span>
   </div>
 </aside>
@@ -46,34 +46,13 @@ const { basecampMdpl = 1300, puncakMdpl = 1726 } = Astro.props;
 <div
   id="rel-ketinggian-mobile"
   class="fixed bottom-4 left-4 z-40 lg:hidden min-h-11 px-3.5 py-2 rounded-full bg-stone-950 border border-white/25 flex items-center gap-2 shadow-xl select-none"
-  role="status"
+  data-base={basecampMdpl}
+  data-summit={puncakMdpl}
   aria-label="Indikator Ketinggian Pendakian"
 >
   <span class="w-2 h-2 rounded-full bg-amber-400" aria-hidden="true"></span>
   <span id="live-elevasi-mobile" class="font-mono text-xs font-medium text-amber-100 tabular-nums">
-    {basecampMdpl} mdpl
+    {puncakMdpl} mdpl
   </span>
 </div>
 
-<script define:vars={{ basecampMdpl, puncakMdpl }}>
-  function updateElevation() {
-    const bar = document.getElementById("meter-progress-bar");
-    const labelDesktop = document.getElementById("live-elevasi-angka");
-    const labelMobile = document.getElementById("live-elevasi-mobile");
-
-    const summit = document.getElementById("puncak");
-    const scrollHeight = summit ? summit.getBoundingClientRect().top + window.scrollY : 0;
-    if (scrollHeight <= 0) return;
-
-    const progress = Math.min(Math.max(window.scrollY / scrollHeight, 0), 1);
-    const currentElevation = Math.round(basecampMdpl + progress * (puncakMdpl - basecampMdpl));
-
-    if (bar) bar.style.height = `${progress * 100}%`;
-    if (labelDesktop) labelDesktop.textContent = `${currentElevation} mdpl`;
-    if (labelMobile) labelMobile.textContent = `${currentElevation} mdpl`;
-  }
-
-  window.addEventListener("scroll", updateElevation, { passive: true });
-  window.addEventListener("resize", updateElevation);
-  updateElevation();
-</script>

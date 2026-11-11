@@ -2,6 +2,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { isLightMode } from "./gerak";
+import { sunriseText } from "./kontras";
 
 export function initScroll() {
   gsap.registerPlugin(ScrollTrigger);
@@ -17,16 +18,26 @@ export function initScroll() {
       const { full } = ctx.conditions!;
       const isCalm = !full || isLightMode();
 
-      if (isLightMode()) {
-        document.documentElement.dataset.ringan = "true";
-      }
+      document.documentElement.dataset.ringan = String(isCalm);
+      document.documentElement.dataset.motion = isCalm ? "calm" : "full";
 
       // 0. Smooth Scroll (Lenis di desktop saja saat mode penuh)
-      const desktop = window.matchMedia("(min-width: 1024px)").matches;
+      const titleOriginal = document.getElementById("hero-title")?.textContent;
+      const loops: gsap.core.Tween[] = [];
+      const visibleLoops = new Set<gsap.core.Tween>();
+      const loop = (target: string, chapter: string, vars: gsap.TweenVars) => {
+        const tween = gsap.to(target, { ...vars, paused: true }); loops.push(tween);
+        ScrollTrigger.create({ trigger: chapter, start: "top bottom", end: "bottom top", onToggle: self => {
+          if (self.isActive) visibleLoops.add(tween); else visibleLoops.delete(tween);
+          tween.paused(!self.isActive || document.hidden);
+        } });
+      };
+      const visibility = () => loops.forEach(t => t.paused(document.hidden || !visibleLoops.has(t)));
+      document.addEventListener("visibilitychange", visibility);
       let lenis: Lenis | null = null;
       let tick: ((time: number) => void) | null = null;
 
-      if (!isCalm && desktop) {
+      if (!isCalm) {
         lenis = new Lenis({ duration: 1.1, smoothWheel: true });
         tick = (time: number) => lenis?.raf(time * 1000);
         lenis.on("scroll", ScrollTrigger.update);
@@ -43,6 +54,7 @@ export function initScroll() {
             const span = document.createElement("span");
             span.textContent = ch === " " ? "\u00A0" : ch;
             span.style.display = "inline-block";
+            span.setAttribute("aria-hidden", "true");
             titleEl.appendChild(span);
             return span;
           });
@@ -52,18 +64,18 @@ export function initScroll() {
             opacity: 0,
             y: 35,
             duration: 0.8,
-            stagger: 0.04,
+            stagger: { amount: 0.5 },
             ease: "power3.out",
           });
         }
 
         gsap.fromTo(
           "#hero-bg",
-          { scale: 1.15, opacity: 0 },
+          { scale: 1.06, opacity: 0.2 },
           { scale: 1, opacity: 0.35, duration: 1.4, ease: "power2.out" }
         );
 
-        gsap.to("#hero-scroll-dot", {
+        loop("#hero-scroll-dot", "#pembuka", {
           y: 8,
           duration: 0.8,
           repeat: -1,
@@ -73,12 +85,12 @@ export function initScroll() {
       }
 
       // Reveal elemen umum .data-muncul
-      const munculElements = document.querySelectorAll<HTMLElement>(".data-muncul");
+      const munculElements = document.querySelectorAll<HTMLElement>(".data-muncul:not(.tanpa-dok-line), [data-gallery-card]");
       if (!isCalm) {
         munculElements.forEach((el) => {
           gsap.fromTo(
             el,
-            { opacity: 0, y: 30 },
+            { opacity: 0, y: 40 },
             {
               opacity: 1,
               y: 0,
@@ -133,6 +145,15 @@ export function initScroll() {
         });
       }
 
+      if (!isCalm) {
+        gsap.timeline({ scrollTrigger: { trigger: "#tanpa-dokumentasi", start: "top 75%", end: "center center", scrub: true } })
+          .fromTo("#tanpa-dokumentasi", { backgroundColor: "#1e241b" }, { backgroundColor: "#0A0A0A" })
+          .from(".tanpa-dok-line", { opacity: 0, y: 24, stagger: 0.3 }, 0);
+        document.querySelectorAll<SVGPathElement>("[data-trail]").forEach(path => {
+          const length = path.getTotalLength();
+          gsap.fromTo(path, { strokeDasharray: length, strokeDashoffset: length }, { strokeDashoffset: 0, ease: "none", scrollTrigger: { trigger: path.closest("section")!, start: "top 85%", end: "center center", scrub: true } });
+        });
+      }
       // 3. Bab 02: Tanpa Dokumentasi (Jalur SVG terlukis)
       const pathEl = document.getElementById("tanpa-dok-path") as SVGPathElement | null;
       if (pathEl) {
@@ -141,12 +162,12 @@ export function initScroll() {
           gsap.set(pathEl, { strokeDasharray: length, strokeDashoffset: length });
           gsap.to(pathEl, {
             strokeDashoffset: 0,
-            duration: 1.2,
-            ease: "power2.out",
+            ease: "none",
             scrollTrigger: {
               trigger: "#tanpa-dokumentasi",
-              start: "top 75%",
-              once: true,
+              start: "top 80%",
+              end: "center center",
+              scrub: true,
             },
           });
           gsap.fromTo(
@@ -171,10 +192,20 @@ export function initScroll() {
 
       // 4. Bab 03: Puncak (Pin panorama + zoom pelan + counter 1.726 mdpl)
       if (!isCalm) {
+        const rail = document.getElementById("rel-ketinggian-mobile");
+        if (rail) {
+          const base = Number(rail.dataset.base), summit = Number(rail.dataset.summit);
+          ScrollTrigger.create({ trigger: "#pembuka", start: "top top", endTrigger: "#puncak", end: "top top", onUpdate: self => {
+            const label = `${Math.round(base + (summit - base) * self.progress).toLocaleString("id-ID")} mdpl`;
+            document.querySelectorAll("#live-elevasi-angka, #live-elevasi-mobile").forEach(el => el.textContent = label);
+            gsap.set("#meter-progress-bar", { scaleY: self.progress, transformOrigin: "bottom" });
+          } });
+        }
         ScrollTrigger.create({
           trigger: "#panorama-puncak",
-          start: "top 15%",
-          end: "+=120%",
+          start: "top top",
+          end: () => `+=${window.innerHeight * 1.5}`,
+          invalidateOnRefresh: true,
           pin: true,
           pinSpacing: true,
           scrub: true,
@@ -189,12 +220,12 @@ export function initScroll() {
           const counterObj = { val: 1300 };
           gsap.to(counterObj, {
             val: 1726,
-            duration: 1.5,
-            ease: "power2.out",
+            ease: "none",
             scrollTrigger: {
               trigger: "#puncak",
-              start: "top 70%",
-              once: true,
+              start: "top bottom",
+              end: "top top",
+              scrub: true,
             },
             onUpdate: () => {
               targetPuncak.textContent = `${Math.round(counterObj.val)} mdpl ✓`;
@@ -215,13 +246,14 @@ export function initScroll() {
           paused: true,
         });
 
+        loops.push(rayTween);
         ScrollTrigger.create({
           trigger: "#langit-cerah",
           start: "top bottom",
           end: "bottom top",
           onToggle: (self) => {
-            if (self.isActive) rayTween.play();
-            else rayTween.pause();
+            if (self.isActive) visibleLoops.add(rayTween); else visibleLoops.delete(rayTween);
+            rayTween.paused(!self.isActive || document.hidden);
           },
         });
 
@@ -242,11 +274,18 @@ export function initScroll() {
         );
       }
 
+      if (!isCalm) {
+        loop("#langit-cerah [data-gallery-card] img", "#langit-cerah", { y: -5, yoyo: true, repeat: -1, duration: 3.5, ease: "sine.inOut", stagger: 0.3 });
+      }
       // 6. Bab 05: Sunrise (Interpolasi langit gelap -> fajar -> terang keemasan)
       const sunriseEl = document.getElementById("sunrise");
       if (sunriseEl) {
         if (!isCalm) {
           const sunriseTl = gsap.timeline({
+            onUpdate: () => {
+              const color = sunriseText(getComputedStyle(sunriseEl).backgroundColor);
+              ["--teks", "--teks-muted", "--sunrise-ink"].forEach(key => sunriseEl.style.setProperty(key, color));
+            },
             scrollTrigger: {
               trigger: "#sunrise",
               start: "top bottom",
@@ -310,7 +349,7 @@ export function initScroll() {
           },
         });
 
-        gsap.to("#btn-buka-rahasia", {
+        loop("#btn-buka-rahasia", "#penutup", {
           scale: 1.02,
           yoyo: true,
           repeat: -1,
@@ -320,19 +359,19 @@ export function initScroll() {
       }
 
       // Cleanup function saat matchMedia berganti atau di-revert
+      const refresh = () => ScrollTrigger.refresh();
+      document.addEventListener("galeri-ready", refresh);
       return () => {
         if (tick) gsap.ticker.remove(tick);
         lenis?.destroy();
+        document.removeEventListener("visibilitychange", visibility);
+        document.removeEventListener("galeri-ready", refresh);
+        document.querySelectorAll("#live-elevasi-angka, #live-elevasi-mobile").forEach(el => el.textContent = `${document.getElementById("rel-ketinggian-mobile")?.dataset.summit ?? 1726} mdpl`);
+        const title = document.getElementById("hero-title");
+        if (title && titleOriginal) { title.textContent = titleOriginal; delete title.dataset.split; }
+        if (sunriseEl) { ["background-color", "--teks", "--teks-muted", "--sunrise-ink"].forEach(key => sunriseEl.style.removeProperty(key)); }
       };
     }
   );
-}
-
-// Jalankan otomatis saat browser siap
-if (typeof window !== "undefined") {
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initScroll);
-  } else {
-    initScroll();
-  }
+  return () => mm.revert();
 }

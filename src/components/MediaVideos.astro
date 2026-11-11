@@ -1,7 +1,8 @@
 ---
 import { getEntry } from "astro:content";
 import Video from "./Video.astro";
-const { bab }: { bab: string } = Astro.props;
+interface Props { bab: string }
+const { bab } = Astro.props;
 const chapter = await getEntry("bab", bab);
 const videos = chapter?.data.items.filter(item => item.publik && item.jenis === "video") ?? [];
 ---

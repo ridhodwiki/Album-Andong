@@ -54,12 +54,12 @@ const panorama = bab.items.find(item => item.publik);
   </div>
 
   <!-- Featured Puncak Video / Poster Section -->
-  {panorama && <div id="panorama-puncak" class="w-full max-w-4xl mx-auto mb-12 shadow-xl rounded-lg overflow-hidden border border-white/50">
+  {panorama && <div id="panorama-puncak" class="w-full h-svh mx-auto mb-12 overflow-hidden">
     <Video
       poster={responsiveImage(panorama.berkas).image}
       alt={panorama.alt}
       caption={panorama.caption}
-      className="aspect-video w-full"
+      className="h-full w-full"
     />
   </div>
 

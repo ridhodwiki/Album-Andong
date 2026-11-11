@@ -1,4 +1,5 @@
 import * as React from "react";
+import { isLightMode } from "../lib/gerak";
 import type { Slide } from "./ui/polaroid-line-carousel";
 
 export type LightboxProps = {
@@ -17,6 +18,7 @@ export default function Lightbox({
   onIndexChange,
 }: LightboxProps) {
   const touchStart = React.useRef<{ x: number; y: number } | null>(null);
+  const imageRef = React.useRef<HTMLImageElement>(null);
   const dialogRef = React.useRef<HTMLDialogElement>(null);
 
   React.useEffect(() => {
@@ -24,9 +26,22 @@ export default function Lightbox({
     if (!isOpen || !dialog) return;
     const overflow = document.body.style.overflow;
     const trigger = document.activeElement as HTMLElement | null;
+    const source = trigger?.querySelector("img")?.getBoundingClientRect();
     dialog.showModal();
+    let cancelled = false;
+    let stop: (() => void) | undefined;
+    if (!isLightMode() && source && imageRef.current) {
+      const image = imageRef.current;
+      const target = image.getBoundingClientRect();
+      void import("motion").then(({ animate }) => {
+        if (cancelled || !target.width) return;
+        const controls = animate(image, { x: [source.x + source.width / 2 - target.x - target.width / 2, 0], y: [source.y + source.height / 2 - target.y - target.height / 2, 0], scale: [Math.min(source.width / target.width, 1), 1] }, { type: "spring", duration: 0.35, bounce: 0.12 });
+        stop = () => controls.stop();
+      });
+    }
     document.body.style.overflow = "hidden";
     return () => {
+      cancelled = true; stop?.();
       dialog.close();
       document.body.style.overflow = overflow;
       trigger?.focus();
@@ -130,6 +145,7 @@ export default function Lightbox({
 
         <div className="max-w-4xl max-h-[70vh] flex flex-col items-center select-none">
           <img
+            ref={imageRef}
             src={slide.image}
             srcSet={slide.srcSet}
             sizes="90vw"

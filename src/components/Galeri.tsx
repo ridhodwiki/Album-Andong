@@ -1,4 +1,5 @@
 import * as React from "react";
+import { motion } from "motion/react";
 import PolaroidLineCarousel, { type Slide } from "./ui/polaroid-line-carousel";
 import Lightbox from "./Lightbox";
 import { isLightMode } from "../lib/gerak";
@@ -30,6 +31,8 @@ export default function Galeri({
     preference.addEventListener("change", update);
     return () => preference.removeEventListener("change", update);
   }, []);
+
+  React.useEffect(() => { document.dispatchEvent(new Event("galeri-ready")); }, [animated]);
 
   const handleOpen = (_: Slide, index: number) => {
     setActiveIndex(index);
@@ -66,12 +69,14 @@ export default function Galeri({
         <div className="w-full max-w-6xl px-4 md:px-8 mt-4">
           <div className="grid grid-cols-1 min-[600px]:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-start">
             {slides.map((s, idx) => (
-              <button
+              <motion.button
+                whileHover={animated ? { y: -6, rotate: -1 } : undefined}
+                transition={{ duration: 0.25 }}
                 type="button"
                 key={idx}
                 onClick={() => handleOpen(s, idx)}
                 data-gallery-card
-                className={`group cursor-pointer bg-[#fbfaf7] p-3 pb-4 rounded-sm shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_28px_rgba(0,0,0,0.22)] ${
+                className={`group cursor-pointer bg-[#fbfaf7] p-3 pb-4 rounded-sm shadow-[0_4px_16px_rgba(0,0,0,0.12)]  hover:shadow-[0_12px_28px_rgba(0,0,0,0.22)] ${
                   idx === 0 && tampil === "keduanya" ? "min-[600px]:col-span-2 lg:col-span-2" : ""
                 }`}
               >
@@ -101,7 +106,7 @@ export default function Galeri({
                     {s.caption}
                   </p>
                 )}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
