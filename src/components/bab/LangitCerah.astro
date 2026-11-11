@@ -1,4 +1,5 @@
 ---
+import mediaData from "../../data/media.json";
 import Bab from "../Bab.astro";
 import Galeri from "../Galeri";
 import type { Slide } from "../ui/polaroid-line-carousel";
@@ -8,13 +9,15 @@ interface Props {
 }
 
 const { slides } = Astro.props;
+const bab = mediaData.find(b => b.id === "langit-cerah")!;
+
 ---
 
 <Bab
   id="langit-cerah"
   nomor="04"
   nama="Langit Cerah"
-  subjudul="Under a Clear Sky"
+  subjudul={bab.subjudul}
   elevasi="1.726 mdpl"
   tema="langit"
   className="relative"
@@ -45,9 +48,7 @@ const { slides } = Astro.props;
   </div>
 
   <div class="relative z-10 w-full flex flex-col items-center">
-    <blockquote lang="en" class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-10 font-light">
-      "We hoped for a sea of clouds. We got a clear blue sky, and it was enough."
-    </blockquote>
+    <blockquote lang="en" class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-10 font-light">{bab.kutipan}</blockquote>
 
     <!-- Horizon Silhouette Panorama Card -->
     <div class="w-full max-w-3xl mx-auto mb-12 p-5 rounded-xl bg-white/85 border border-sky-900/20 shadow-sm text-center">
@@ -69,20 +70,20 @@ const { slides } = Astro.props;
         </div>
       </div>
       <p lang="en" class="text-base text-slate-900 font-sans mt-3 font-normal">
-        A clear view in every direction.
+        {bab.narasi?.[0]}
       </p>
     </div>
 
     <!-- Authentic Field Conversation Quote Card -->
     <div class="w-full max-w-2xl mx-auto mb-10 p-5 rounded-lg bg-white/85 border border-sky-900/20 shadow-xs text-slate-900 space-y-2">
       <p lang="en" class="font-serif italic text-base text-slate-900">
-        "I thought there would be clouds below us."
+        {bab.narasi?.[1]}
       </p>
       <p lang="en" class="font-serif italic text-base text-sky-950 font-medium">
-        "Clear skies all the way."
+        {bab.narasi?.[2]}
       </p>
       <p lang="en" class="font-serif italic text-base text-slate-900">
-        "At least we get a good view of Merbabu."
+        {bab.narasi?.[3]}
       </p>
     </div>
 

@@ -1,12 +1,15 @@
 ---
+import mediaData from "../../data/media.json";
 import Bab from "../Bab.astro";
+const bab = mediaData.find(b => b.id === "tanpa-dokumentasi")!;
+
 ---
 
 <Bab
   id="tanpa-dokumentasi"
   nomor="02"
   nama="Tanpa Dokumentasi"
-  subjudul="The Steep Stretch"
+  subjudul={bab.subjudul}
   elevasi="1.680 mdpl"
   tema="gelap"
   className="min-h-[75vh] flex flex-col justify-center"
@@ -30,18 +33,18 @@ import Bab from "../Bab.astro";
     <!-- Bold Honest Typographic Narrative -->
     <div class="space-y-4">
       <p lang="en" class="tanpa-dok-line font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[#F4F1E8] tracking-tight leading-tight data-muncul">
-        "No photos from this stretch."
+        {bab.narasi?.[0]}
       </p>
       <p lang="en" class="tanpa-dok-line font-serif text-2xl sm:text-3xl md:text-4xl font-light text-stone-200 leading-snug data-muncul">
-        "We needed a breather."
+        {bab.narasi?.[1]}
       </p>
       <p lang="en" class="tanpa-dok-line font-serif italic text-xl sm:text-2xl md:text-3xl text-[#E8C872] font-light mt-4 data-muncul">
-        "It was steeper than it looked."
+        {bab.narasi?.[2]}
       </p>
     </div>
 
     <p lang="en" class="tanpa-dok-line font-sans text-base text-stone-200 max-w-md font-normal leading-relaxed mt-4">
-      Just footsteps on gravel and a few stops to catch our breath.
+      {bab.narasi?.[3]}
     </p>
 
     <div class="mt-6 flex flex-wrap justify-center items-center gap-4 text-xs font-mono text-stone-200">

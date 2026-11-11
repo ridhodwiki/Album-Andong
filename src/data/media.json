@@ -20,7 +20,9 @@
         "publik": true,
         "placeholder": true
       }
-    ]
+    ],
+    "judul": "A morning on Andong",
+    "tanggal": null
   },
   {
     "id": "sabana",
@@ -89,7 +91,13 @@
     "elevasi": "1.680 mdpl",
     "suasana": "Hening & Tanjakan Nyata",
     "kutipan": "No photos here. We were too busy getting up the hill.",
-    "items": []
+    "items": [],
+    "narasi": [
+      "No photos from this stretch.",
+      "We needed a breather.",
+      "It was steeper than it looked.",
+      "Just footsteps on gravel and a few stops to catch our breath."
+    ]
   },
   {
     "id": "puncak",
@@ -133,7 +141,7 @@
     "subjudul": "Under a Clear Sky",
     "elevasi": "1.726 mdpl",
     "suasana": "Cerah, Lapang, Megah",
-    "kutipan": "We came for the clouds. We got a clear view of the mountains instead.",
+    "kutipan": "We hoped for a sea of clouds. We got a clear blue sky, and it was enough.",
     "items": [
       {
         "id": "langit-01",
@@ -171,6 +179,12 @@
         "publik": true,
         "placeholder": true
       }
+    ],
+    "narasi": [
+      "A clear view in every direction.",
+      "I thought there would be clouds below us.",
+      "Clear skies all the way.",
+      "At least we get a good view of Merbabu."
     ]
   },
   {
@@ -253,6 +267,7 @@
         "publik": true,
         "placeholder": true
       }
-    ]
+    ],
+    "judul": "Glad we came."
   }
 ]

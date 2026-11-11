@@ -1,4 +1,6 @@
 ---
+import { responsiveImage } from "../../lib/media";
+import mediaData from "../../data/media.json";
 import Bab from "../Bab.astro";
 import Galeri from "../Galeri";
 import Video from "../Video.astro";
@@ -9,21 +11,22 @@ interface Props {
 }
 
 const { slides } = Astro.props;
+const bab = mediaData.find(b => b.id === "puncak")!;
+const panorama = bab.items.find(item => item.publik);
+
 ---
 
 <Bab
   id="puncak"
   nomor="03"
   nama="Puncak"
-  subjudul="Puncak Makam & Alap-alap (1.726 mdpl)"
+  subjudul={bab.subjudul}
   elevasi="1.726 mdpl"
   tema="puncak"
 >
   <!-- Achievement Banner -->
   <div class="w-full max-w-4xl mx-auto text-center mb-12">
-    <blockquote lang="en" class="font-serif italic text-xl sm:text-2xl text-[var(--teks)] max-w-xl mx-auto mb-6 font-light">
-      "We made it. Time to sit down and take in the view."
-    </blockquote>
+    <blockquote lang="en" class="font-serif italic text-xl sm:text-2xl text-[var(--teks)] max-w-xl mx-auto mb-6 font-light">{bab.kutipan}</blockquote>
 
     <!-- Milestone Pos Checkpoints Trail -->
     <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 max-w-3xl mx-auto my-6 text-left">
@@ -51,14 +54,16 @@ const { slides } = Astro.props;
   </div>
 
   <!-- Featured Puncak Video / Poster Section -->
-  <div id="panorama-puncak" class="w-full max-w-4xl mx-auto mb-12 shadow-xl rounded-lg overflow-hidden border border-white/50">
+  {panorama && <div id="panorama-puncak" class="w-full max-w-4xl mx-auto mb-12 shadow-xl rounded-lg overflow-hidden border border-white/50">
     <Video
-      poster="/foto/responsive/sabana-02-1200.webp"
-      alt="Video panorama puncak Gunung Andong"
-      caption="Wind along the Alap-alap summit ridge."
+      poster={responsiveImage(panorama.berkas).image}
+      alt={panorama.alt}
+      caption={panorama.caption}
       className="aspect-video w-full"
     />
   </div>
+
+  }
 
   <!-- Interactive React Island Galeri -->
   <Galeri
