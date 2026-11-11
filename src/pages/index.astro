@@ -23,7 +23,7 @@ interface MediaItemRaw {
 const getSlidesForBab = (babId: string) => {
   const bab = mediaData.find((b) => b.id === babId);
   if (!bab) return [];
-  return bab.items.filter(item => item.publik).map((item: MediaItemRaw) => ({
+  return bab.items.filter(item => item.publik && item.jenis === "foto").map((item: MediaItemRaw) => ({
     ...responsiveImage(item.berkas),
     title: item.judul || item.caption,
     caption: item.caption,

@@ -1,0 +1,8 @@
+---
+import { getEntry } from "astro:content";
+import Video from "./Video.astro";
+const { bab }: { bab: string } = Astro.props;
+const chapter = await getEntry("bab", bab);
+const videos = chapter?.data.items.filter(item => item.publik && item.jenis === "video") ?? [];
+---
+{videos.map(video => <Video src={video.berkas} poster={video.poster!} alt={video.alt} caption={video.caption} className="aspect-video w-full max-w-4xl my-6" />)}

@@ -15,6 +15,8 @@ const mediaItemSchema = z.object({
   tampil: z.enum(["carousel", "grid", "keduanya"]).default("keduanya"),
   publik: z.boolean().default(true),
   placeholder: z.boolean().default(false),
+}).refine(item => item.jenis !== "video" || !!item.poster?.trim(), {
+  message: "Video wajib mempunyai poster", path: ["poster"],
 });
 
 const babSchema = z.object({

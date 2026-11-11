@@ -1,4 +1,5 @@
 ---
+import MediaVideos from "./MediaVideos.astro";
 interface Props {
   id: string;
   nomor?: string;
@@ -51,5 +52,6 @@ const {
 
     <!-- Chapter Content Slot -->
     <slot />
+    <MediaVideos bab={id} />
   </div>
 </section>

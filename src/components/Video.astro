@@ -16,6 +16,8 @@ const { src, poster, alt, caption, className = "" } = Astro.props;
       <video
         class="w-full h-full object-cover block lazy-video"
         poster={poster}
+        width="1200"
+        height="675"
         muted
         controls
         playsinline
@@ -24,15 +26,15 @@ const { src, poster, alt, caption, className = "" } = Astro.props;
         data-src={src}
         aria-label={alt}
       >
-        <source src="" type="video/mp4" />
+
         <img src={poster} alt={alt} width="1200" height="675" class="w-full h-full object-cover" />
       </video>
       <button
         type="button"
-        class="video-pause-btn absolute top-3 right-3 z-10 min-h-11 px-3.5 py-2 rounded-full bg-stone-950/90 text-white text-xs font-sans font-medium border border-white/30 shadow-md focus-visible:ring-2 focus-visible:ring-amber-300"
+        class="video-pause-btn absolute top-3 right-3 z-10 min-h-11 px-3.5 py-2 rounded-full bg-stone-950/90 text-white text-base font-sans font-medium border border-white/30 shadow-md focus-visible:ring-2 focus-visible:ring-amber-300"
         aria-pressed="false"
       >
-        Jeda Video
+        Putar Video
       </button>
     </>
   ) : (
@@ -55,66 +57,6 @@ const { src, poster, alt, caption, className = "" } = Astro.props;
 </figure>
 
 <script>
-  import { isLightMode } from "../lib/gerak";
-  function initLazyVideos() {
-    const wrappers = document.querySelectorAll<HTMLElement>(".video-wrapper");
-    wrappers.forEach((wrapper) => {
-      const video = wrapper.querySelector<HTMLVideoElement>("video.lazy-video");
-      const btn = wrapper.querySelector<HTMLButtonElement>(".video-pause-btn");
-      if (!video) return;
-
-      if (isLightMode()) {
-        video.removeAttribute("autoplay");
-        video.pause();
-        if (btn) btn.hidden = true;
-        return;
-      }
-
-      let pausedByUser = false;
-      btn?.addEventListener("click", () => {
-        if (video.paused) {
-          pausedByUser = false;
-          video.play().catch(() => {
-            wrapper.dataset.fallback = "poster";
-          });
-          btn.textContent = "Jeda Video";
-          btn.setAttribute("aria-pressed", "false");
-        } else {
-          pausedByUser = true;
-          video.pause();
-          btn.textContent = "Putar Video";
-          btn.setAttribute("aria-pressed", "true");
-        }
-      });
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const dataSrc = video.getAttribute("data-src");
-            if (entry.isIntersecting && !pausedByUser) {
-              if (dataSrc && !video.src) {
-                video.src = dataSrc;
-                video.load();
-              }
-              video.play().catch(() => {
-                // Autoplay diblokir browser: tampilkan poster tanpa error (PRD §10)
-                video.pause();
-                video.removeAttribute("src");
-                video.load();
-                wrapper.dataset.fallback = "poster";
-                if (btn) btn.hidden = true;
-              });
-            } else {
-              video.pause();
-            }
-          });
-        },
-        { rootMargin: "100px" }
-      );
-
-      observer.observe(video);
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", initLazyVideos);
+  import { initVideos } from "../lib/video";
+  initVideos();
 </script>
