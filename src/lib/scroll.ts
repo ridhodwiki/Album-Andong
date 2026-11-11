@@ -20,9 +20,9 @@ export function initScroll() {
         scrollTrigger: { trigger: el, start: "top 85%", once: true },
       });
     });
-    gsap.timeline({ scrollTrigger: { trigger: "#sunset", start: "top bottom", end: "bottom top", scrub: true } })
-      .fromTo("#sunset", { backgroundColor: "#F2A65A" }, { backgroundColor: "#8E4585" })
-      .to("#sunset", { backgroundColor: "#1A1030" });
+    gsap.timeline({ scrollTrigger: { trigger: "#sunrise", start: "top bottom", end: "bottom top", scrub: true } })
+      .fromTo("#sunrise", { backgroundColor: "#2B2250" }, { backgroundColor: "#D9627A" })
+      .to("#sunrise", { backgroundColor: "#FFD9A0" });
     if (desktop) ScrollTrigger.create({ trigger: "#panorama-puncak", start: "top 10%", end: "+=150%", pin: true });
     if (desktop) gsap.fromTo(".sky-light", { yPercent: -5 }, { yPercent: 5, scrollTrigger: { trigger: "#langit-cerah", start: "top bottom", end: "bottom top", scrub: true } });
     return () => {

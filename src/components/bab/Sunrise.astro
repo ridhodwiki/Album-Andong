@@ -1,0 +1,66 @@
+---
+import Bab from "../Bab.astro";
+import Galeri from "../Galeri";
+import type { Slide } from "../ui/polaroid-line-carousel";
+
+interface Props {
+  slides: Slide[];
+}
+
+const { slides } = Astro.props;
+---
+
+<Bab
+  id="sunrise"
+  nomor="05"
+  nama="Sunrise"
+  subjudul="First Light"
+  elevasi="1.726 mdpl"
+  tema="sunrise"
+  className="relative"
+>
+  <!-- Decorative Sunrise Horizon & Glow (Animated via GSAP in full mode, static in calm mode) -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-x-0 bottom-0 h-64 overflow-hidden z-0">
+    <div
+      id="sunrise-glow"
+      class="mx-auto w-72 h-72 sm:w-96 sm:h-96 rounded-full blur-3xl opacity-75"
+      style="background: radial-gradient(circle, #FFB36B 0%, #D9627A 55%, transparent 75%); transform: translateY(25%);"
+    ></div>
+    <svg
+      id="sunrise-silhouette"
+      viewBox="0 0 1200 160"
+      preserveAspectRatio="none"
+      class="absolute bottom-0 inset-x-0 w-full h-24 sm:h-32 fill-[#2A1B3D]/25"
+    >
+      <path d="M0,160 L0,110 Q180,65 360,95 T760,70 T1200,105 L1200,160 Z"></path>
+    </svg>
+  </div>
+
+  <!-- Chapter Narrative Intro -->
+  <blockquote lang="en" class="relative z-10 text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-10 font-light">
+    "The day began in colors no camera could get right."
+  </blockquote>
+
+  <!-- Warm Fajar Atmosphere Note -->
+  <div class="relative z-10 w-full max-w-xl mx-auto mb-8 p-4 rounded-lg bg-[#FFF4E0] border border-[#FFB36B] shadow-xs flex flex-wrap gap-3 items-center justify-between text-base font-mono text-[#2A1B3D]">
+    <span class="flex items-center gap-2">
+      <span id="sunrise-dot" class="w-2.5 h-2.5 rounded-full bg-[#C2410C]"></span>
+      Cahaya Pertama
+    </span>
+    <span>Menjelang pagi</span>
+    <span>Horison timur</span>
+  </div>
+
+  <!-- Interactive React Island Galeri -->
+  <div class="relative z-10 w-full">
+    <Galeri
+      client:visible
+      slides={slides}
+      tampil="keduanya"
+      background="transparent"
+      ink="#2A1B3D"
+      string="#9A3412"
+      ariaLabel="Galeri Foto Sunrise Gunung Andong"
+    />
+  </div>
+</Bab>

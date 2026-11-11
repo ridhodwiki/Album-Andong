@@ -174,13 +174,13 @@
     ]
   },
   {
-    "id": "sunset",
+    "id": "sunrise",
     "nomor": "05",
-    "nama": "Sunset",
-    "subjudul": "The Last Light",
+    "nama": "Sunrise",
+    "subjudul": "First Light",
     "elevasi": "1.726 mdpl",
     "suasana": "Hangat & Penuh Harapan",
-    "kutipan": "The day ended in colors no camera could get right.",
+    "kutipan": "The day began in colors no camera could get right.",
     "items": [
       {
         "id": "sunrise-01",

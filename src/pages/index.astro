@@ -5,7 +5,7 @@ import Sabana from "../components/bab/Sabana.astro";
 import TanpaDokumentasi from "../components/bab/TanpaDokumentasi.astro";
 import Puncak from "../components/bab/Puncak.astro";
 import LangitCerah from "../components/bab/LangitCerah.astro";
-import Sunset from "../components/bab/Sunset.astro";
+import Sunrise from "../components/bab/Sunrise.astro";
 import Penutup from "../components/bab/Penutup.astro";
 
 import mediaData from "../data/media.json";
@@ -35,7 +35,7 @@ const getSlidesForBab = (babId: string) => {
 const sabanaSlides = getSlidesForBab("sabana");
 const puncakSlides = getSlidesForBab("puncak");
 const langitSlides = getSlidesForBab("langit-cerah");
-const sunsetSlides = getSlidesForBab("sunset");
+const sunriseSlides = getSlidesForBab("sunrise");
 ---
 
 <Layout>
@@ -54,8 +54,8 @@ const sunsetSlides = getSlidesForBab("sunset");
   <!-- Bab 04: Langit Cerah -->
   <LangitCerah slides={langitSlides} />
 
-  <!-- Bab 05: Sunset -->
-  <Sunset slides={sunsetSlides} />
+  <!-- Bab 05: Sunrise -->
+  <Sunrise slides={sunriseSlides} />
 
   <!-- Bab 06: Penutup -->
   <Penutup coverPhoto="/foto/responsive/penutup-cover-600.webp" />
