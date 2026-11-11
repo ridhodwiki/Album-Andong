@@ -62,9 +62,7 @@ const {
     </main>
 
     <script>
-      import { isLightMode } from "../lib/gerak";
-      if (isLightMode()) document.documentElement.dataset.ringan = "true";
-      else import("../lib/scroll").then(({ initScroll }) => initScroll());
+      import "../lib/scroll";
     </script>
   </body>
 </html>

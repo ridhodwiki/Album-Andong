@@ -31,17 +31,17 @@ const {
     {(nomor || nama || subjudul) && (
       <header class="text-center max-w-2xl mx-auto mb-10 md:mb-14 data-muncul">
         {nomor && (
-          <span class="inline-block font-mono text-[11px] md:text-xs uppercase tracking-widest text-[var(--teks)] mb-2 font-medium  px-3 py-1 rounded-full border border-white/80 shadow-2xs">
+          <span class="inline-block font-mono text-xs uppercase tracking-widest text-[var(--teks)] mb-2 font-semibold px-3.5 py-1 rounded-full border border-[var(--border-subtle)]">
             Bab {nomor} {elevasi ? `• ${elevasi}` : ""}
           </span>
         )}
         {nama && (
-          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-[var(--teks)] mb-3 drop-shadow-[0_1px_12px_rgba(255,255,255,0.7)]">
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-[var(--teks)] mb-3">
             {nama}
           </h2>
         )}
         {subjudul && (
-          <p lang="en" class="font-sans text-base text-[var(--teks-muted)] font-light leading-relaxed">
+          <p lang="en" class="font-sans text-base text-[var(--teks-muted)] font-normal leading-relaxed">
             {subjudul}
           </p>
         )}

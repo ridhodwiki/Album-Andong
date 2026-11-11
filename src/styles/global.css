@@ -43,76 +43,75 @@
   }
 }
 
-/* Atmosphere palettes matching animated 3D sky */
+/* Atmosphere palettes per PRD §7 */
 [data-tema="pembuka"] {
-  --aksen: #0284c7;
-  --teks: #0f172a;
-  --teks-muted: rgba(15, 23, 42, 0.78);
-  --border-subtle: rgba(2, 132, 199, 0.25);
+  background: #0F1A14;
+  --aksen: #E8C872;
+  --teks: #F4F1E8;
+  --teks-muted: #E2DDD2;
+  --border-subtle: rgba(232, 200, 114, 0.35);
 }
 
 [data-tema="sabana"] {
-  --aksen: #15803d;
-  --teks: #14532d;
-  --teks-muted: rgba(20, 83, 45, 0.82);
-  --border-subtle: rgba(21, 128, 61, 0.25);
+  background: #DCE8C8;
+  --aksen: #2D522A;
+  --teks: #1E2B1C;
+  --teks-muted: #263823;
+  --border-subtle: rgba(45, 82, 42, 0.3);
 }
 
 [data-tema="gelap"] {
-  --aksen: #facc15;
-  --teks: #f8fafc;
-  --teks-muted: rgba(248, 250, 252, 0.8);
-  --border-subtle: rgba(250, 204, 21, 0.3);
+  background: #0A0A0A;
+  --aksen: #E8C872;
+  --teks: #F4F1E8;
+  --teks-muted: #D6D3CD;
+  --border-subtle: rgba(244, 241, 232, 0.3);
 }
 
 [data-tema="puncak"] {
-  --aksen: #0369a1;
-  --teks: #082f49;
-  --teks-muted: rgba(8, 47, 73, 0.82);
-  --border-subtle: rgba(3, 105, 161, 0.25);
+  background: #BFD7E8;
+  --aksen: #163A5F;
+  --teks: #10233A;
+  --teks-muted: #173252;
+  --border-subtle: rgba(16, 35, 58, 0.3);
 }
 
 [data-tema="langit"] {
-  --aksen: #0284c7;
-  --teks: #0f172a;
-  --teks-muted: rgba(15, 23, 42, 0.82);
-  --border-subtle: rgba(2, 132, 199, 0.25);
+  background: #EAF3F1;
+  --aksen: #0F4C5C;
+  --teks: #12232E;
+  --teks-muted: #1D3545;
+  --border-subtle: rgba(15, 76, 92, 0.3);
 }
 
 [data-tema="sunrise"] {
   background: #FFD9A0;
-  --aksen: #9A3412;
+  --aksen: #7C2D12;
   --teks: #2A1B3D;
   --teks-muted: #3B2654;
-  --border-subtle: rgba(42, 27, 61, 0.25);
+  --border-subtle: rgba(42, 27, 61, 0.3);
 }
 
 [data-tema="penutup"] {
-  --aksen: #f59e0b;
-  --teks: #fef3c7;
-  --teks-muted: rgba(254, 243, 199, 0.85);
-  --border-subtle: rgba(245, 158, 11, 0.3);
+  background: #1A1030;
+  --aksen: #E8C872;
+  --teks: #F4F1E8;
+  --teks-muted: #E5E0D5;
+  --border-subtle: rgba(232, 200, 114, 0.35);
 }
 
 [data-tema="rahasia"] {
   --bg: #1e1b4b;
   --aksen: #f59e0b;
   --teks: #fef3c7;
-  --teks-muted: rgba(254, 243, 199, 0.8);
-  --border-subtle: rgba(245, 158, 11, 0.25);
+  --teks-muted: rgba(254, 243, 199, 0.85);
+  --border-subtle: rgba(245, 158, 11, 0.3);
 }
 
 .tabular-nums {
   font-variant-numeric: tabular-nums;
 }
 
-/* Static palettes remain readable when JavaScript or animation is unavailable. */
-[data-tema="pembuka"] { background: #eaf3f1; }
-[data-tema="sabana"] { background: #dce8c8; }
-[data-tema="gelap"] { background: #0a0a0a; }
-[data-tema="puncak"] { background: #bfd7e8; }
-[data-tema="langit"] { background: #eaf3f1; }
-[data-tema="penutup"] { background: #1a1030; }
 main p { font-size: max(1rem, 1em); }
 .pl-sub { font-size: 1rem; color: var(--pl-ink); }
 .pl-btn { flex-shrink: 0; }
