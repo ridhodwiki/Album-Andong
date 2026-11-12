@@ -1,13 +1,13 @@
 # Andong, Berdua — Album Kenangan Pendakian Gunung Andong 1.726 mdpl
 
-Website album kenangan pendakian berdua menyusuri Gunung Andong via Basecamp Sawit (1.300 mdpl) hingga Puncak Andong (1.726 mdpl). Dibangun dengan estetika editorial scrollytelling, galeri polaroid tali gantung yang dinamis, latar belakang awan 3D Vanta.js Clouds, dan halaman rahasia terenkripsi WebCrypto AES-GCM.
+Website album kenangan pendakian berdua menyusuri Gunung Andong via Basecamp Pendem (1.300 mdpl) hingga Puncak Andong (1.726 mdpl). Dibangun dengan estetika editorial scrollytelling, galeri polaroid tali gantung yang dinamis, latar belakang awan 3D Vanta.js Clouds, dan halaman rahasia terenkripsi WebCrypto AES-GCM.
 
 ---
 
 ## 🌟 Fitur Utama
 
 1. **Perjalanan Cahaya & Suasana (Scrollytelling 7 Bab)**:
-   - **00 Pembuka** (1.300 mdpl): Hening hutan malam di Basecamp Sawit.
+   - **00 Pembuka** (1.300 mdpl): Hening hutan malam di Basecamp Pendem.
    - **01 Sabana** (1.540 mdpl): Desir ilalang dengan Polaroid Line Carousel bergoyang.
    - **02 Tanpa Dokumentasi** (1.680 mdpl): Tanjakan terjal minim foto yang nyata dan jujur.
    - **03 Puncak** (1.726 mdpl): Dingin dan heningnya puncak pertama kali.

@@ -73,13 +73,18 @@ const PL_CSS = [
   ".pl-root[data-drag='1']{cursor:grabbing}",
   ".pl-root:focus-visible{box-shadow:inset 0 0 0 2px var(--pl-ink)}",
   ".pl-string{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}",
-  ".pl-card{position:absolute;left:0;top:0;width:var(--pl-cw);transform-origin:50% 0;will-change:transform;cursor:pointer}",
-  ".pl-print{margin-top:10px;background:#fbfaf7;padding:10px 10px 0;box-shadow:0 1px 3px rgba(0,0,0,.15),0 16px 28px -12px rgba(0,0,0,.45);transition:transform .4s cubic-bezier(.2,.7,.2,1),filter .4s ease;border-radius:2px}",
+  ".pl-card{position:absolute;left:0;top:0;width:var(--pl-cw);transform-origin:50% 0;will-change:transform;cursor:pointer;z-index:1;transition:z-index 0s}",
+  ".pl-card:hover{z-index:20}",
+  ".pl-print{margin-top:10px;background:#fbfaf7;padding:10px 10px 0;box-shadow:0 1px 3px rgba(0,0,0,.15),0 16px 28px -12px rgba(0,0,0,.45);transition:transform .38s cubic-bezier(.22,1,.36,1),filter .38s ease,box-shadow .38s ease;border-radius:2px}",
   ".pl-card[data-on='0'] .pl-print{transform:scale(.92);filter:saturate(.75) brightness(.92)}",
+  ".pl-card:hover .pl-print{transform:translateY(-8px) scale(1.05) rotate(-1.5deg);filter:saturate(1.06) brightness(1.02);box-shadow:0 6px 14px rgba(0,0,0,.22),0 26px 42px -10px rgba(0,0,0,.55)}",
+  ".pl-card[data-on='0']:hover .pl-print{transform:translateY(-6px) scale(.99) rotate(1.2deg);filter:saturate(1) brightness(1);box-shadow:0 4px 12px rgba(0,0,0,.2),0 22px 34px -10px rgba(0,0,0,.48)}",
   ".pl-shot{position:relative;aspect-ratio:1;overflow:hidden;background:#d9d5cc}",
-  ".pl-shot img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block;pointer-events:none}",
+  ".pl-shot img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block;pointer-events:none;transition:transform .45s cubic-bezier(.22,1,.36,1)}",
+  ".pl-card:hover .pl-shot img{transform:scale(1.06)}",
   ".pl-note{min-height:46px;display:flex;align-items:center;justify-content:center;padding:0 8px;font:italic 400 16px/1.2 var(--font-serif, ui-serif, Georgia, serif);color:#2d2926;white-space:normal;overflow-wrap:anywhere}",
-  ".pl-peg{position:absolute;left:50%;top:0;width:10px;height:26px;margin-left:-5px;border-radius:2px;background:linear-gradient(90deg,#c9a67a,#e3c9a1 45%,#b8915f);box-shadow:0 2px 4px rgba(0,0,0,.3)}",
+  ".pl-peg{position:absolute;left:50%;top:0;width:10px;height:26px;margin-left:-5px;border-radius:2px;background:linear-gradient(90deg,#c9a67a,#e3c9a1 45%,#b8915f);box-shadow:0 2px 4px rgba(0,0,0,.3);transition:transform .3s cubic-bezier(.22,1,.36,1)}",
+  ".pl-card:hover .pl-peg{transform:translateY(-2px) scale(1.08)}",
   ".pl-peg::after{content:'';position:absolute;left:4px;top:8px;width:2px;height:7px;background:rgba(80,60,30,.5);border-radius:1px}",
   ".pl-bar{position:absolute;left:clamp(16px,4vw,56px);right:clamp(16px,4vw,56px);bottom:clamp(16px,3vh,32px);display:flex;align-items:center;gap:clamp(12px,2vw,24px);cursor:default}",
   ".pl-cap{flex:1;min-width:0;overflow:hidden;padding-bottom:.15em}",
@@ -373,6 +378,11 @@ export default function PolaroidLineCarousel({
           data-on={i === active ? "1" : "0"}
           ref={(el) => void (cards.current[i] = el)}
           aria-hidden={i === active ? undefined : true}
+          onPointerEnter={() => {
+            if (!drag.current && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+              sim.current.w[i] = (sim.current.w[i] || 0) + (i % 2 === 0 ? 0.55 : -0.55);
+            }
+          }}
           onClick={(e) => {
             e.stopPropagation();
             onOpen?.(sl, i);
