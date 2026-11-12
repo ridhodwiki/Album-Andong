@@ -1,0 +1,66 @@
+---
+// Global 3D Vanta.js Clouds Background
+---
+
+<div
+  id="vanta-clouds-bg"
+  class="fixed inset-0 pointer-events-none z-0 w-full h-full overflow-hidden"
+  aria-hidden="true"
+></div>
+
+<script is:inline src="/vendor/three.r134.min.js"></script>
+<script is:inline src="/vendor/vanta.clouds.min.js"></script>
+
+<script is:inline>
+  (function () {
+    function shouldDisableVanta() {
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return true;
+      }
+      if (document.documentElement.dataset.ringan === "true") {
+        return true;
+      }
+      return false;
+    }
+
+    function initVanta() {
+      const el = document.getElementById("vanta-clouds-bg");
+      if (!el || !window.VANTA || !window.VANTA.CLOUDS) return;
+
+      if (shouldDisableVanta()) {
+        if (window._vantaInstance) {
+          window._vantaInstance.destroy();
+          window._vantaInstance = null;
+        }
+        return;
+      }
+
+      if (window._vantaInstance) {
+        window._vantaInstance.destroy();
+      }
+
+      window._vantaInstance = window.VANTA.CLOUDS({
+        el: el,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        speed: 1.0,
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initVanta);
+    } else {
+      initVanta();
+    }
+
+    document.addEventListener("astro:before-swap", function () {
+      if (window._vantaInstance) {
+        window._vantaInstance.destroy();
+        window._vantaInstance = null;
+      }
+    });
+  })();
+</script>

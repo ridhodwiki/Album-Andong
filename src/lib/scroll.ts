@@ -147,7 +147,7 @@ export function initScroll() {
 
       if (!isCalm) {
         gsap.timeline({ scrollTrigger: { trigger: "#tanpa-dokumentasi", start: "top 75%", end: "center center", scrub: true } })
-          .fromTo("#tanpa-dokumentasi", { backgroundColor: "#1e241b" }, { backgroundColor: "#0A0A0A" })
+          .fromTo("#tanpa-dokumentasi", { backgroundColor: "rgba(30, 36, 27, 0.72)" }, { backgroundColor: "rgba(10, 10, 10, 0.82)" })
           .from(".tanpa-dok-line", { opacity: 0, y: 24, stagger: 0.3 }, 0);
         document.querySelectorAll<SVGPathElement>("[data-trail]").forEach(path => {
           const length = path.getTotalLength();
@@ -295,8 +295,8 @@ export function initScroll() {
           });
 
           sunriseTl
-            .fromTo("#sunrise", { backgroundColor: "#2B2250" }, { backgroundColor: "#D9627A" })
-            .to("#sunrise", { backgroundColor: "#FFD9A0" });
+            .fromTo("#sunrise", { backgroundColor: "rgba(43, 34, 80, 0.72)" }, { backgroundColor: "rgba(217, 98, 122, 0.65)" })
+            .to("#sunrise", { backgroundColor: "rgba(255, 217, 160, 0.55)" });
 
           gsap.fromTo(
             "#sunrise-glow",
