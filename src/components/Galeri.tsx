@@ -14,7 +14,7 @@ export type GaleriProps = {
 };
 
 const INITIAL_GRID_COUNT = 6;
-const MAX_CAROUSEL_COUNT = 10;
+const MAX_CAROUSEL_COUNT = 20;
 
 export default function Galeri({
   slides = [],
@@ -53,7 +53,7 @@ export default function Galeri({
   if (!slides || slides.length === 0) return null;
 
   const carouselSlides = slides
-    .filter((s) => s.tampil !== "grid" && s.jenis !== "video")
+    .filter((s) => s.tampil !== "grid")
     .slice(0, MAX_CAROUSEL_COUNT);
   const visibleGridSlides = expanded ? slides : slides.slice(0, INITIAL_GRID_COUNT);
   const hiddenCount = Math.max(0, slides.length - INITIAL_GRID_COUNT);

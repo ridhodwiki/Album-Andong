@@ -77,17 +77,24 @@ const PL_CSS = [
   ".pl-root:focus-visible{box-shadow:inset 0 0 0 2px var(--pl-ink)}",
   ".pl-string{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}",
   ".pl-card{position:absolute;left:0;top:0;width:var(--pl-cw);transform-origin:50% 0;will-change:transform;cursor:pointer;z-index:1;transition:z-index 0s}",
-  ".pl-card:hover{z-index:20}",
-  ".pl-print{margin-top:10px;background:#fbfaf7;padding:10px 10px 0;box-shadow:0 1px 3px rgba(0,0,0,.15),0 16px 28px -12px rgba(0,0,0,.45);transition:transform .38s cubic-bezier(.22,1,.36,1),filter .38s ease,box-shadow .38s ease;border-radius:2px}",
-  ".pl-card[data-on='0'] .pl-print{transform:scale(.92);filter:saturate(.75) brightness(.92)}",
-  ".pl-card:hover .pl-print{transform:translateY(-8px) scale(1.05) rotate(-1.5deg);filter:saturate(1.06) brightness(1.02);box-shadow:0 6px 14px rgba(0,0,0,.22),0 26px 42px -10px rgba(0,0,0,.55)}",
-  ".pl-card[data-on='0']:hover .pl-print{transform:translateY(-6px) scale(.99) rotate(1.2deg);filter:saturate(1) brightness(1);box-shadow:0 4px 12px rgba(0,0,0,.2),0 22px 34px -10px rgba(0,0,0,.48)}",
+  ".pl-card[data-on='1']{z-index:10}",
+  ".pl-card:hover{z-index:25}",
+  ".pl-print{margin-top:10px;background:#fbfaf7;padding:10px 10px 0;box-shadow:0 2px 6px rgba(0,0,0,.16),0 16px 28px -12px rgba(0,0,0,.45);transition:transform .42s cubic-bezier(.22,1.25,.36,1),filter .38s ease,box-shadow .38s ease;border-radius:2px}",
+  ".pl-card[data-on='1'] .pl-print{transform:translateY(-3px) scale(1.02);box-shadow:0 4px 12px rgba(0,0,0,.2),0 22px 36px -10px rgba(0,0,0,.5)}",
+  ".pl-card[data-on='0'] .pl-print{transform:scale(.91);filter:saturate(.75) brightness(.92)}",
+  ".pl-card:hover .pl-print{transform:translateY(-10px) scale(1.06) rotate(-2deg);filter:saturate(1.08) brightness(1.03);box-shadow:0 8px 18px rgba(0,0,0,.24),0 30px 48px -10px rgba(0,0,0,.58)}",
+  ".pl-card[data-on='0']:hover .pl-print{transform:translateY(-8px) scale(1.01) rotate(1.5deg);filter:saturate(1.02) brightness(1);box-shadow:0 6px 14px rgba(0,0,0,.22),0 24px 38px -10px rgba(0,0,0,.5)}",
+  ".pl-card:active .pl-print{transform:translateY(-4px) scale(.97) rotate(-.5deg);transition-duration:.12s}",
   ".pl-shot{position:relative;aspect-ratio:1;overflow:hidden;background:#d9d5cc}",
-  ".pl-shot img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block;pointer-events:none;transition:transform .45s cubic-bezier(.22,1,.36,1)}",
-  ".pl-card:hover .pl-shot img{transform:scale(1.06)}",
-  ".pl-note{min-height:46px;display:flex;align-items:center;justify-content:center;padding:0 8px;font:italic 400 16px/1.2 var(--font-serif, ui-serif, Georgia, serif);color:#2d2926;white-space:normal;overflow-wrap:anywhere}",
-  ".pl-peg{position:absolute;left:50%;top:0;width:10px;height:26px;margin-left:-5px;border-radius:2px;background:linear-gradient(90deg,#c9a67a,#e3c9a1 45%,#b8915f);box-shadow:0 2px 4px rgba(0,0,0,.3);transition:transform .3s cubic-bezier(.22,1,.36,1)}",
-  ".pl-card:hover .pl-peg{transform:translateY(-2px) scale(1.08)}",
+  ".pl-shot::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);transform:translateX(-120%);transition:transform .65s cubic-bezier(.22,1,.36,1);pointer-events:none}",
+  ".pl-card:hover .pl-shot::after{transform:translateX(120%)}",
+  ".pl-shot img,.pl-shot video{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block;pointer-events:none;transition:transform .5s cubic-bezier(.22,1,.36,1)}",
+  ".pl-card:hover .pl-shot img,.pl-card:hover .pl-shot video{transform:scale(1.07)}",
+  ".pl-badge{position:absolute;top:8px;right:8px;z-index:2;padding:3px 9px;border-radius:999px;background:rgba(12,10,9,.82);color:#fde68a;font:600 11px/1.2 var(--font-sans,monospace);letter-spacing:.04em;box-shadow:0 2px 6px rgba(0,0,0,.35);pointer-events:none}",
+  ".pl-note{min-height:46px;display:flex;align-items:center;justify-content:center;padding:0 8px;font:italic 400 16px/1.2 var(--font-serif, ui-serif, Georgia, serif);color:#2d2926;white-space:normal;overflow-wrap:anywhere;transition:color .25s ease}",
+  ".pl-card:hover .pl-note{color:#0f172a}",
+  ".pl-peg{position:absolute;left:50%;top:0;width:10px;height:26px;margin-left:-5px;border-radius:2px;background:linear-gradient(90deg,#c9a67a,#e3c9a1 45%,#b8915f);box-shadow:0 2px 4px rgba(0,0,0,.3);transition:transform .32s cubic-bezier(.22,1.25,.36,1)}",
+  ".pl-card:hover .pl-peg{transform:translateY(-3px) scale(1.1) rotate(2deg)}",
   ".pl-peg::after{content:'';position:absolute;left:4px;top:8px;width:2px;height:7px;background:rgba(80,60,30,.5);border-radius:1px}",
   ".pl-bar{position:absolute;left:clamp(16px,4vw,56px);right:clamp(16px,4vw,56px);bottom:clamp(16px,3vh,32px);display:flex;align-items:center;gap:clamp(12px,2vw,24px);cursor:default}",
   ".pl-cap{flex:1;min-width:0;overflow:hidden;padding-bottom:.15em}",
@@ -127,6 +134,7 @@ export default function PolaroidLineCarousel({
   const rootRef = React.useRef<HTMLDivElement | null>(null);
   const pathRef = React.useRef<SVGPathElement | null>(null);
   const cards = React.useRef<(HTMLDivElement | null)[]>([]);
+  const videos = React.useRef<(HTMLVideoElement | null)[]>([]);
   const sim = React.useRef({ off: 0, vel: 0, target: 0, a: [] as number[], w: [] as number[] });
   const drag = React.useRef<null | { x: number; off: number; lx: number; lt: number; v: number; moved: boolean }>(null);
   const lastTouch = React.useRef(0);
@@ -144,6 +152,15 @@ export default function PolaroidLineCarousel({
 
   React.useEffect(() => {
     activeRef.current = active;
+    videos.current.forEach((vid, idx) => {
+      if (!vid) return;
+      if (idx === active) {
+        void vid.play().catch(() => {});
+      } else {
+        vid.pause();
+        vid.currentTime = 0;
+      }
+    });
   }, [active]);
 
   React.useEffect(() => {
@@ -221,7 +238,8 @@ export default function PolaroidLineCarousel({
         sim.current.a[i] = na;
         sim.current.w[i] = nw;
 
-        const deg = (na * 180) / Math.PI;
+        const breeze = reduce ? 0 : Math.sin(t * 0.0018 + i * 0.9) * 1.15 * g;
+        const deg = (na * 180) / Math.PI + breeze;
         cardEl.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${deg}deg)`;
       }
 
@@ -383,7 +401,16 @@ export default function PolaroidLineCarousel({
           aria-hidden={i === active ? undefined : true}
           onPointerEnter={() => {
             if (!drag.current && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-              sim.current.w[i] = (sim.current.w[i] || 0) + (i % 2 === 0 ? 0.55 : -0.55);
+              sim.current.w[i] = (sim.current.w[i] || 0) + (i % 2 === 0 ? 0.65 : -0.65);
+            }
+            const vid = videos.current[i];
+            if (vid) void vid.play().catch(() => {});
+          }}
+          onPointerLeave={() => {
+            const vid = videos.current[i];
+            if (vid && i !== activeRef.current) {
+              vid.pause();
+              vid.currentTime = 0;
             }
           }}
           onClick={(e) => {
@@ -393,7 +420,22 @@ export default function PolaroidLineCarousel({
         >
           <div className="pl-print">
             <div className="pl-shot">
-              {sl.image ? (
+              {sl.jenis === "video" && sl.videoSrc ? (
+                <>
+                  <video
+                    ref={(el) => void (videos.current[i] = el)}
+                    src={sl.videoSrc}
+                    poster={sl.image}
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    aria-label={sl.alt || sl.title || ""}
+                    style={{ objectPosition: sl.fokus || "center" }}
+                  />
+                  <span className="pl-badge">▶ Video</span>
+                </>
+              ) : sl.image ? (
                 <img
                   src={sl.image}
                   srcSet={sl.srcSet}
