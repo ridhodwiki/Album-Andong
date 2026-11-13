@@ -1,6 +1,9 @@
 import * as React from "react";
 
 export type Slide = {
+  jenis?: "foto" | "video";
+  videoSrc?: string;
+  tampil?: "carousel" | "grid" | "keduanya";
   srcSet?: string;
   image?: string;
   title?: string;

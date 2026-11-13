@@ -52,14 +52,21 @@ export default function Galeri({
 
   if (!slides || slides.length === 0) return null;
 
-  const carouselSlides = slides.slice(0, MAX_CAROUSEL_COUNT);
+  const carouselSlides = slides
+    .filter((s) => s.tampil !== "grid" && s.jenis !== "video")
+    .slice(0, MAX_CAROUSEL_COUNT);
   const visibleGridSlides = expanded ? slides : slides.slice(0, INITIAL_GRID_COUNT);
   const hiddenCount = Math.max(0, slides.length - INITIAL_GRID_COUNT);
+
+  const handleCarouselOpen = (slide: Slide, carouselIdx: number) => {
+    const fullIdx = slides.indexOf(slide);
+    handleOpen(slide, fullIdx >= 0 ? fullIdx : carouselIdx);
+  };
 
   return (
     <div className="w-full flex flex-col items-center gap-10 my-6">
       {/* 1. Carousel Mode */}
-      {(tampil === "carousel" || tampil === "keduanya") && (
+      {(tampil === "carousel" || tampil === "keduanya") && carouselSlides.length > 0 && (
         <div className="carousel-slot w-full relative flex flex-col items-center">
           {animated && (
             <PolaroidLineCarousel
@@ -68,7 +75,7 @@ export default function Galeri({
               ink={ink}
               string={string}
               ariaLabel={ariaLabel}
-              onOpen={handleOpen}
+              onOpen={handleCarouselOpen}
             />
           )}
           <p
@@ -100,19 +107,45 @@ export default function Galeri({
                 }`}
               >
                 <div className="relative aspect-[4/3] sm:aspect-square overflow-hidden bg-stone-200 rounded-[1px]">
-                  {s.image && (
-                    <img
-                      src={s.image}
-                      srcSet={s.srcSet}
-                      sizes="(max-width: 599px) 90vw, (max-width: 1023px) 45vw, 600px"
-                      width={600}
-                      height={600}
-                      alt={s.alt || s.title || ""}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-                      style={{ objectPosition: s.fokus || "center" }}
-                    />
+                  {s.jenis === "video" && s.videoSrc ? (
+                    <>
+                      <video
+                        src={s.videoSrc}
+                        poster={s.image}
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        aria-label={s.alt || s.title || ""}
+                        onMouseEnter={(e) => {
+                          void e.currentTarget.play().catch(() => {});
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.pause();
+                          e.currentTarget.currentTime = 0;
+                        }}
+                        className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                        style={{ objectPosition: s.fokus || "center" }}
+                      />
+                      <span className="pointer-events-none absolute top-2.5 right-2.5 px-2.5 py-1 rounded-full bg-stone-950/80 text-amber-200 font-mono text-xs flex items-center gap-1.5 shadow-md">
+                        ▶ Video
+                      </span>
+                    </>
+                  ) : (
+                    s.image && (
+                      <img
+                        src={s.image}
+                        srcSet={s.srcSet}
+                        sizes="(max-width: 599px) 90vw, (max-width: 1023px) 45vw, 600px"
+                        width={600}
+                        height={600}
+                        alt={s.alt || s.title || ""}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                        style={{ objectPosition: s.fokus || "center" }}
+                      />
+                    )
                   )}
                 </div>
                 {s.title && (

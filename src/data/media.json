@@ -84,74 +84,74 @@
       {
         "id": "sabana-05",
         "jenis": "foto",
-        "berkas": "/foto/sabana-01.png",
-        "judul": "Slot Kenangan Sabana #5",
-        "caption": "Tempat kosong untuk foto kenangan tambahan saat beristirahat di sabana.",
-        "alt": "Placeholder foto kenangan sabana kelima",
+        "berkas": "/foto/foto_sabana5.webp",
+        "judul": "Jalur Punggung Naga",
+        "caption": "Bentangan jalur sempit membelah punggungan hijau Gunung Andong yang mulai ramai dijelajahi pendaki pagi itu.",
+        "alt": "Pemandangan jalur sempit punggungan hijau Gunung Andong dengan antrean pendaki dan papan penunjuk arah puncak",
         "ukuran": "sedang",
         "tampil": "keduanya",
         "publik": true,
-        "placeholder": true
+        "placeholder": false
       },
       {
         "id": "sabana-06",
         "jenis": "foto",
-        "berkas": "/foto/sabana-02.png",
-        "judul": "Slot Kenangan Sabana #6",
-        "caption": "Tempat kosong untuk foto kenangan tambahan pemandangan punggungan sabana.",
-        "alt": "Placeholder foto kenangan sabana keenam",
+        "berkas": "/foto/foto_sabana6.webp",
+        "judul": "Langkah Santai di Tanjakan Batu",
+        "caption": "Berhenti sejenak di undakan tanah dan batu, menoleh dengan senyum tipis sambil tetap ditemani lolipop.",
+        "alt": "Menoleh ke kamera di jalur berbatu sabana Gunung Andong sambil menggigit stik lolipop dengan latar lembah pagi",
         "ukuran": "sedang",
         "tampil": "keduanya",
         "publik": true,
-        "placeholder": true
+        "placeholder": false
       },
       {
         "id": "sabana-07",
         "jenis": "foto",
-        "berkas": "/foto/sabana-03.png",
-        "judul": "Slot Kenangan Sabana #7",
-        "caption": "Tempat kosong untuk foto kenangan tambahan di jalur ilalang sabana.",
-        "alt": "Placeholder foto kenangan sabana ketujuh",
+        "berkas": "/foto/foto_sabana7.webp",
+        "judul": "Saksi Kembar di Seberang Lembah",
+        "caption": "Berdiri di tepi sabana berlatar Gunung Merbabu dan kepulan tipis puncak Merapi di kejauhan.",
+        "alt": "Pose tampak samping mengenakan jaket merah muda memegang lolipop dengan latar siluet Gunung Merbabu dan Merapi",
         "ukuran": "sedang",
         "tampil": "keduanya",
         "publik": true,
-        "placeholder": true
+        "placeholder": false
       },
       {
         "id": "sabana-08",
         "jenis": "foto",
-        "berkas": "/foto/sabana-cover.jpg",
-        "judul": "Slot Kenangan Sabana #8",
-        "caption": "Tempat kosong untuk foto kenangan tambahan sepanjang bukit sabana.",
-        "alt": "Placeholder foto kenangan sabana kedelapan",
+        "berkas": "/foto/foto_sabana8.webp",
+        "judul": "Menatap Puncak dari Balik Bahu",
+        "caption": "Memandangi hamparan petak sawah di lembah bawah yang berpadu dengan siluet tenang Merbabu dan Merapi.",
+        "alt": "Tampak samping dekat dari balik bahu menatap siluet Gunung Merbabu dan Merapi di atas hamparan sawah lembah",
         "ukuran": "besar",
         "tampil": "keduanya",
         "publik": true,
-        "placeholder": true
+        "placeholder": false
       },
       {
         "id": "sabana-09",
-        "jenis": "foto",
-        "berkas": "/foto/sabana-01.png",
-        "judul": "Slot Kenangan Sabana #9",
-        "caption": "Slot tambahan siap pakai untuk koleksi foto sabana berikutnya.",
-        "alt": "Placeholder foto kenangan sabana kesembilan",
+        "jenis": "video",
+        "berkas": "/video/video_sabana1.webm",
+        "judul": "Klip Sabana: Senyum di Depan Merbabu",
+        "caption": "Rekaman singkat di punggungan sabana saat kamera menjauh perlahan memperlihatkan megahnya Merbabu dan Merapi.",
+        "alt": "Video singkat tersenyum memegang lolipop di sabana Gunung Andong berlatar Gunung Merbabu dan Merapi",
         "ukuran": "sedang",
         "tampil": "grid",
         "publik": true,
-        "placeholder": true
+        "placeholder": false
       },
       {
         "id": "sabana-10",
-        "jenis": "foto",
-        "berkas": "/foto/sabana-02.png",
-        "judul": "Slot Kenangan Sabana #10",
-        "caption": "Slot tambahan siap pakai untuk koleksi foto sabana berikutnya.",
-        "alt": "Placeholder foto kenangan sabana kesepuluh",
+        "jenis": "video",
+        "berkas": "/video/video_sabana2.webm",
+        "judul": "Klip Sabana: \"Foto Apa Video Itu?\"",
+        "caption": "Momen candid paling jujur saat sibuk bergaya karena dikira sedang difoto, padahal diam-diam direkam video.",
+        "alt": "Video candid bergaya lucu di depan kamera saat mengira sedang difoto di sabana Gunung Andong",
         "ukuran": "sedang",
         "tampil": "grid",
         "publik": true,
-        "placeholder": true
+        "placeholder": false
       }
     ]
   },

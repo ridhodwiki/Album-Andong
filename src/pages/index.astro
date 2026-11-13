@@ -13,23 +13,46 @@ import { responsiveImage } from "../lib/media";
 
 // Map slides per chapter
 interface MediaItemRaw {
+  jenis: string;
   berkas: string;
+  poster?: string;
   judul?: string;
   caption: string;
   alt: string;
   fokus?: string;
+  tampil?: string;
 }
 
 const getSlidesForBab = (babId: string) => {
   const bab = mediaData.find((b) => b.id === babId);
   if (!bab) return [];
-  return bab.items.filter(item => item.publik && item.jenis === "foto").map((item: MediaItemRaw) => ({
-    ...responsiveImage(item.berkas),
-    title: item.judul || item.caption,
-    caption: item.caption,
-    alt: item.alt,
-    fokus: item.fokus,
-  }));
+  return bab.items.filter(item => item.publik && (item.jenis === "foto" || item.jenis === "video")).map((item: MediaItemRaw) => {
+    if (item.jenis === "video") {
+      const posterImg = item.poster ? responsiveImage(item.poster) : undefined;
+      return {
+        jenis: "video" as const,
+        videoSrc: item.berkas,
+        image: posterImg?.image,
+        srcSet: posterImg?.srcSet,
+        width: posterImg?.width,
+        height: posterImg?.height,
+        tampil: (item.tampil as "carousel" | "grid" | "keduanya") || "grid",
+        title: item.judul || item.caption,
+        caption: item.caption,
+        alt: item.alt,
+        fokus: item.fokus,
+      };
+    }
+    return {
+      jenis: "foto" as const,
+      ...responsiveImage(item.berkas),
+      tampil: (item.tampil as "carousel" | "grid" | "keduanya") || "keduanya",
+      title: item.judul || item.caption,
+      caption: item.caption,
+      alt: item.alt,
+      fokus: item.fokus,
+    };
+  });
 };
 
 const sabanaSlides = getSlidesForBab("sabana");

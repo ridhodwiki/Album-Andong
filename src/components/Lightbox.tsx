@@ -148,15 +148,27 @@ export default function Lightbox({
           transition={{ type: "spring", stiffness: 300, damping: 22, mass: 0.85 }}
           className="max-w-4xl max-h-[72vh] flex flex-col items-center select-none bg-[#fbfaf7] p-3 pb-5 rounded-sm shadow-2xl"
         >
-          <img
-            ref={imageRef}
-            src={slide.image}
-            srcSet={slide.srcSet}
-            sizes="90vw"
-            alt={slide.alt || slide.title || ""}
-            className="max-h-[60vh] w-auto max-w-full object-contain rounded-[1px]"
-            draggable={false}
-          />
+          {slide.jenis === "video" && slide.videoSrc ? (
+            <video
+              src={slide.videoSrc}
+              poster={slide.image}
+              controls
+              autoPlay
+              playsInline
+              aria-label={slide.alt || slide.title || ""}
+              className="max-h-[60vh] w-auto max-w-full object-contain rounded-[1px] bg-stone-950"
+            />
+          ) : (
+            <img
+              ref={imageRef}
+              src={slide.image}
+              srcSet={slide.srcSet}
+              sizes="90vw"
+              alt={slide.alt || slide.title || ""}
+              className="max-h-[60vh] w-auto max-w-full object-contain rounded-[1px]"
+              draggable={false}
+            />
+          )}
           {slide.title && (
             <p className="mt-3 font-serif italic text-lg text-stone-900 tracking-wide text-center">
               {slide.title}
