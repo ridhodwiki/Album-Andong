@@ -201,19 +201,6 @@ export function initScroll() {
             gsap.set("#meter-progress-bar", { scaleY: self.progress, transformOrigin: "bottom" });
           } });
         }
-        ScrollTrigger.create({
-          trigger: "#panorama-puncak",
-          start: "top top",
-          end: () => `+=${window.innerHeight * 1.5}`,
-          invalidateOnRefresh: true,
-          pin: true,
-          pinSpacing: true,
-          scrub: true,
-          animation: gsap.to("#panorama-puncak video, #panorama-puncak img", {
-            scale: 1.08,
-            ease: "none",
-          }),
-        });
 
         const targetPuncak = document.getElementById("puncak-counter-target");
         if (targetPuncak) {

@@ -1,9 +1,7 @@
 ---
-import { responsiveImage } from "../../lib/media";
 import mediaData from "../../data/media.json";
 import Bab from "../Bab.astro";
 import Galeri from "../Galeri";
-import Video from "../Video.astro";
 import type { Slide } from "../ui/polaroid-line-carousel";
 
 interface Props {
@@ -12,7 +10,6 @@ interface Props {
 
 const { slides } = Astro.props;
 const bab = mediaData.find(b => b.id === "puncak")!;
-const panorama = bab.items.find(item => item.publik);
 
 ---
 
@@ -52,18 +49,6 @@ const panorama = bab.items.find(item => item.publik);
       </div>
     </div>
   </div>
-
-  <!-- Featured Puncak Video / Poster Section -->
-  {panorama && <div id="panorama-puncak" class="w-full max-w-4xl mx-auto mb-12 overflow-hidden">
-    <Video
-      poster={responsiveImage(panorama.berkas).image}
-      alt={panorama.alt}
-      caption={panorama.caption}
-      className="w-full max-h-[75svh]"
-    />
-  </div>
-
-  }
 
   <!-- Interactive React Island Galeri -->
   <Galeri
