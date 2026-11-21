@@ -132,7 +132,7 @@ export default function Lightbox({
           <button
             type="button"
             onClick={prev}
-            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 rounded-full w-12 h-12 flex items-center justify-center bg-black/50 hover:bg-black/80 text-white transition z-10 focus-visible:ring-2 focus-visible:ring-amber-300 cursor-pointer"
+            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-black/65 hover:bg-black/85 backdrop-blur-xs text-white transition z-10 focus-visible:ring-2 focus-visible:ring-amber-300 cursor-pointer"
             aria-label="Foto sebelumnya"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -146,7 +146,7 @@ export default function Lightbox({
           initial={calm ? false : { opacity: 0, scale: 0.78, y: 28, rotate: -1.5 }}
           animate={calm ? undefined : { opacity: 1, scale: 1, y: 0, rotate: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 22, mass: 0.85 }}
-          className="max-w-4xl max-h-[72vh] flex flex-col items-center select-none bg-[#fbfaf7] p-3 pb-5 rounded-sm shadow-2xl"
+          className="max-w-[calc(100vw-2rem)] sm:max-w-4xl max-h-[72vh] flex flex-col items-center select-none bg-[#fbfaf7] p-2.5 sm:p-3 pb-4 sm:pb-5 rounded-sm shadow-2xl"
         >
           {slide.jenis === "video" && slide.videoSrc ? (
             <video
@@ -156,7 +156,7 @@ export default function Lightbox({
               autoPlay
               playsInline
               aria-label={slide.alt || slide.title || ""}
-              className="max-h-[60vh] w-auto max-w-full object-contain rounded-[1px] bg-stone-950"
+              className="max-h-[58vh] w-auto max-w-full object-contain rounded-[1px] bg-stone-950"
             />
           ) : (
             <img
@@ -165,12 +165,12 @@ export default function Lightbox({
               srcSet={slide.srcSet}
               sizes="90vw"
               alt={slide.alt || slide.title || ""}
-              className="max-h-[60vh] w-auto max-w-full object-contain rounded-[1px]"
+              className="max-h-[58vh] w-auto max-w-full object-contain rounded-[1px]"
               draggable={false}
             />
           )}
           {slide.title && (
-            <p className="mt-3 font-serif italic text-lg text-stone-900 tracking-wide text-center">
+            <p className="mt-3 font-serif italic text-base sm:text-lg text-stone-900 tracking-wide text-center px-1">
               {slide.title}
             </p>
           )}
@@ -181,7 +181,7 @@ export default function Lightbox({
           <button
             type="button"
             onClick={next}
-            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 rounded-full w-12 h-12 flex items-center justify-center bg-black/50 hover:bg-black/80 text-white transition z-10 focus-visible:ring-2 focus-visible:ring-amber-300 cursor-pointer"
+            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-black/65 hover:bg-black/85 backdrop-blur-xs text-white transition z-10 focus-visible:ring-2 focus-visible:ring-amber-300 cursor-pointer"
             aria-label="Foto berikutnya"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

@@ -10,48 +10,50 @@ interface Props {
 const { src, poster, alt, caption, className = "" } = Astro.props;
 ---
 
-<figure class={`relative overflow-hidden rounded-lg bg-stone-900 video-wrapper ${className}`}>
-  {src ? (
-    <>
-      <video
-        class="w-full h-full object-cover block lazy-video"
-        poster={poster}
+<figure class={`relative flex flex-col overflow-hidden rounded-xl bg-stone-900 shadow-lg video-wrapper ${className}`}>
+  <div class="relative flex-1 min-h-0 w-full overflow-hidden">
+    {src ? (
+      <>
+        <video
+          class="w-full h-full object-cover block lazy-video"
+          poster={poster}
+          width="1200"
+          height="675"
+          muted
+          controls
+          playsinline
+          loop
+          preload="none"
+          data-src={src}
+          aria-label={alt}
+        >
+
+          <img src={poster} alt={alt} width="1200" height="675" class="w-full h-full object-cover" />
+        </video>
+        <button
+          type="button"
+          class="video-pause-btn absolute top-3 right-3 z-10 min-h-11 px-3.5 py-2 rounded-full bg-stone-950/90 text-white text-base font-sans font-medium border border-white/30 shadow-md focus-visible:ring-2 focus-visible:ring-amber-300"
+          aria-pressed="false"
+        >
+          Putar Video
+        </button>
+      </>
+    ) : (
+      <img
+        src={poster}
+        alt={alt}
         width="1200"
         height="675"
-        muted
-        controls
-        playsinline
-        loop
-        preload="none"
-        data-src={src}
-        aria-label={alt}
-      >
-
-        <img src={poster} alt={alt} width="1200" height="675" class="w-full h-full object-cover" />
-      </video>
-      <button
-        type="button"
-        class="video-pause-btn absolute top-3 right-3 z-10 min-h-11 px-3.5 py-2 rounded-full bg-stone-950/90 text-white text-base font-sans font-medium border border-white/30 shadow-md focus-visible:ring-2 focus-visible:ring-amber-300"
-        aria-pressed="false"
-      >
-        Putar Video
-      </button>
-    </>
-  ) : (
-    <img
-      src={poster}
-      alt={alt}
-      width="1200"
-      height="675"
-      class="w-full h-full object-cover block"
-      loading="lazy"
-      decoding="async"
-    />
-  )}
+        class="w-full h-full object-cover block"
+        loading="lazy"
+        decoding="async"
+      />
+    )}
+  </div>
 
   {caption && (
-    <figcaption lang="en" class="absolute bottom-0 inset-x-0 bg-stone-950/85 p-3 sm:p-4 text-white">
-      <p class="text-base font-sans font-normal leading-snug">{caption}</p>
+    <figcaption lang="id" class="bg-stone-950/95 px-4 py-3 sm:px-5 sm:py-4 text-white border-t border-white/10">
+      <p class="text-sm sm:text-base font-sans font-normal leading-relaxed">{caption}</p>
     </figcaption>
   )}
 </figure>

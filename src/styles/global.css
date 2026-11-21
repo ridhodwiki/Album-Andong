@@ -124,7 +124,6 @@ html[data-ringan="true"] [data-tema="penutup"] { background: #1a1030; }
 main p { font-size: max(1rem, 1em); }
 .pl-sub { font-size: 1rem; color: var(--pl-ink); }
 .pl-btn { flex-shrink: 0; }
-.pl-root { min-height: 640px; }
 .sky-light { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 80% 5%, #fff2c480, transparent 60%), linear-gradient(170deg, transparent 60%, #bfd7e860 60%, transparent 80%); }
 #rel-ketinggian-desktop { background: #17202a; padding: 12px; border-radius: 16px; }
 
@@ -140,9 +139,7 @@ html[data-ringan="true"] { scroll-behavior: auto; }
 
 /* Reserve the enhanced carousel before hydration; no-JS keeps the complete grid. */
 .carousel-slot { display: none; }
-html[data-motion="full"] .carousel-slot { display:flex; min-height:calc(max(640px, 70svh) + 5rem); }
-.pl-bar { flex-wrap:wrap; }
-.pl-cap { flex-basis:100%; }
+html[data-motion="full"] .carousel-slot { display:flex; min-height:clamp(460px, 60svh, 580px); }
 .pl-title, .pl-sub { overflow:visible; white-space:normal; overflow-wrap:anywhere; }
 .pl-cap>* { animation:none; }
 #penutup .w-64 { max-width:100%; }

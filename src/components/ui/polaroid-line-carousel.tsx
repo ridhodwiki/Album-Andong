@@ -72,9 +72,10 @@ export function pad2(n: number): string {
 // #endregion math logic
 
 const PL_CSS = [
-  ".pl-root{position:relative;width:100%;overflow:hidden;background:var(--pl-bg);color:var(--pl-ink);user-select:none;-webkit-user-select:none;touch-action:pan-y;outline:none;cursor:grab}",
-  ".pl-root[data-drag='1']{cursor:grabbing}",
+  ".pl-root{position:relative;width:100%;display:flex;flex-direction:column;background:var(--pl-bg);color:var(--pl-ink);user-select:none;-webkit-user-select:none;outline:none}",
   ".pl-root:focus-visible{box-shadow:inset 0 0 0 2px var(--pl-ink)}",
+  ".pl-stage{position:relative;width:100%;height:var(--pl-stage-h, clamp(360px, 52svh, 470px));overflow:hidden;touch-action:pan-y;cursor:grab}",
+  ".pl-root[data-drag='1'] .pl-stage{cursor:grabbing}",
   ".pl-string{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}",
   ".pl-card{position:absolute;left:0;top:0;width:var(--pl-cw);transform-origin:50% 0;will-change:transform;cursor:pointer;z-index:1;transition:z-index 0s}",
   ".pl-card[data-on='1']{z-index:10}",
@@ -91,22 +92,24 @@ const PL_CSS = [
   ".pl-shot img,.pl-shot video{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block;pointer-events:none;transition:transform .5s cubic-bezier(.22,1,.36,1)}",
   ".pl-card:hover .pl-shot img,.pl-card:hover .pl-shot video{transform:scale(1.07)}",
   ".pl-badge{position:absolute;top:8px;right:8px;z-index:2;padding:3px 9px;border-radius:999px;background:rgba(12,10,9,.82);color:#fde68a;font:600 11px/1.2 var(--font-sans,monospace);letter-spacing:.04em;box-shadow:0 2px 6px rgba(0,0,0,.35);pointer-events:none}",
-  ".pl-note{min-height:46px;display:flex;align-items:center;justify-content:center;padding:0 8px;font:italic 400 16px/1.2 var(--font-serif, ui-serif, Georgia, serif);color:#2d2926;white-space:normal;overflow-wrap:anywhere;transition:color .25s ease}",
+  ".pl-note{min-height:46px;display:flex;align-items:center;justify-content:center;padding:6px 8px;font:italic 400 15px/1.2 var(--font-serif, ui-serif, Georgia, serif);color:#2d2926;white-space:normal;overflow-wrap:anywhere;text-align:center;transition:color .25s ease}",
   ".pl-card:hover .pl-note{color:#0f172a}",
   ".pl-peg{position:absolute;left:50%;top:0;width:10px;height:26px;margin-left:-5px;border-radius:2px;background:linear-gradient(90deg,#c9a67a,#e3c9a1 45%,#b8915f);box-shadow:0 2px 4px rgba(0,0,0,.3);transition:transform .32s cubic-bezier(.22,1.25,.36,1)}",
   ".pl-card:hover .pl-peg{transform:translateY(-3px) scale(1.1) rotate(2deg)}",
   ".pl-peg::after{content:'';position:absolute;left:4px;top:8px;width:2px;height:7px;background:rgba(80,60,30,.5);border-radius:1px}",
-  ".pl-bar{position:absolute;left:clamp(16px,4vw,56px);right:clamp(16px,4vw,56px);bottom:clamp(16px,3vh,32px);display:flex;align-items:center;gap:clamp(12px,2vw,24px);cursor:default}",
-  ".pl-cap{flex:1;min-width:0;overflow:hidden;padding-bottom:.15em}",
+  ".pl-bar{position:relative;z-index:30;width:100%;padding:12px clamp(16px,4vw,56px) 16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px clamp(12px,2vw,24px);cursor:default}",
+  ".pl-cap{flex:1 1 240px;min-width:0;overflow:visible;padding-bottom:.15em}",
   ".pl-cap>*{display:block;animation:pl-in .45s cubic-bezier(.2,.8,.2,1) both}",
-  ".pl-title{font:500 clamp(18px,2.2vw,24px)/1.2 var(--font-serif, ui-serif, Georgia, serif);white-space:normal;overflow-wrap:anywhere}",
-  ".pl-sub{margin-top:4px;font:400 16px/1.5 var(--font-sans, ui-sans-serif, system-ui, sans-serif);color:var(--pl-muted);display:block}",
+  ".pl-controls{display:flex;align-items:center;gap:12px;margin-left:auto;flex-shrink:0}",
+  ".pl-title{font:500 clamp(18px,2.2vw,24px)/1.25 var(--font-serif, ui-serif, Georgia, serif);white-space:normal;overflow-wrap:anywhere}",
+  ".pl-sub{margin-top:4px;font:400 15px/1.5 var(--font-sans, ui-sans-serif, system-ui, sans-serif);color:var(--pl-muted);display:block;white-space:normal;overflow-wrap:anywhere}",
   ".pl-count{font:500 13px/1 var(--font-sans, monospace);font-variant-numeric:tabular-nums;letter-spacing:.12em;color:var(--pl-muted)}",
   ".pl-count b{color:var(--pl-ink);font-weight:600}",
-  ".pl-btn{appearance:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--pl-line);background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer;transition:background .2s ease,color .2s ease,transform .15s ease}",
+  ".pl-btn{appearance:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--pl-line);background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer;flex-shrink:0;transition:background .2s ease,color .2s ease,transform .15s ease}",
   ".pl-btn:hover{background:#fbfaf7;color:#0f172a;transform:scale(1.05)}",
   ".pl-btn:focus-visible{outline:2px solid var(--pl-ink);outline-offset:2px}",
   ".pl-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}",
+  "@media (max-width:639px){.pl-stage{height:clamp(340px, 50svh, 410px)}.pl-bar{padding:8px 16px 12px}.pl-cap{flex-basis:100%}}",
   "@keyframes pl-in{from{transform:translateY(80%);opacity:0}to{transform:none;opacity:1}}",
   "@media (prefers-reduced-motion:reduce){.pl-cap>*{animation:none}.pl-print{transition:none}}",
 ].join("\n");
@@ -130,8 +133,9 @@ export default function PolaroidLineCarousel({
   const n = slides.length;
   const [active, setActive] = React.useState(0);
   const [dragging, setDragging] = React.useState(false);
-  const [size, setSize] = React.useState({ w: 1200, h: 600, cw: cardWidth });
+  const [size, setSize] = React.useState({ w: 1200, h: 420, cw: cardWidth });
   const rootRef = React.useRef<HTMLDivElement | null>(null);
+  const stageRef = React.useRef<HTMLDivElement | null>(null);
   const pathRef = React.useRef<SVGPathElement | null>(null);
   const cards = React.useRef<(HTMLDivElement | null)[]>([]);
   const videos = React.useRef<(HTMLVideoElement | null)[]>([]);
@@ -171,12 +175,12 @@ export default function PolaroidLineCarousel({
 
   // Handle Resize
   React.useEffect(() => {
-    const el = rootRef.current;
+    const el = stageRef.current || rootRef.current;
     if (!el) return;
     const ro = new ResizeObserver(() => {
       const w = el.clientWidth || 1200;
-      const h = el.clientHeight || 600;
-      const cw = clamp(Math.round(w * 0.65), 220, cardWidth);
+      const h = el.clientHeight || 420;
+      const cw = clamp(Math.round(w * (w < 640 ? 0.62 : 0.65)), 200, cardWidth);
       setSize({ w, h, cw });
     });
     ro.observe(el);
@@ -206,9 +210,10 @@ export default function PolaroidLineCarousel({
 
       // String sag path update
       const { w, h, cw } = size;
-      const y0 = Math.round(h * 0.28);
+      const stageSag = w < 640 ? Math.min(o.sag, 20) : Math.min(o.sag, 34);
+      const y0 = Math.max(16, Math.round(h * 0.09));
       if (pathRef.current) {
-        pathRef.current.setAttribute("d", `M 0 ${y0} Q ${w / 2} ${y0 + 2 * o.sag} ${w} ${y0}`);
+        pathRef.current.setAttribute("d", `M 0 ${y0} Q ${w / 2} ${y0 + 2 * stageSag} ${w} ${y0}`);
       }
 
       // Spring tracking to target
@@ -232,7 +237,7 @@ export default function PolaroidLineCarousel({
         const cardEl = cards.current[i];
         if (!cardEl) continue;
         const x = mid - cw / 2 + (i * spacing - sim.current.off);
-        const y = stringY(x + cw / 2, w, y0, o.sag);
+        const y = stringY(x + cw / 2, w, y0, stageSag);
 
         const [na, nw] = swingStep(sim.current.a[i] || 0, sim.current.w[i] || 0, sim.current.vel, dt, g);
         sim.current.a[i] = na;
@@ -293,7 +298,7 @@ export default function PolaroidLineCarousel({
     if (Math.abs(dx) > 4 && !d.moved) {
       d.moved = true;
       try {
-        rootRef.current?.setPointerCapture(e.pointerId);
+        stageRef.current?.setPointerCapture(e.pointerId);
       } catch {}
     }
 
@@ -316,8 +321,8 @@ export default function PolaroidLineCarousel({
     if (!d) return;
     setDragging(false);
     try {
-      if (rootRef.current?.hasPointerCapture(e.pointerId)) {
-        rootRef.current?.releasePointerCapture(e.pointerId);
+      if (stageRef.current?.hasPointerCapture(e.pointerId)) {
+        stageRef.current?.releasePointerCapture(e.pointerId);
       }
     } catch {}
 
@@ -368,12 +373,12 @@ export default function PolaroidLineCarousel({
       ref={rootRef}
       className={["pl-root", className].filter(Boolean).join(" ")}
       style={{
-        height,
         ["--pl-bg" as string]: background,
         ["--pl-ink" as string]: ink,
         ["--pl-muted" as string]: "var(--pl-ink)",
         ["--pl-line" as string]: "color-mix(in srgb, var(--pl-ink) 25%, transparent)",
         ["--pl-cw" as string]: size.cw + "px",
+        ...(height && height !== "70svh" ? { ["--pl-stage-h" as string]: typeof height === "number" ? `${height}px` : height } : {}),
         ...style,
       }}
       data-drag={dragging ? "1" : "0"}
@@ -382,107 +387,110 @@ export default function PolaroidLineCarousel({
       aria-label={ariaLabel}
       tabIndex={0}
       onKeyDown={onKey}
-      onPointerDown={onDown}
-      onPointerMove={onMove}
-      onPointerUp={onUp}
-      onPointerCancel={onUp}
     >
       <style>{PL_CSS}</style>
-      <svg className="pl-string" aria-hidden="true">
-        <path ref={pathRef} fill="none" stroke={string} strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-      {slides.map((sl, i) => (
-        <div
-          key={i}
-          className="pl-card"
-          data-i={i}
-          data-on={i === active ? "1" : "0"}
-          ref={(el) => void (cards.current[i] = el)}
-          aria-hidden={i === active ? undefined : true}
-          onPointerEnter={() => {
-            if (!drag.current && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-              sim.current.w[i] = (sim.current.w[i] || 0) + (i % 2 === 0 ? 0.65 : -0.65);
-            }
-            const vid = videos.current[i];
-            if (vid) void vid.play().catch(() => {});
-          }}
-          onPointerLeave={() => {
-            const vid = videos.current[i];
-            if (vid && i !== activeRef.current) {
-              vid.pause();
-              vid.currentTime = 0;
-            }
-          }}
-          onClick={(e) => {
-            e.stopPropagation();
-            onOpen?.(sl, i);
-          }}
-        >
-          <div className="pl-print">
-            <div className="pl-shot">
-              {sl.jenis === "video" && sl.videoSrc ? (
-                <>
-                  <video
-                    ref={(el) => void (videos.current[i] = el)}
-                    src={sl.videoSrc}
-                    poster={sl.image}
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    aria-label={sl.alt || sl.title || ""}
+      <div
+        ref={stageRef}
+        className="pl-stage"
+        onPointerDown={onDown}
+        onPointerMove={onMove}
+        onPointerUp={onUp}
+        onPointerCancel={onUp}
+      >
+        <svg className="pl-string" aria-hidden="true">
+          <path ref={pathRef} fill="none" stroke={string} strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+        {slides.map((sl, i) => (
+          <div
+            key={i}
+            className="pl-card"
+            data-i={i}
+            data-on={i === active ? "1" : "0"}
+            ref={(el) => void (cards.current[i] = el)}
+            aria-hidden={i === active ? undefined : true}
+            onPointerEnter={() => {
+              if (!drag.current && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                sim.current.w[i] = (sim.current.w[i] || 0) + (i % 2 === 0 ? 0.65 : -0.65);
+              }
+              const vid = videos.current[i];
+              if (vid) void vid.play().catch(() => {});
+            }}
+            onPointerLeave={() => {
+              const vid = videos.current[i];
+              if (vid && i !== activeRef.current) {
+                vid.pause();
+                vid.currentTime = 0;
+              }
+            }}
+          >
+            <div className="pl-print">
+              <div className="pl-shot">
+                {sl.jenis === "video" && sl.videoSrc ? (
+                  <>
+                    <video
+                      ref={(el) => void (videos.current[i] = el)}
+                      src={sl.videoSrc}
+                      poster={sl.image}
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      aria-label={sl.alt || sl.title || ""}
+                      style={{ objectPosition: sl.fokus || "center" }}
+                    />
+                    <span className="pl-badge">▶ Video</span>
+                  </>
+                ) : sl.image ? (
+                  <img
+                    src={sl.image}
+                    srcSet={sl.srcSet}
+                    sizes="300px"
+                    width={600}
+                    height={600}
+                    alt={sl.alt || sl.title || ""}
+                    loading="lazy"
+                    decoding="async"
                     style={{ objectPosition: sl.fokus || "center" }}
+                    draggable={false}
                   />
-                  <span className="pl-badge">▶ Video</span>
-                </>
-              ) : sl.image ? (
-                <img
-                  src={sl.image}
-                  srcSet={sl.srcSet}
-                  sizes="300px"
-                  width={600}
-                  height={600}
-                  alt={sl.alt || sl.title || ""}
-                  loading="lazy"
-                  decoding="async"
-                  style={{ objectPosition: sl.fokus || "center" }}
-                  draggable={false}
-                />
-              ) : null}
+                ) : null}
+              </div>
+              <div lang="id" className="pl-note">{sl.title || ""}</div>
             </div>
-            <div lang="en" className="pl-note">{sl.title || ""}</div>
+            <div className="pl-peg" />
           </div>
-          <div className="pl-peg" />
-        </div>
-      ))}
+        ))}
+      </div>
       <div className="pl-bar">
-        <div lang="en" className="pl-cap" key={active} >
+        <div lang="id" className="pl-cap" key={active}>
           {s.title ? <span className="pl-title">{s.title}</span> : null}
           {s.caption ? <span className="pl-sub">{s.caption}</span> : null}
         </div>
-        <span className="pl-count" aria-hidden="true">
-          <b>{pad2(active + 1)}</b> / {pad2(n)}
-        </span>
-        <button
-          type="button"
-          className="pl-btn"
-          aria-label="Foto sebelumnya"
-          onClick={() => step(-1)}
-        >
-          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M10 3 5 8l5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-        <button
-          type="button"
-          className="pl-btn"
-          aria-label="Foto berikutnya"
-          onClick={() => step(1)}
-        >
-          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="m6 3 5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
+        <div className="pl-controls">
+          <span className="pl-count" aria-hidden="true">
+            <b>{pad2(active + 1)}</b> / {pad2(n)}
+          </span>
+          <button
+            type="button"
+            className="pl-btn"
+            aria-label="Foto sebelumnya"
+            onClick={() => step(-1)}
+          >
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M10 3 5 8l5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            className="pl-btn"
+            aria-label="Foto berikutnya"
+            onClick={() => step(1)}
+          >
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="m6 3 5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </div>
       </div>
       <div className="pl-sr" aria-live="polite">
         {"Foto " + (active + 1) + " dari " + n + (s.title ? ": " + s.title : "")}

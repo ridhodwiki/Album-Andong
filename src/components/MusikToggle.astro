@@ -96,7 +96,7 @@ const { audioSrc = "/audio/musik.mp3" } = Astro.props;
     btn?.setAttribute("aria-pressed", isPlaying ? "true" : "false");
 
     if (isPlaying) {
-      if (label) label.textContent = "Angin Gunung Aktif";
+      if (label) label.textContent = "Suara Aktif";
       bars.forEach((b, i) => {
         b.classList.add("animate-pulse");
         (b as HTMLElement).style.animationDuration = `${0.6 + i * 0.25}s`;
