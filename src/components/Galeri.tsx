@@ -91,7 +91,12 @@ export default function Galeri({
       {slides.length > 0 && (
         <div className="w-full max-w-6xl px-4 md:px-8 mt-4">
           <div className="grid grid-cols-1 min-[600px]:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-start">
-            {visibleGridSlides.map((s, idx) => (
+            {visibleGridSlides.map((s, idx) => {
+              const isLandscape = s.jenis !== "video" && !!s.width && !!s.height && s.width > s.height;
+              const aspectClass = isLandscape
+                ? "aspect-[4/3]"
+                : "aspect-[3/4] sm:aspect-[4/5]";
+              return (
               <motion.button
                 initial={idx >= INITIAL_GRID_COUNT && animated ? { opacity: 0, scale: 0.9, y: 20 } : false}
                 animate={idx >= INITIAL_GRID_COUNT && animated ? { opacity: 1, scale: 1, y: 0 } : undefined}
@@ -106,7 +111,7 @@ export default function Galeri({
                   idx === 0 && tampil === "keduanya" ? "min-[600px]:col-span-2 lg:col-span-2" : ""
                 }`}
               >
-                <div className="relative aspect-[4/3] sm:aspect-square overflow-hidden bg-stone-200 rounded-[1px]">
+                <div className={`relative ${aspectClass} overflow-hidden bg-stone-200 rounded-[1px]`}>
                   {s.jenis === "video" && s.videoSrc ? (
                     <>
                       <video
@@ -159,7 +164,8 @@ export default function Galeri({
                   </p>
                 )}
               </motion.button>
-            ))}
+              );
+            })}
           </div>
 
           {hiddenCount > 0 && (

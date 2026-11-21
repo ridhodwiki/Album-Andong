@@ -29,17 +29,18 @@ const imgProps = cover ? responsiveImage(cover.berkas) : null;
 
     <!-- Single Final Starlit Polaroid Feature -->
     {cover && imgProps && <div class="penutup-stagger relative w-64 sm:w-72 bg-[#fbfaf7] p-3 pb-6 rounded-sm shadow-2xl rotate-1 hover:rotate-0 transition duration-500 mb-10 group">
-      <div class="aspect-square overflow-hidden bg-stone-900 rounded-[1px]">
+      <div class="aspect-[3/4] overflow-hidden bg-stone-900 rounded-[1px]">
         <img
           src={imgProps.image}
           srcset={imgProps.srcSet}
           sizes="(max-width: 640px) 256px, 288px"
           width="600"
-          height="600"
+          height="800"
           alt={cover.alt}
           loading="lazy"
           decoding="async"
           class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+          style="object-position: 50% 58%;"
         />
       </div>
       <p lang="en" class="font-serif italic text-base text-stone-900 text-center mt-3">
