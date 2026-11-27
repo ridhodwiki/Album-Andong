@@ -13,6 +13,18 @@ export type LightboxProps = {
   onIndexChange: (index: number) => void;
 };
 
+export function openLightboxDialog(dialog: Pick<HTMLDialogElement, "showModal" | "close">) {
+  const overflow = document.body.style.overflow;
+  const trigger = document.activeElement as HTMLElement | null;
+  dialog.showModal();
+  document.body.style.overflow = "hidden";
+  return () => {
+    dialog.close();
+    document.body.style.overflow = overflow;
+    trigger?.focus({ preventScroll: true });
+  };
+}
+
 export default function Lightbox({
   isOpen,
   slides,
@@ -28,15 +40,7 @@ export default function Lightbox({
   React.useEffect(() => {
     const dialog = dialogRef.current;
     if (!isOpen || !dialog) return;
-    const overflow = document.body.style.overflow;
-    const trigger = document.activeElement as HTMLElement | null;
-    dialog.showModal();
-    document.body.style.overflow = "hidden";
-    return () => {
-      dialog.close();
-      document.body.style.overflow = overflow;
-      trigger?.focus();
-    };
+    return openLightboxDialog(dialog);
   }, [isOpen]);
 
   const slide = slides[currentIndex];

@@ -1,8 +1,11 @@
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { expect, it } from "vitest";
+import { afterEach, expect, it, vi } from "vitest";
 import Galeri from "../src/components/Galeri";
+import { openLightboxDialog } from "../src/components/Lightbox";
 import PolaroidLineCarousel from "../src/components/ui/polaroid-line-carousel";
+
+afterEach(() => vi.unstubAllGlobals());
 
 it("renders every carousel photo in the static fallback before hydration", () => {
   const html = renderToStaticMarkup(createElement(Galeri, { tampil: "carousel", slides: [
@@ -29,4 +32,20 @@ it("renders video items in both the clothesline carousel and the gallery grid", 
   ] }));
   expect(html).toContain('<video src="/video/video_sabana1.webm"');
   expect(html).toContain('▶ Video');
+});
+
+it("restores focus without scrolling when closing the lightbox", () => {
+  const focus = vi.fn();
+  const dialog = { showModal: vi.fn(), close: vi.fn() };
+  const body = { style: { overflow: "" } };
+  vi.stubGlobal("document", { body, activeElement: { focus } });
+
+  const cleanup = openLightboxDialog(dialog);
+  expect(dialog.showModal).toHaveBeenCalledOnce();
+  expect(body.style.overflow).toBe("hidden");
+
+  cleanup();
+  expect(dialog.close).toHaveBeenCalledOnce();
+  expect(body.style.overflow).toBe("");
+  expect(focus).toHaveBeenCalledWith({ preventScroll: true });
 });
