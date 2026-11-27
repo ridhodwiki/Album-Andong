@@ -37,8 +37,8 @@
         "id": "sabana-01",
         "jenis": "foto",
         "berkas": "/foto/foto_sabana1.webp",
-        "judul": "Jeda Manis di Punggung Bukit",
-        "caption": "Berhenti sejenak di awal jalur punggung naga, ditemani permen lolipop sebelum menapaki tanjakan panjang.",
+        "judul": "Jeda di Punggungan",
+        "caption": "Berhenti sebentar di awal punggungan, makan lolipop sebelum tanjakan panjang.",
         "alt": "Berpose mengenakan jaket merah muda sambil memegang permen lolipop dengan latar jalur punggungan hijau Gunung Andong",
         "fokus": "50% 82%",
         "ukuran": "besar",
@@ -50,8 +50,8 @@
         "id": "sabana-02",
         "jenis": "foto",
         "berkas": "/foto/front_off_merbabu.webp",
-        "judul": "Menghadap Merbabu & Merapi",
-        "caption": "Merapikan rambut yang tertiup angin sejuk sambil menatap gagahnya siluet kembar Merbabu dan Merapi di seberang lembah.",
+        "judul": "Menghadap Merbabu",
+        "caption": "Merapikan rambut yang tertiup angin sejuk sambil menatap Merbabu dan Merapi di seberang lembah.",
         "alt": "Tampak belakang berjaket merah muda menatap siluet Gunung Merbabu dan Merapi di atas hamparan lembah hijau",
         "fokus": "50% 78%",
         "ukuran": "sedang",
@@ -63,8 +63,8 @@
         "id": "sabana-03",
         "jenis": "foto",
         "berkas": "/foto/foto_sabana2.webp",
-        "judul": "Menoleh di Tengah Jalur",
-        "caption": "Senyum hangat menoleh ke belakang, memastikan langkah kita tetap beriringan menyusuri punggungan hijau.",
+        "judul": "Menoleh di Jalur",
+        "caption": "Senyum menoleh ke belakang, memastikan langkah kita tetap beriringan menyusuri punggungan hijau.",
         "alt": "Menoleh sambil tersenyum hangat dengan ransel di punggung berlatar jalur pendakian sabana Gunung Andong",
         "fokus": "50% 78%",
         "ukuran": "sedang",
@@ -76,7 +76,7 @@
         "id": "sabana-04",
         "jenis": "foto",
         "berkas": "/foto/foto_sabana3.webp",
-        "judul": "Kompak Melet di Tanjakan",
+        "judul": "Pose Konyol di Tanjakan",
         "caption": "Rasa lelah menanjak hilang seketika saat sempat-sempatnya berpose konyol berdua di pinggir jalur.",
         "alt": "Swafoto berdua berpose lucu menjulurkan lidah sambil memegang lolipop di tepi jalur pendakian",
         "ukuran": "besar",
@@ -102,7 +102,7 @@
         "jenis": "foto",
         "berkas": "/foto/foto_sabana6.webp",
         "judul": "Langkah Santai di Tanjakan Batu",
-        "caption": "Berhenti sejenak di undakan tanah dan batu, menoleh dengan senyum tipis sambil tetap ditemani lolipop.",
+        "caption": "Berhenti sejenak di undakan tanah dan batu, menoleh sambil tetap ditemani lolipop.",
         "alt": "Menoleh ke kamera di jalur berbatu sabana Gunung Andong sambil menggigit stik lolipop dengan latar lembah pagi",
         "fokus": "50% 68%",
         "ukuran": "sedang",
@@ -475,6 +475,7 @@
         "placeholder": false
       }
     ],
-    "judul": "Glad we came."
+    "judul": "Glad we came.",
+    "tanggal": null
   }
 ]

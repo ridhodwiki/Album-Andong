@@ -1,0 +1,50 @@
+---
+---
+<!-- Language Toggle -->
+<div class="fixed top-4 right-4 z-50 flex gap-1 bg-stone-950/90 border border-white/25 rounded-full p-1 backdrop-blur-md shadow-xl">
+  <button
+    type="button"
+    data-lang="id"
+    class="lang-btn px-3 py-1.5 rounded-full text-xs font-mono font-medium text-white hover:bg-white/10 transition cursor-pointer"
+    aria-pressed="true"
+  >
+    ID
+  </button>
+  <button
+    type="button"
+    data-lang="en"
+    class="lang-btn px-3 py-1.5 rounded-full text-xs font-mono font-medium text-white/60 hover:bg-white/10 transition cursor-pointer"
+    aria-pressed="false"
+  >
+    EN
+  </button>
+</div>
+
+<script>
+  (function () {
+    const STORAGE_KEY = "andong-lang";
+    const buttons = document.querySelectorAll<HTMLButtonElement>(".lang-btn");
+
+    function setLang(lang: string) {
+      localStorage.setItem(STORAGE_KEY, lang);
+      buttons.forEach((btn) => {
+        const isActive = btn.dataset.lang === lang;
+        btn.setAttribute("aria-pressed", String(isActive));
+        btn.classList.toggle("text-white", isActive);
+        btn.classList.toggle("text-white/60", !isActive);
+        btn.classList.toggle("bg-amber-500/20", isActive);
+      });
+      document.documentElement.lang = lang;
+      // Dispatch event for other components to react
+      document.dispatchEvent(new CustomEvent("lang-change", { detail: { lang } }));
+    }
+
+    // Init
+    const saved = localStorage.getItem(STORAGE_KEY) || "id";
+    setLang(saved);
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => setLang(btn.dataset.lang || "id"));
+    });
+  })();
+</script>

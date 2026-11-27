@@ -4,6 +4,7 @@ import RelKetinggian from "../components/RelKetinggian.astro";
 import TitikBab from "../components/TitikBab.astro";
 import MusikToggle from "../components/MusikToggle.astro";
 import VantaCloudsGlobal from "../components/VantaCloudsGlobal.astro";
+import BahasaToggle from "../components/BahasaToggle.astro";
 
 interface Props {
   title?: string;
@@ -50,6 +51,7 @@ const {
   <body class="bg-transparent text-slate-900 antialiased selection:bg-amber-400 selection:text-stone-950 min-h-screen relative">
     <!-- 3D Vanta Clouds Background (Global Deploy Look) -->
     <VantaCloudsGlobal />
+    <BahasaToggle />
 
     <div class="fixed bottom-4 right-4 z-40">
       <a id="mode-link" href="?ringan=1" class="h-11 inline-flex items-center justify-center rounded-full bg-stone-950/90 hover:bg-stone-950 border border-white/25 px-4 text-xs font-mono font-medium leading-none text-white shadow-xl backdrop-blur-md transition">Versi ringan</a>

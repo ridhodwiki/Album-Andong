@@ -1,0 +1,481 @@
+[
+  {
+    "id": "pembuka",
+    "nomor": "00",
+    "nama": "Pembuka",
+    "subjudul": "Before the Climb",
+    "elevasi": "1.300 mdpl",
+    "suasana": "Hening Hutan Malam",
+    "kutipan": "An early start, a cold trail, and a morning on Andong together.",
+    "items": [
+      {
+        "id": "pembuka-01",
+        "jenis": "foto",
+        "berkas": "/foto/pembuka-hero.jpg",
+        "judul": "Setting Off",
+        "caption": "Basecamp Pendem, Magelang. A cold start before sunrise.",
+        "alt": "Suasana awal pendakian di Basecamp Pendem Gunung Andong",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": true
+      }
+    ],
+    "judul": "A morning on Andong",
+    "tanggal": null
+  },
+  {
+    "id": "sabana",
+    "nomor": "01",
+    "nama": "Sabana",
+    "subjudul": "A Pause in the Grass",
+    "elevasi": "1.540 mdpl",
+    "suasana": "Hangat & Segar",
+    "kutipan": "Still catching our breath. A good place to stop.",
+    "items": [
+      {
+        "id": "sabana-01",
+        "jenis": "foto",
+        "berkas": "/foto/foto_sabana1.webp",
+        "judul": "Jeda di Punggungan",
+        "caption": "Berhenti sebentar di awal punggungan, makan lolipop sebelum tanjakan panjang.",
+        "alt": "Berpose mengenakan jaket merah muda sambil memegang permen lolipop dengan latar jalur punggungan hijau Gunung Andong",
+        "fokus": "50% 82%",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "sabana-02",
+        "jenis": "foto",
+        "berkas": "/foto/front_off_merbabu.webp",
+        "judul": "Menghadap Merbabu",
+        "caption": "Merapikan rambut yang tertiup angin sejuk sambil menatap Merbabu dan Merapi di seberang lembah.",
+        "alt": "Tampak belakang berjaket merah muda menatap siluet Gunung Merbabu dan Merapi di atas hamparan lembah hijau",
+        "fokus": "50% 78%",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "sabana-03",
+        "jenis": "foto",
+        "berkas": "/foto/foto_sabana2.webp",
+        "judul": "Menoleh di Jalur",
+        "caption": "Senyum menoleh ke belakang, memastikan langkah kita tetap beriringan menyusuri punggungan hijau.",
+        "alt": "Menoleh sambil tersenyum hangat dengan ransel di punggung berlatar jalur pendakian sabana Gunung Andong",
+        "fokus": "50% 78%",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "sabana-04",
+        "jenis": "foto",
+        "berkas": "/foto/foto_sabana3.webp",
+        "judul": "Pose Konyol di Tanjakan",
+        "caption": "Rasa lelah menanjak hilang seketika saat sempat-sempatnya berpose konyol berdua di pinggir jalur.",
+        "alt": "Swafoto berdua berpose lucu menjulurkan lidah sambil memegang lolipop di tepi jalur pendakian",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "sabana-05",
+        "jenis": "foto",
+        "berkas": "/foto/foto_sabana5.webp",
+        "judul": "Jalur Punggung Naga",
+        "caption": "Bentangan jalur sempit membelah punggungan hijau Gunung Andong yang mulai ramai dijelajahi pendaki pagi itu.",
+        "alt": "Pemandangan jalur sempit punggungan hijau Gunung Andong dengan antrean pendaki dan papan penunjuk arah puncak",
+        "fokus": "50% 60%",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "sabana-06",
+        "jenis": "foto",
+        "berkas": "/foto/foto_sabana6.webp",
+        "judul": "Langkah Santai di Tanjakan Batu",
+        "caption": "Berhenti sejenak di undakan tanah dan batu, menoleh sambil tetap ditemani lolipop.",
+        "alt": "Menoleh ke kamera di jalur berbatu sabana Gunung Andong sambil menggigit stik lolipop dengan latar lembah pagi",
+        "fokus": "50% 68%",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "sabana-07",
+        "jenis": "foto",
+        "berkas": "/foto/foto_sabana7.webp",
+        "judul": "Saksi Kembar di Seberang Lembah",
+        "caption": "Berdiri di tepi sabana berlatar Gunung Merbabu dan kepulan tipis puncak Merapi di kejauhan.",
+        "alt": "Pose tampak samping mengenakan jaket merah muda memegang lolipop dengan latar siluet Gunung Merbabu dan Merapi",
+        "fokus": "50% 62%",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "sabana-08",
+        "jenis": "foto",
+        "berkas": "/foto/foto_sabana8.webp",
+        "judul": "Menatap Puncak dari Balik Bahu",
+        "caption": "Memandangi hamparan petak sawah di lembah bawah yang berpadu dengan siluet tenang Merbabu dan Merapi.",
+        "alt": "Tampak samping dekat dari balik bahu menatap siluet Gunung Merbabu dan Merapi di atas hamparan sawah lembah",
+        "fokus": "50% 62%",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "sabana-09",
+        "jenis": "video",
+        "berkas": "/video/video_sabana1.webm",
+        "judul": "Klip Sabana: Senyum di Depan Merbabu",
+        "caption": "Rekaman singkat di punggungan sabana saat kamera menjauh perlahan memperlihatkan megahnya Merbabu dan Merapi.",
+        "alt": "Video singkat tersenyum memegang lolipop di sabana Gunung Andong berlatar Gunung Merbabu dan Merapi",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "sabana-10",
+        "jenis": "video",
+        "berkas": "/video/video_sabana2.webm",
+        "judul": "Klip Sabana: \"Foto Apa Video Itu?\"",
+        "caption": "Momen candid paling jujur saat sibuk bergaya karena dikira sedang difoto, padahal diam-diam direkam video.",
+        "alt": "Video candid bergaya lucu di depan kamera saat mengira sedang difoto di sabana Gunung Andong",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      }
+    ]
+  },
+  {
+    "id": "tanpa-dokumentasi",
+    "nomor": "02",
+    "nama": "Tanpa Dokumentasi",
+    "subjudul": "The Steep Stretch",
+    "elevasi": "1.680 mdpl",
+    "suasana": "Hening & Tanjakan Nyata",
+    "kutipan": "No photos here. We were too busy getting up the hill.",
+    "items": [],
+    "narasi": [
+      "No photos from this stretch.",
+      "We needed a breather.",
+      "It was steeper than it looked.",
+      "Just footsteps on gravel and a few stops to catch our breath."
+    ]
+  },
+  {
+    "id": "puncak",
+    "nomor": "03",
+    "nama": "Puncak",
+    "subjudul": "Titik Tertinggi 1.726 mdpl",
+    "elevasi": "1.726 mdpl",
+    "suasana": "Bangga & Lega",
+    "kutipan": "We made it. Time to sit down and take in the view.",
+    "items": [
+      {
+        "id": "puncak-01",
+        "jenis": "foto",
+        "berkas": "/foto/foto_puncak1.webp",
+        "judul": "Tugu Puncak Alap-Alap",
+        "caption": "Akhirnya tiba di tugu Puncak Alap-Alap. Senyum lega memegang papan puncak setelah melewati seluruh tanjakan.",
+        "alt": "Berfoto berdua mengapit tugu hijau Puncak Alap-Alap Gunung Andong sambil memegang papan kayu MT Andong",
+        "fokus": "50% 72%",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "puncak-02",
+        "jenis": "foto",
+        "berkas": "/foto/foto_puncak2.webp",
+        "judul": "Sunrise Camp 1.704 Mdpl",
+        "caption": "Berdampingan di bawah plang Sunrise Camp setelah mendaki via Pendem, dengan kemegahan Merbabu dan Merapi menjadi saksi di belakang kita.",
+        "alt": "Berfoto berdua di bawah papan kayu Sunrise Camp 1704 Mdpl Gunung Andong berlatar Gunung Merbabu",
+        "fokus": "50% 58%",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "puncak-03",
+        "jenis": "foto",
+        "berkas": "/foto/foto_puncak3.webp",
+        "judul": "Kucing Penjaga Puncak",
+        "caption": "Bertemu penghuni berbulu paling ramah di atas puncak, langsung berhenti sejenak buat mengelus kepalanya.",
+        "alt": "Berjongkok mengelus kucing gunung abu-abu berbulu lembut di puncak Gunung Andong",
+        "fokus": "50% 60%",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "puncak-04",
+        "jenis": "foto",
+        "berkas": "/foto/foto_puncak4.webp",
+        "judul": "Cahaya Pagi di Area Camp",
+        "caption": "Senyum hangat bermandikan sinar matahari pagi di antara tenda-tenda pendaki yang mulai terbangun.",
+        "alt": "Swafoto pagi bermandikan sinar matahari keemasan di area tenda puncak Gunung Andong",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "puncak-05",
+        "jenis": "foto",
+        "berkas": "/foto/foto_puncak5.webp",
+        "judul": "Pose Rawr di 1.726 Mdpl",
+        "caption": "Momen paling gemas di puncak: kompak berpose cakar dan melet sambil menikmati hangatnya langit biru pagi.",
+        "alt": "Swafoto berdua ceria berpose cakar dan melet di bawah langit biru cerah puncak Gunung Andong",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "puncak-06",
+        "jenis": "video",
+        "berkas": "/video/video_puncak6.webm",
+        "judul": "Klip Puncak: Tawa di Tengah Angin Pagi",
+        "caption": "Tangan masuk saku jaket menahan dingin, rambut tertiup angin puncak, dan tawa kecil yang bikin suasana makin hangat.",
+        "alt": "Video candid tersenyum dan tertawa di tengah angin pagi puncak Gunung Andong",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "puncak-07",
+        "jenis": "foto",
+        "berkas": "/foto/puncak-cover.jpg",
+        "judul": "Slot Kenangan Puncak #7",
+        "caption": "Slot tambahan siap pakai untuk koleksi foto puncak berikutnya.",
+        "alt": "Placeholder foto kenangan puncak ketujuh",
+        "ukuran": "sedang",
+        "tampil": "grid",
+        "publik": true,
+        "placeholder": true
+      },
+      {
+        "id": "puncak-08",
+        "jenis": "foto",
+        "berkas": "/foto/penutup-01.png",
+        "judul": "Slot Kenangan Puncak #8",
+        "caption": "Slot tambahan siap pakai untuk koleksi foto puncak berikutnya.",
+        "alt": "Placeholder foto kenangan puncak kedelapan",
+        "ukuran": "sedang",
+        "tampil": "grid",
+        "publik": true,
+        "placeholder": true
+      }
+    ]
+  },
+  {
+    "id": "langit-cerah",
+    "nomor": "04",
+    "nama": "Langit Cerah",
+    "subjudul": "Under a Clear Sky",
+    "elevasi": "1.726 mdpl",
+    "suasana": "Cerah, Lapang, Megah",
+    "kutipan": "We hoped for a sea of clouds. We got a clear blue sky, and it was enough.",
+    "items": [
+      {
+        "id": "langit-01",
+        "jenis": "foto",
+        "berkas": "/foto/langit_cerah1.webp",
+        "judul": "Kawan Baru di Puncak",
+        "caption": "Momen seru di bawah langit biru cerah—bertemu dan berfoto bersama pendaki mancanegara di atas puncak.",
+        "alt": "Berfoto bersama pendaki mancanegara di puncak Gunung Andong di bawah langit biru berawan tipis",
+        "fokus": "50% 45%",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "langit-02",
+        "jenis": "foto",
+        "berkas": "/foto/langit_cerah2.webp",
+        "judul": "Punggung Naga Bermandikan Cahaya",
+        "caption": "Bentangan jalur punggungan hijau Gunung Andong yang berkilau diterpa sinar matahari pagi dari langit yang bersih.",
+        "alt": "Pemandangan jalur punggungan hijau Gunung Andong di bawah sinar matahari cerah dan langit biru",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "langit-03",
+        "jenis": "foto",
+        "berkas": "/foto/langit_cerah3.webp",
+        "judul": "Es Krim di Bawah Merah Putih",
+        "caption": "Merayakan sejuknya angin puncak dengan es krim berdua di bawah kibaran Merah Putih dan megahnya Gunung Merbabu.",
+        "alt": "Berpose berdua memegang es krim cone di bawah tiang bendera Merah Putih dengan latar Gunung Merbabu",
+        "fokus": "50% 62%",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "langit-04",
+        "jenis": "foto",
+        "berkas": "/foto/antrean_eskrim.webp",
+        "judul": "Antrean Es Krim di Puncak",
+        "caption": "Rela antre panjang di punggungan gunung bermandikan matahari pagi demi segarnya es krim legendaris puncak Andong.",
+        "alt": "Antrean pendaki di punggungan Gunung Andong menunggu giliran membeli es krim puncak",
+        "fokus": "50% 68%",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "langit-05",
+        "jenis": "video",
+        "berkas": "/video/momen_lucu.webm",
+        "judul": "Jaket di Tas & Pose Peace",
+        "caption": "Jaket pink sudah diikat manis di ransel karena matahari mulai hangat, lalu berbalik memberi pose double peace paling ceria.",
+        "alt": "Video lucu jaket merah muda diikat di ransel lalu berbalik tersenyum dengan pose dua jari",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "langit-06",
+        "jenis": "video",
+        "berkas": "/video/video_beli_eskrim.webm",
+        "judul": "Meracik Es Krim 1.726 Mdpl",
+        "caption": "Mulai dari finger heart menggemaskan sampai melihat langsung abang penjual meracik es krim tiga rasa di ketinggian puncak.",
+        "alt": "Video membeli es krim cone tiga rasa langsung di puncak Gunung Andong",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "langit-07",
+        "jenis": "foto",
+        "berkas": "/foto/langit-01.png",
+        "judul": "Slot Kenangan Langit Cerah #7",
+        "caption": "Slot tambahan siap pakai untuk koleksi foto langit cerah berikutnya.",
+        "alt": "Placeholder foto kenangan langit cerah ketujuh",
+        "ukuran": "sedang",
+        "tampil": "grid",
+        "publik": true,
+        "placeholder": true
+      },
+      {
+        "id": "langit-08",
+        "jenis": "foto",
+        "berkas": "/foto/langit-02.png",
+        "judul": "Slot Kenangan Langit Cerah #8",
+        "caption": "Slot tambahan siap pakai untuk koleksi foto langit cerah berikutnya.",
+        "alt": "Placeholder foto kenangan langit cerah kedelapan",
+        "ukuran": "sedang",
+        "tampil": "grid",
+        "publik": true,
+        "placeholder": true
+      }
+    ],
+    "narasi": [
+      "A clear view in every direction.",
+      "I thought there would be clouds below us.",
+      "Clear skies all the way.",
+      "At least we get a good view of Merbabu."
+    ]
+  },
+  {
+    "id": "sunrise",
+    "nomor": "05",
+    "nama": "Sunrise",
+    "subjudul": "First Light",
+    "elevasi": "1.726 mdpl",
+    "suasana": "Hangat & Penuh Harapan",
+    "kutipan": "The day began in colors no camera could get right.",
+    "items": [
+      {
+        "id": "sunrise-01",
+        "jenis": "foto",
+        "berkas": "/foto/foto_sunrise1.webp",
+        "judul": "Menyapa Mentari Pertama",
+        "caption": "Menatap hangatnya bola mentari pagi yang perlahan naik menembus kabut tipis di ufuk timur.",
+        "alt": "Menatap matahari terbit keemasan dari ketinggian Gunung Andong di atas lembah berkabut",
+        "fokus": "50% 62%",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "sunrise-02",
+        "jenis": "foto",
+        "berkas": "/foto/foto_sunrise2.webp",
+        "judul": "Fajar & Kerlip Lampu Lembah",
+        "caption": "Saat langit masih biru gelap menjelang fajar, kerlip lampu desa di kaki Gunung Merbabu tampak bagai taburan bintang.",
+        "alt": "Pemandangan fajar biru gelap dengan siluet Gunung Merbabu dan gemerlap lampu pemukiman di lembah bawah",
+        "fokus": "50% 60%",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      },
+      {
+        "id": "sunrise-03",
+        "jenis": "video",
+        "berkas": "/video/video_sunrise.webm",
+        "judul": "Klip Fajar: Kerlip Lembah & Semburat Jingga",
+        "caption": "Tawa hangat di tengah dinginnya subuh, saat kerlip lampu desa di lembah berpadu dengan semburat jingga pertama di balik Merbabu dan Merapi.",
+        "alt": "Video fajar biru di Gunung Andong dengan kerlip lampu lembah dan siluet Gunung Merbabu serta Merapi",
+        "ukuran": "sedang",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      }
+    ]
+  },
+  {
+    "id": "penutup",
+    "nomor": "06",
+    "nama": "Penutup",
+    "subjudul": "Before Heading Down",
+    "elevasi": "1.726 mdpl",
+    "suasana": "Haru & Hangat",
+    "kutipan": "A good hike, and good company. Until the next one.",
+    "items": [
+      {
+        "id": "penutup-01",
+        "jenis": "foto",
+        "berkas": "/foto/foto_puncak2.webp",
+        "judul": "Andong, Berdua",
+        "caption": "Satu foto kenangan manis di puncak sebelum melangkah turun bersama.",
+        "alt": "Foto kenangan penutup berdua di Sunrise Camp Gunung Andong",
+        "ukuran": "besar",
+        "tampil": "keduanya",
+        "publik": true,
+        "placeholder": false
+      }
+    ],
+    "judul": "Glad we came.",
+    "tanggal": null
+  }
+]
