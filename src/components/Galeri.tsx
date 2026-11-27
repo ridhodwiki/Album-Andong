@@ -3,8 +3,10 @@ import { motion } from "motion/react";
 import PolaroidLineCarousel, { type Slide } from "./ui/polaroid-line-carousel";
 import Lightbox from "./Lightbox";
 import { isLightMode } from "../lib/gerak";
+import { getLang, UI, type Lang } from "../lib/i18n";
 
 export type GaleriProps = {
+  babId?: string;
   slides: Slide[];
   tampil?: "carousel" | "grid" | "keduanya";
   background?: string;
@@ -17,17 +19,44 @@ const INITIAL_GRID_COUNT = 6;
 const MAX_CAROUSEL_COUNT = 20;
 
 export default function Galeri({
-  slides = [],
+  babId,
+  slides: initialSlides = [],
   tampil = "keduanya",
   background = "transparent",
   ink = "currentColor",
   string = "#8a7f72",
   ariaLabel = "Galeri Kenangan",
 }: GaleriProps) {
+  const [slides, setSlides] = React.useState<Slide[]>(initialSlides);
+  const [lang, setLang] = React.useState<Lang>("id");
   const [lightboxOpen, setLightboxOpen] = React.useState(false);
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [animated, setAnimated] = React.useState(false);
   const [expanded, setExpanded] = React.useState(false);
+
+  React.useEffect(() => {
+    setLang(getLang());
+    const onLang = (e: Event) => setLang((e as CustomEvent).detail?.lang === "en" ? "en" : "id");
+    document.addEventListener("lang-change", onLang);
+    return () => document.removeEventListener("lang-change", onLang);
+  }, []);
+
+  React.useEffect(() => {
+    if (!babId) return;
+    const applyTranslations = (translations?: Record<string, { items?: Array<{ id: string; judul?: string; caption?: string; alt?: string }> }>) => {
+      const items = translations?.[babId]?.items;
+      if (!items) return;
+      const byId = new Map(items.map((item) => [item.id, item]));
+      setSlides(initialSlides.map((s) => {
+        const t = s.id ? byId.get(s.id) : undefined;
+        return t ? { ...s, title: t.judul || t.caption || s.title, caption: t.caption || s.caption, alt: t.alt || s.alt } : s;
+      }));
+    };
+    applyTranslations((window as unknown as { __andongTranslations?: Record<string, { items?: Array<{ id: string; judul?: string; caption?: string; alt?: string }> }> }).__andongTranslations);
+    const onReady = (e: Event) => applyTranslations((e as CustomEvent).detail?.translations);
+    document.addEventListener("lang-data-ready", onReady);
+    return () => document.removeEventListener("lang-data-ready", onReady);
+  }, [babId, initialSlides]);
 
   React.useEffect(() => {
     const preference = matchMedia("(prefers-reduced-motion: reduce)");
@@ -82,7 +111,7 @@ export default function Galeri({
             className="mt-3 text-base font-mono tracking-wider opacity-100 text-center select-none"
             style={{ color: ink }}
           >
-            ← Geser tali atau gunakan panah · Klik polaroid untuk memperbesar →
+            {UI[lang].galleryHint}
           </p>
         </div>
       )}
@@ -176,8 +205,8 @@ export default function Galeri({
                 className="min-h-11 px-6 py-3 rounded-full bg-[#fbfaf7]/90 hover:bg-[#fbfaf7] text-stone-900 border border-stone-300 shadow-md hover:shadow-lg font-mono text-sm tracking-wide transition cursor-pointer"
               >
                 {expanded
-                  ? "Sembunyikan sebagian foto ↑"
-                  : `Lihat ${hiddenCount} Foto Kenangan Lainnya di Bab Ini ↓`}
+                  ? UI[lang].galleryHide
+                  : `${UI[lang].galleryShowMorePrefix}${hiddenCount}${UI[lang].galleryShowMoreSuffix}`}
               </button>
             </div>
           )}
@@ -189,6 +218,7 @@ export default function Galeri({
         isOpen={lightboxOpen}
         slides={slides}
         currentIndex={activeIndex}
+        lang={lang}
         onClose={handleClose}
         onIndexChange={setActiveIndex}
       />

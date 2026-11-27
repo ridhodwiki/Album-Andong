@@ -19,11 +19,11 @@ const imgProps = cover ? responsiveImage(cover.berkas) : null;
   className="min-h-[85vh] flex flex-col justify-between"
 >
   <div class="max-w-3xl mx-auto text-center my-auto flex flex-col items-center p-6 sm:p-10 rounded-3xl bg-slate-950 border border-amber-300/30 shadow-2xl">
-    <h3 lang="en" class="penutup-stagger font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-amber-200 tracking-tight mb-4">
+    <h3 data-i18n="penutup.judul" class="penutup-stagger font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-amber-200 tracking-tight mb-4">
       {bab.judul}
     </h3>
 
-    <p lang="en" class="penutup-stagger font-sans text-base text-amber-100 max-w-lg font-normal leading-relaxed mb-8">
+    <p data-i18n="penutup.kutipan" class="penutup-stagger font-sans text-base text-amber-100 max-w-lg font-normal leading-relaxed mb-8">
       {bab.kutipan}
     </p>
 
@@ -43,7 +43,7 @@ const imgProps = cover ? responsiveImage(cover.berkas) : null;
           style="object-position: 50% 58%;"
         />
       </div>
-      <p lang="en" class="font-serif italic text-base text-stone-900 text-center mt-3">
+      <p data-i18n="penutup.items.0.caption" class="font-serif italic text-base text-stone-900 text-center mt-3">
         {cover.caption}
       </p>
     </div>
@@ -52,7 +52,7 @@ const imgProps = cover ? responsiveImage(cover.berkas) : null;
 
     <!-- Doorway to Secret Page -->
     <div class="penutup-stagger p-6 rounded-xl bg-stone-900 border border-amber-300/30 max-w-md w-full mb-12">
-      <p class="text-base font-mono text-amber-200 uppercase tracking-widest mb-3">
+      <p data-ui="privateSectionTitle" class="text-base font-mono text-amber-200 uppercase tracking-widest mb-3">
         Halaman Khusus
       </p>
       <a
@@ -64,9 +64,9 @@ const imgProps = cover ? responsiveImage(cover.berkas) : null;
           <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
           <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
         </svg>
-        Buka Bagian Pribadi
+        <span data-ui="openPrivateBtn">Buka Bagian Pribadi</span>
       </a>
-      <span class="block text-xs text-amber-100 mt-2.5 font-mono">
+      <span data-ui="privateHint" class="block text-xs text-amber-100 mt-2.5 font-mono">
         (Khusus untuk kita berdua • Masukkan kata sandi)
       </span>
     </div>
@@ -74,15 +74,15 @@ const imgProps = cover ? responsiveImage(cover.berkas) : null;
     <!-- Authentic Project Credits (PRD §5) -->
     <footer class="w-full border-t border-white/20 pt-8 mt-4 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left text-xs font-mono text-amber-100">
       <div>
-        <span class="block text-amber-300 uppercase tracking-wider mb-1 font-semibold">Dokumentasi</span>
-        <p lang="en" class="text-amber-100 font-sans text-base">A hiking album by Ridho.</p>
+        <span data-ui="creditDoc" class="block text-amber-300 uppercase tracking-wider mb-1 font-semibold">Dokumentasi</span>
+        <p data-ui="creditDocText" class="text-amber-100 font-sans text-base">Album pendakian oleh Ridho.</p>
       </div>
       <div>
-        <span class="block text-amber-300 uppercase tracking-wider mb-1 font-semibold">Teknologi</span>
+        <span data-ui="creditTech" class="block text-amber-300 uppercase tracking-wider mb-1 font-semibold">Teknologi</span>
         <p lang="en" class="text-amber-100 font-sans text-base">Astro, React Island, Tailwind CSS, & GSAP.</p>
       </div>
       <div>
-        <span class="block text-amber-300 uppercase tracking-wider mb-1 font-semibold">Kode Sumber</span>
+        <span data-ui="creditSource" class="block text-amber-300 uppercase tracking-wider mb-1 font-semibold">Kode Sumber</span>
         <a href="https://github.com/ridhodwiki/Album-Andong" target="_blank" rel="noopener noreferrer" class="hover:underline text-amber-200 text-sm inline-block py-1">
           github.com/ridhodwiki/Album-Andong ↗
         </a>

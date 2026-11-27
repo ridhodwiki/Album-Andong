@@ -11,15 +11,15 @@ const tanggal = (bab as { tanggal?: string | null }).tanggal;
   class="relative min-h-svh w-full flex flex-col justify-between items-center text-center px-4 py-8 sm:py-12 overflow-hidden select-none bg-transparent"
 >
   <!-- Top Minimalist Meta -->
-  <div class="relative z-10 w-full max-w-5xl flex flex-col sm:flex-row justify-between sm:items-center text-xs font-mono tracking-widest text-sky-950 uppercase pt-2 sm:pt-4 pr-36 sm:pr-0 font-semibold text-left sm:text-center">
+  <div class="relative z-10 w-full max-w-5xl flex flex-col sm:flex-row justify-between sm:items-center text-xs font-mono tracking-widest text-sky-950 uppercase pt-14 sm:pt-4 font-semibold text-left sm:text-center">
     <span class="px-3 py-1 rounded-full bg-white/55 backdrop-blur-xs border border-white/70 shadow-2xs">Gunung Andong • 1.726 mdpl</span>
     <span class="hidden sm:inline px-3 py-1 rounded-full bg-white/55 backdrop-blur-xs border border-white/70 shadow-2xs">Magelang, Jawa Tengah</span>
   </div>
 
   <!-- Center Editorial Title Hero -->
   <div class="relative z-10 max-w-3xl mx-auto my-auto py-12 flex flex-col items-center">
-    <span lang="en" class="font-mono text-xs md:text-sm tracking-[0.25em] text-sky-950 uppercase mb-3 font-semibold px-3.5 py-1 rounded-full bg-white/50 backdrop-blur-xs border border-white/60">
-      Notes from a hike together
+    <span data-i18n="pembuka.subjudul" class="font-mono text-xs md:text-sm tracking-[0.25em] text-sky-950 uppercase mb-3 font-semibold px-3.5 py-1 rounded-full bg-white/50 backdrop-blur-xs border border-white/60">
+      {bab.subjudul}
     </span>
 
     <h1
@@ -30,13 +30,13 @@ const tanggal = (bab as { tanggal?: string | null }).tanggal;
       Andong, Berdua
     </h1>
 
-    <p lang="en" class="font-serif italic text-xl sm:text-2xl md:text-3xl text-sky-950 font-normal mt-4 mb-6 drop-shadow-[0_1px_10px_rgba(255,255,255,0.75)]">
+    <p data-i18n="pembuka.judul" class="font-serif italic text-xl sm:text-2xl md:text-3xl text-sky-950 font-normal mt-4 mb-6 drop-shadow-[0_1px_10px_rgba(255,255,255,0.75)]">
       {bab.judul}
     </p>
 
     <div class="backdrop-blur-md bg-white/65 px-6 py-4 rounded-xl border border-white/80 shadow-sm max-w-xl mx-auto">
-      <p lang="en" class="font-sans text-base text-slate-900 font-normal leading-relaxed">
-        "{bab.kutipan}"
+      <p data-i18n="pembuka.kutipan" class="font-sans text-base text-slate-900 font-normal leading-relaxed">
+        {bab.kutipan}
       </p>
     </div>
   </div>
@@ -45,7 +45,7 @@ const tanggal = (bab as { tanggal?: string | null }).tanggal;
 
   <!-- Bottom Scroll Cue -->
   <div class="relative z-10 flex flex-col items-center gap-2 pb-16 lg:pb-6">
-    <span class="font-mono text-xs tracking-widest text-sky-950 uppercase font-semibold px-3 py-1 rounded-full bg-white/50 backdrop-blur-xs">
+    <span data-ui="scrollCue" class="font-mono text-xs tracking-widest text-sky-950 uppercase font-semibold px-3 py-1 rounded-full bg-white/50 backdrop-blur-xs">
       Gulir Untuk Memulai
     </span>
     <div class="w-5 h-9 rounded-full border-2 border-sky-900 bg-white/40 backdrop-blur-xs flex items-start justify-center p-1" aria-hidden="true">

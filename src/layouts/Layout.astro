@@ -14,8 +14,8 @@ interface Props {
 }
 
 const {
-  title = "Andong, Berdua — Album Kenangan Pendakian",
-  description = "Album digital kenangan pendakian Gunung Andong 1.726 mdpl. Menembus dingin, menyusuri sabana, dan menyapa fajar berdua.",
+  title = "Andong, Berdua | Album Pendakian",
+  description = "Catatan dan foto pendakian Gunung Andong 1.726 mdpl lewat Basecamp Pendem.",
   image = "/foto/pembuka-hero.jpg",
   noindex = false,
 } = Astro.props;
@@ -51,7 +51,11 @@ const {
   <body class="bg-transparent text-slate-900 antialiased selection:bg-amber-400 selection:text-stone-950 min-h-screen relative">
     <!-- 3D Vanta Clouds Background (Global Deploy Look) -->
     <VantaCloudsGlobal />
-    <BahasaToggle />
+
+    <div class="fixed top-4 right-4 sm:top-5 sm:right-5 z-50 flex items-center gap-2">
+      <BahasaToggle />
+      <MusikToggle />
+    </div>
 
     <div class="fixed bottom-4 right-4 z-40">
       <a id="mode-link" href="?ringan=1" class="h-11 inline-flex items-center justify-center rounded-full bg-stone-950/90 hover:bg-stone-950 border border-white/25 px-4 text-xs font-mono font-medium leading-none text-white shadow-xl backdrop-blur-md transition">Versi ringan</a>
@@ -60,13 +64,13 @@ const {
     <!-- Accessible Skip to Content -->
     <a
       href="#konten-utama"
+      data-ui="skipToMain"
       class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-amber-400 focus:text-stone-900 focus:rounded-md focus:font-medium"
     >
       Lewati ke konten utama
     </a>
 
     <!-- Global Floating Mountain Elements -->
-    <MusikToggle />
     {Astro.url.pathname === "/" && <><RelKetinggian /><TitikBab /></>}
 
     <main id="konten-utama" class="relative z-10">
@@ -75,13 +79,24 @@ const {
 
     <script>
       import { isLightMode } from "../lib/gerak";
+      import { applyUiLang, getLang, UI, type Lang } from "../lib/i18n";
 
       // I18n Logic
-      const STORAGE_KEY = "andong-lang";
-      let currentLang = localStorage.getItem(STORAGE_KEY) || "id";
+      let currentLang: Lang = getLang();
       let translations: Record<string, any> = {};
 
-      async function loadTranslations(lang: string) {
+      function syncModeLink() {
+        const calm = isLightMode();
+        const link = document.getElementById("mode-link") as HTMLAnchorElement | null;
+        if (link) {
+          link.href = calm ? "?ringan=0" : "?ringan=1";
+          link.textContent = calm ? UI[currentLang].normalMode : UI[currentLang].lightMode;
+        }
+      }
+
+      async function loadTranslations(lang: Lang) {
+        applyUiLang(lang);
+        syncModeLink();
         try {
           const res = await fetch(`/data/media.${lang}.json`);
           const data = await res.json();
@@ -96,14 +111,15 @@ const {
       }
 
       function updateUI() {
+        (window as any).__andongTranslations = translations;
         document.querySelectorAll("[data-i18n]").forEach((el) => {
-          const [babId, key, index] = (el as HTMLElement).dataset.i18n?.split(".") || [];
-          if (!babId || !translations[babId]) return;
-
-          let val = translations[babId][key];
-          if (index !== undefined && Array.isArray(val)) val = val[parseInt(index)];
-
-          if (val) el.textContent = val;
+          const parts = (el as HTMLElement).dataset.i18n?.split(".") || [];
+          let val: any = translations;
+          for (const part of parts) {
+            if (val == null) break;
+            val = Array.isArray(val) ? val[parseInt(part, 10)] : val[part];
+          }
+          if (typeof val === "string") el.textContent = val;
         });
 
         // Update items in galleries (handled by React)
@@ -111,7 +127,7 @@ const {
       }
 
       document.addEventListener("lang-change", (e: any) => {
-        currentLang = e.detail.lang;
+        currentLang = e.detail?.lang === "en" ? "en" : "id";
         void loadTranslations(currentLang);
       });
 
@@ -125,8 +141,7 @@ const {
         const calm = isLightMode();
         document.documentElement.dataset.ringan = String(calm);
         document.documentElement.dataset.motion = calm ? "calm" : "full";
-        const link = document.getElementById("mode-link") as HTMLAnchorElement | null;
-        if (link) { link.href = calm ? "?ringan=0" : "?ringan=1"; link.textContent = calm ? "Versi normal" : "Versi ringan"; }
+        syncModeLink();
         if (calm || dispose || loading || !document.getElementById("pembuka")) return;
         loading = true;
         try { const { initScroll } = await import("../lib/scroll"); if (!isLightMode()) dispose = initScroll(); }

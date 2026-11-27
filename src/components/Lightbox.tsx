@@ -1,12 +1,14 @@
 import * as React from "react";
 import { motion } from "motion/react";
 import { isLightMode } from "../lib/gerak";
+import { UI, type Lang } from "../lib/i18n";
 import type { Slide } from "./ui/polaroid-line-carousel";
 
 export type LightboxProps = {
   isOpen: boolean;
   slides: Slide[];
   currentIndex: number;
+  lang?: Lang;
   onClose: () => void;
   onIndexChange: (index: number) => void;
 };
@@ -15,6 +17,7 @@ export default function Lightbox({
   isOpen,
   slides,
   currentIndex,
+  lang = "id",
   onClose,
   onIndexChange,
 }: LightboxProps) {
@@ -100,18 +103,18 @@ export default function Lightbox({
       }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      aria-label="Penampil Foto Layar Penuh"
+      aria-label={UI[lang].lightboxAria}
     >
       {/* Top Header Controls */}
       <div className="flex items-center justify-between px-6 py-5 z-10">
         <span className="font-mono text-xs uppercase tracking-widest text-white/80">
-          Foto {currentIndex + 1} / {n}
+          {UI[lang].lightboxPhoto} {currentIndex + 1} / {n}
         </span>
         <button
           type="button"
           onClick={onClose}
           className="rounded-full w-11 h-11 flex items-center justify-center bg-white/15 hover:bg-white/25 transition text-white outline-none focus-visible:ring-2 focus-visible:ring-amber-300 cursor-pointer"
-          aria-label="Tutup penampil foto"
+          aria-label={UI[lang].lightboxClose}
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -133,7 +136,7 @@ export default function Lightbox({
             type="button"
             onClick={prev}
             className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-black/65 hover:bg-black/85 backdrop-blur-xs text-white transition z-10 focus-visible:ring-2 focus-visible:ring-amber-300 cursor-pointer"
-            aria-label="Foto sebelumnya"
+            aria-label={UI[lang].lightboxPrev}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="15 18 9 12 15 6"></polyline>
@@ -182,7 +185,7 @@ export default function Lightbox({
             type="button"
             onClick={next}
             className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-black/65 hover:bg-black/85 backdrop-blur-xs text-white transition z-10 focus-visible:ring-2 focus-visible:ring-amber-300 cursor-pointer"
-            aria-label="Foto berikutnya"
+            aria-label={UI[lang].lightboxNext}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="9 18 15 12 9 6"></polyline>

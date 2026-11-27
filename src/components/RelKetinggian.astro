@@ -14,7 +14,7 @@ const { basecampMdpl = 1300, puncakMdpl = 1726 } = Astro.props;
   aria-hidden="true"
 >
   <div class="flex flex-col items-center text-xs tracking-widest font-mono text-amber-100 uppercase">
-    <span>Puncak</span>
+    <span data-ui="summitLabel">Puncak</span>
     <span class="font-bold text-amber-200">{puncakMdpl} m</span>
   </div>
 
@@ -48,6 +48,7 @@ const { basecampMdpl = 1300, puncakMdpl = 1726 } = Astro.props;
   class="fixed bottom-4 left-4 z-40 lg:hidden h-11 px-4 rounded-full bg-stone-950/90 border border-white/25 inline-flex items-center gap-2 shadow-xl backdrop-blur-md select-none"
   data-base={basecampMdpl}
   data-summit={puncakMdpl}
+  data-ui-aria="elevationAria"
   aria-label="Indikator Ketinggian Pendakian"
 >
   <span class="w-2 h-2 rounded-full bg-amber-400 shrink-0" aria-hidden="true"></span>

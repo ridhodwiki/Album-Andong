@@ -1,17 +1,18 @@
 ---
 const babList = [
-  { id: "pembuka", label: "00. Pembuka" },
-  { id: "sabana", label: "01. Sabana" },
-  { id: "tanpa-dokumentasi", label: "02. Jalur Gelap" },
-  { id: "puncak", label: "03. Puncak" },
-  { id: "langit-cerah", label: "04. Langit Cerah" },
-  { id: "sunrise", label: "05. Sunrise" },
-  { id: "penutup", label: "06. Penutup" },
+  { id: "pembuka", label: "00. Pembuka", uiKey: "navPembuka" },
+  { id: "sabana", label: "01. Sabana", uiKey: "navSabana" },
+  { id: "tanpa-dokumentasi", label: "02. Jalur Gelap", uiKey: "navTanpaDok" },
+  { id: "puncak", label: "03. Puncak", uiKey: "navPuncak" },
+  { id: "langit-cerah", label: "04. Langit Cerah", uiKey: "navLangit" },
+  { id: "sunrise", label: "05. Sunrise", uiKey: "navSunrise" },
+  { id: "penutup", label: "06. Penutup", uiKey: "navPenutup" },
 ];
 ---
 
 <nav
   class="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col items-end gap-3 select-none"
+  data-ui-aria="chapterNavAria"
   aria-label="Daftar Bab Pendakian"
 >
   {babList.map((bab) => (
@@ -19,9 +20,10 @@ const babList = [
       href={`#${bab.id}`}
       class="nav-dot-item group flex items-center gap-2.5 py-1 px-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 rounded"
       data-target={bab.id}
+      data-ui-aria={bab.uiKey}
       aria-label={bab.label}
     >
-      <span aria-hidden="true" class="text-xs font-sans font-medium px-2 py-0.5 rounded bg-stone-950/90 text-amber-100 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-all duration-200 tracking-wide translate-x-1 group-hover:translate-x-0">
+      <span aria-hidden="true" data-ui={bab.uiKey} class="text-xs font-sans font-medium px-2 py-0.5 rounded bg-stone-950/90 text-amber-100 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-all duration-200 tracking-wide translate-x-1 group-hover:translate-x-0">
         {bab.label}
       </span>
       <span class="dot-indicator w-3 h-3 rounded-full bg-stone-950/70 border border-amber-200/80 transition-all duration-300 group-hover:scale-125 group-hover:bg-amber-300"></span>

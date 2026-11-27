@@ -3,13 +3,14 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Untuk Kamu — Bagian Pribadi" noindex={true}>
-  <div class="min-h-screen w-full flex flex-col items-center justify-center px-4 py-16 relative bg-[#1E1B4B] text-[#FEF3C7]">
+  <div class="min-h-screen w-full flex flex-col items-center justify-center px-4 pt-32 sm:pt-20 pb-16 relative bg-[#1E1B4B] text-[#FEF3C7]">
     
     <!-- Top Back Navigation -->
-    <div class="fixed top-6 left-6 z-50">
+    <div class="fixed top-[4.5rem] left-4 sm:top-5 sm:left-6 z-40">
       <a
         href="/"
-        class="inline-flex items-center gap-2 text-xs font-mono text-amber-200/80 hover:text-amber-100 transition px-3 py-1.5 rounded-full bg-black/40 border border-white/10 backdrop-blur-sm"
+        data-ui="backToAlbum"
+        class="min-h-11 inline-flex items-center gap-2 text-xs font-mono text-amber-200/80 hover:text-amber-100 transition px-3.5 py-2 rounded-full bg-black/40 border border-white/10 backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
       >
         ← Kembali ke Album Publik
       </a>
@@ -18,29 +19,31 @@ import Layout from "../layouts/Layout.astro";
     <!-- 1. Password Prompt Box (Active before unlocking) -->
     <div id="kotak-kunci" class="w-full max-w-md mx-auto p-8 rounded-2xl bg-black/40 border border-amber-300/20 backdrop-blur-md shadow-2xl text-center">
       <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-300">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
           <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
         </svg>
       </div>
 
-      <h1 class="font-serif text-2xl sm:text-3xl font-normal text-amber-200 tracking-tight mb-2">
+      <h1 data-ui="privateSectionTitle" class="font-serif text-2xl sm:text-3xl font-normal text-amber-200 tracking-tight mb-2">
         Halaman Khusus
       </h1>
 
-      <p class="font-sans text-xs sm:text-sm text-amber-100/70 font-light mb-6">
-        Bagian ini memuat foto dan pesan pribadi yang dienkripsi langsung di browser. Masukkan kata sandi rahasia untuk membuka.
+      <p data-ui="secretDesc" class="font-sans text-xs sm:text-sm text-amber-100/70 font-light mb-6">
+        Bagian ini berisi foto dan pesan pribadi yang dienkripsi di browser. Masukkan kata sandi untuk membuka.
       </p>
 
       <form id="form-sandi" class="space-y-4 text-left">
         <div>
-          <label for="input-sandi" class="block text-xs font-mono text-amber-200/90 uppercase tracking-wider mb-2">
+          <label for="input-sandi" data-ui="secretPassLabel" class="block text-xs font-mono text-amber-200/90 uppercase tracking-wider mb-2">
             Kata Sandi Rahasia
           </label>
           <input
             type="password"
             id="input-sandi"
             required
+            aria-describedby="pesan-error"
+            data-ui-placeholder="secretPassPlaceholder"
             placeholder="Masukkan kata sandi..."
             class="w-full px-4 py-3 rounded-lg bg-black/60 border border-white/20 text-white placeholder-white/30 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-amber-300 transition"
           />
@@ -49,13 +52,13 @@ import Layout from "../layouts/Layout.astro";
         <button
           type="submit"
           id="btn-buka"
-          class="w-full py-3 px-4 rounded-lg bg-amber-400 hover:bg-amber-300 text-stone-950 font-sans font-medium text-sm transition duration-200 shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-100 flex items-center justify-center gap-2"
+          class="min-h-11 w-full py-3 px-4 rounded-lg bg-amber-400 hover:bg-amber-300 text-stone-950 font-sans font-medium text-sm transition duration-200 shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-100 flex items-center justify-center gap-2 cursor-pointer"
         >
-          <span>Buka Kenangan</span>
+          <span data-ui="secretOpenBtn">Buka Kenangan</span>
         </button>
 
-        <p id="pesan-error" class="hidden text-xs text-rose-300 text-center font-sans mt-2" aria-live="polite">
-          Kata sandi belum pas. Silakan coba lagi.
+        <p id="pesan-error" data-ui="secretError" class="hidden text-xs text-rose-300 text-center font-sans mt-2" aria-live="polite">
+          Kata sandi belum pas. Coba lagi.
         </p>
 
       </form>
@@ -64,10 +67,10 @@ import Layout from "../layouts/Layout.astro";
     <!-- 2. Unlocked Secret Content (Hidden initially) -->
     <div id="konten-rahasia" class="hidden w-full max-w-4xl mx-auto my-auto flex flex-col items-center py-10 space-y-12 animate-fade-in">
       <header class="text-center max-w-2xl mx-auto">
-        <span class="inline-block font-mono text-xs uppercase tracking-widest text-amber-300 mb-2">
+        <span data-ui="secretLetterTag" class="inline-block font-mono text-xs uppercase tracking-widest text-amber-300 mb-2">
           Surat Terbuka • Gunung Andong
         </span>
-        <h2 class="font-serif text-4xl sm:text-5xl font-normal text-amber-100 tracking-tight mb-4">
+        <h2 data-ui="secretLetterHeading" class="font-serif text-4xl sm:text-5xl font-normal text-amber-100 tracking-tight mb-4">
           Untuk Kamu,
         </h2>
       </header>
@@ -86,7 +89,7 @@ import Layout from "../layouts/Layout.astro";
 
       <!-- Private Polaroid Gallery -->
       <section class="w-full">
-        <h3 class="font-serif text-2xl text-center text-amber-200 mb-8 font-normal">
+        <h3 data-ui="secretPrivateMoments" class="font-serif text-2xl text-center text-amber-200 mb-8 font-normal">
           Momen di Luar Rekaman Publik
         </h3>
         <div id="galeri-pribadi" class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
@@ -104,6 +107,7 @@ import Layout from "../layouts/Layout.astro";
 
   <script>
     import { dekripsi } from "../lib/kripto";
+    import { getLang, UI } from "../lib/i18n";
 
     const form = document.getElementById("form-sandi") as HTMLFormElement | null;
     const inputSandi = document.getElementById("input-sandi") as HTMLInputElement | null;
@@ -127,7 +131,7 @@ import Layout from "../layouts/Layout.astro";
 
       pesanError?.classList.add("hidden");
       btnBuka.disabled = true;
-      btnBuka.innerHTML = `<span>Membuka...</span>`;
+      btnBuka.innerHTML = `<span data-ui="secretOpeningBtn">${UI[getLang()].secretOpeningBtn}</span>`;
 
       try {
         const response = await fetch("/rahasia.bin");
@@ -168,7 +172,7 @@ import Layout from "../layouts/Layout.astro";
         }
       } finally {
         btnBuka.disabled = false;
-        btnBuka.innerHTML = `<span>Buka Kenangan</span>`;
+        btnBuka.innerHTML = `<span data-ui="secretOpenBtn">${UI[getLang()].secretOpenBtn}</span>`;
       }
     });
   </script>

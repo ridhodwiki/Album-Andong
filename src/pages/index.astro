@@ -13,6 +13,7 @@ import { responsiveImage } from "../lib/media";
 
 // Map slides per chapter
 interface MediaItemRaw {
+  id?: string;
   jenis: string;
   berkas: string;
   poster?: string;
@@ -30,6 +31,7 @@ const getSlidesForBab = (babId: string) => {
     if (item.jenis === "video") {
       const posterImg = item.poster ? responsiveImage(item.poster) : undefined;
       return {
+        id: item.id,
         jenis: "video" as const,
         videoSrc: item.berkas,
         image: posterImg?.image,
@@ -44,6 +46,7 @@ const getSlidesForBab = (babId: string) => {
       };
     }
     return {
+      id: item.id,
       jenis: "foto" as const,
       ...responsiveImage(item.berkas),
       tampil: (item.tampil as "carousel" | "grid" | "keduanya") || "keduanya",

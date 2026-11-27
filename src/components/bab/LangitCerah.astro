@@ -48,7 +48,7 @@ const bab = mediaData.find(b => b.id === "langit-cerah")!;
   </div>
 
   <div class="relative z-10 w-full flex flex-col items-center">
-    <blockquote lang="en" class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-10 font-light">{bab.kutipan}</blockquote>
+    <blockquote data-i18n="langit-cerah.kutipan" class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-10 font-light">{bab.kutipan}</blockquote>
 
     <!-- Horizon Silhouette Panorama Card -->
     <div class="w-full max-w-3xl mx-auto mb-12 p-5 rounded-xl bg-white/85 border border-sky-900/20 shadow-sm text-center">
@@ -56,33 +56,33 @@ const bab = mediaData.find(b => b.id === "langit-cerah")!;
         <div class="flex flex-col items-center">
           <span class="w-8 h-8 rounded-full bg-sky-200 mb-1" aria-hidden="true"></span>
           <span class="text-xs font-mono text-slate-900 font-semibold">G. Telomoyo</span>
-          <span class="text-xs font-mono text-slate-700">Utara</span>
+          <span data-ui="dirNorth" class="text-xs font-mono text-slate-700">Utara</span>
         </div>
         <div class="flex flex-col items-center">
           <span class="w-10 h-10 rounded-full bg-sky-300 mb-1" aria-hidden="true"></span>
           <span class="text-xs font-mono text-slate-950 font-bold">G. Merbabu 3.145 mdpl</span>
-          <span class="text-xs font-mono text-slate-700">Selatan</span>
+          <span data-ui="dirSouth" class="text-xs font-mono text-slate-700">Selatan</span>
         </div>
         <div class="flex flex-col items-center">
           <span class="w-9 h-9 rounded-full bg-sky-200 mb-1" aria-hidden="true"></span>
           <span class="text-xs font-mono text-slate-900 font-semibold">G. Merapi</span>
-          <span class="text-xs font-mono text-slate-700">Tenggara</span>
+          <span data-ui="dirSoutheast" class="text-xs font-mono text-slate-700">Tenggara</span>
         </div>
       </div>
-      <p lang="en" class="text-base text-slate-900 font-sans mt-3 font-normal">
+      <p data-i18n="langit-cerah.narasi.0" class="text-base text-slate-900 font-sans mt-3 font-normal">
         {bab.narasi?.[0]}
       </p>
     </div>
 
     <!-- Authentic Field Conversation Quote Card -->
     <div class="w-full max-w-2xl mx-auto mb-10 p-5 rounded-lg bg-white/85 border border-sky-900/20 shadow-xs text-slate-900 space-y-2">
-      <p lang="en" class="font-serif italic text-base text-slate-900">
+      <p data-i18n="langit-cerah.narasi.1" class="font-serif italic text-base text-slate-900">
         {bab.narasi?.[1]}
       </p>
-      <p lang="en" class="font-serif italic text-base text-sky-950 font-medium">
+      <p data-i18n="langit-cerah.narasi.2" class="font-serif italic text-base text-sky-950 font-medium">
         {bab.narasi?.[2]}
       </p>
-      <p lang="en" class="font-serif italic text-base text-slate-900">
+      <p data-i18n="langit-cerah.narasi.3" class="font-serif italic text-base text-slate-900">
         {bab.narasi?.[3]}
       </p>
     </div>
@@ -90,6 +90,7 @@ const bab = mediaData.find(b => b.id === "langit-cerah")!;
     <!-- Interactive React Island Galeri -->
     <Galeri
       client:visible
+      babId="langit-cerah"
       slides={slides}
       tampil="keduanya"
       background="transparent"

@@ -25,35 +25,35 @@ const bab = mediaData.find(b => b.id === "tanpa-dokumentasi")!;
         <circle id="tanpa-dok-dot" cx="190" cy="5" r="4" fill="currentColor" />
       </svg>
       <div class="flex justify-between text-xs font-mono tracking-wider text-stone-200 mt-2">
-        <span>Tanjakan Terjal</span>
-        <span>Menjelang Punggung</span>
+        <span data-ui="steepClimb">Tanjakan Terjal</span>
+        <span data-ui="nearRidge">Menjelang Punggung</span>
       </div>
     </div>
 
     <!-- Bold Honest Typographic Narrative -->
     <div class="space-y-4">
-      <p lang="en" class="tanpa-dok-line font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[#F4F1E8] tracking-tight leading-tight data-muncul">
+      <p data-i18n="tanpa-dokumentasi.narasi.0" class="tanpa-dok-line font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[#F4F1E8] tracking-tight leading-tight data-muncul">
         {bab.narasi?.[0]}
       </p>
-      <p lang="en" class="tanpa-dok-line font-serif text-2xl sm:text-3xl md:text-4xl font-light text-stone-200 leading-snug data-muncul">
+      <p data-i18n="tanpa-dokumentasi.narasi.1" class="tanpa-dok-line font-serif text-2xl sm:text-3xl md:text-4xl font-light text-stone-200 leading-snug data-muncul">
         {bab.narasi?.[1]}
       </p>
-      <p lang="en" class="tanpa-dok-line font-serif italic text-xl sm:text-2xl md:text-3xl text-[#E8C872] font-light mt-4 data-muncul">
+      <p data-i18n="tanpa-dokumentasi.narasi.2" class="tanpa-dok-line font-serif italic text-xl sm:text-2xl md:text-3xl text-[#E8C872] font-light mt-4 data-muncul">
         {bab.narasi?.[2]}
       </p>
     </div>
 
-    <p lang="en" class="tanpa-dok-line font-sans text-base text-stone-200 max-w-md font-normal leading-relaxed mt-4">
+    <p data-i18n="tanpa-dokumentasi.narasi.3" class="tanpa-dok-line font-sans text-base text-stone-200 max-w-md font-normal leading-relaxed mt-4">
       {bab.narasi?.[3]}
     </p>
 
     <div class="mt-6 flex flex-wrap justify-center items-center gap-4 text-xs font-mono text-stone-200">
       <span class="flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-[#E8C872]"></span>
-        Status: Saling berpegang jaket
+        <span data-ui="statusJacket">Status: Saling berpegang jaket</span>
       </span>
       <span aria-hidden="true">•</span>
-      <span>Jarak: 2,4 km</span>
+      <span data-ui="distanceLabel">Jarak: 2,4 km</span>
     </div>
   </div>
 </Bab>

@@ -18,8 +18,8 @@ describe("media.json sesuai PRD terbaru (Sunrise)", () => {
     const bab5 = mediaData.find((b) => b.nomor === "05");
     expect(bab5?.id).toBe("sunrise");
     expect(bab5?.nama).toBe("Sunrise");
-    expect(bab5?.subjudul).toBe("First Light");
-    expect(bab5?.kutipan).toBe("The day began in colors no camera could get right.");
+    expect(bab5?.subjudul).toBe("Cahaya Pertama");
+    expect(bab5?.kutipan).toBe("Warna pagi yang susah ditangkap persis oleh kamera.");
   });
 
   it("tidak mengandung kata sunset atau senja di seluruh media.json", () => {

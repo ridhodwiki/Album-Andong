@@ -31,7 +31,12 @@ const {
     {(nomor || nama || subjudul) && (
       <header class="text-center max-w-2xl mx-auto mb-10 md:mb-14 data-muncul">
         {nomor && (
-          <span data-i18n={`${id}.bab`} class="inline-block font-mono text-xs uppercase tracking-widest text-[var(--teks)] mb-2 font-semibold px-3.5 py-1 rounded-full border border-[var(--border-subtle)]">
+          <span
+            data-bab-badge
+            data-bab-nomor={nomor}
+            data-bab-elevasi={elevasi || ""}
+            class="inline-block font-mono text-xs uppercase tracking-widest text-[var(--teks)] mb-2 font-semibold px-3.5 py-1 rounded-full border border-[var(--border-subtle)]"
+          >
             Bab {nomor} {elevasi ? `• ${elevasi}` : ""}
           </span>
         )}

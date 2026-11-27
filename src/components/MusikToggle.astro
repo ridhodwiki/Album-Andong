@@ -6,7 +6,7 @@ interface Props {
 const { audioSrc = "/audio/musik.mp3" } = Astro.props;
 ---
 
-<div class="fixed top-5 right-5 z-50">
+<div class="relative">
   <button
     id="btn-musik-toggle"
     type="button"
@@ -28,7 +28,10 @@ const { audioSrc = "/audio/musik.mp3" } = Astro.props;
 </div>
 
 <script>
+  import { getLang, UI, type Lang } from "../lib/i18n";
+
   let isPlaying = false;
+  let currentLang: Lang = getLang();
   let audioCtx: AudioContext | null = null;
   let noiseNode: AudioNode | null = null;
 
@@ -36,6 +39,16 @@ const { audioSrc = "/audio/musik.mp3" } = Astro.props;
   const audio = document.getElementById("audio-latar") as HTMLAudioElement | null;
   const label = document.getElementById("musik-label");
   const bars = document.querySelectorAll(".eq-bar");
+
+  function syncLabel() {
+    if (label) label.textContent = isPlaying ? UI[currentLang].soundOn : UI[currentLang].soundOff;
+  }
+
+  document.addEventListener("lang-change", (e: Event) => {
+    currentLang = (e as CustomEvent).detail?.lang === "en" ? "en" : "id";
+    syncLabel();
+  });
+  syncLabel();
 
   // Fallback gentle procedural mountain wind tone via Web Audio API if mp3 file is absent
   function startProceduralWind() {
@@ -96,7 +109,7 @@ const { audioSrc = "/audio/musik.mp3" } = Astro.props;
     btn?.setAttribute("aria-pressed", isPlaying ? "true" : "false");
 
     if (isPlaying) {
-      if (label) label.textContent = "Suara Aktif";
+      syncLabel();
       bars.forEach((b, i) => {
         b.classList.add("animate-pulse");
         (b as HTMLElement).style.animationDuration = `${0.6 + i * 0.25}s`;
@@ -111,7 +124,7 @@ const { audioSrc = "/audio/musik.mp3" } = Astro.props;
         startProceduralWind();
       }
     } else {
-      if (label) label.textContent = "Suara Alam";
+      syncLabel();
       bars.forEach((b) => b.classList.remove("animate-pulse"));
 
       if (audio) {
