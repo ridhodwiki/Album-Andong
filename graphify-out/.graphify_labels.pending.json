@@ -1,0 +1,16 @@
+{
+  "0": "Tech stack (Astro 5, React 19, Tailwind v4, Playfair/DM Sans, Vitest, Playwright)",
+  "1": "Polaroid Line Carousel & asymmetric grid",
+  "2": "Astro dev server background mode commands",
+  "3": "Astro official documentation guides",
+  "4": "prefers-reduced-motion fallback (pure fade)",
+  "5": "WCAG AA 4.5:1 minimum text contrast",
+  "6": "Andong, Berdua album overview (Basecamp Pendem 1.300 mdpl to Puncak 1.726 mdpl)",
+  "7": "Accessible fullscreen Lightbox with caption and touch navigation",
+  "8": "Visual Identity & Atmosphere (warm analog cinematic, 35mm film memory album)",
+  "9": "robots.txt and noindex privacy protection",
+  "51": "Layout.astro",
+  "124": "Motion Guidelines (Lenis smooth scroll synchronized with GSAP ScrollTrigger)",
+  "125": "Andong, Berdua product summary (Gunung Andong 1.726 mdpl)",
+  "134": "Typography system (Playfair Display Variable, DM Sans Variable, tabular-nums)"
+}

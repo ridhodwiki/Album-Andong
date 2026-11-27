@@ -39,7 +39,7 @@ export default function Galeri({
 
   React.useEffect(() => {
     document.dispatchEvent(new Event("galeri-ready"));
-  }, [animated, expanded]);
+  }, []);
 
   const handleOpen = (_: Slide, index: number) => {
     setActiveIndex(index);

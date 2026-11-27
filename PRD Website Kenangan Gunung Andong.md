@@ -13,7 +13,7 @@ Website ini adalah album digital imersif yang mengubah sekitar 80 foto dan video
 | Pembuat | Ridho |
 | Audiens | Publik, teman, dan pacar Ridho |
 | Isi media | Sekitar 80 item: foto dan video |
-| Bahasa | Indonesia |
+| Bahasa | Antarmuka dan teks panduan: Indonesia. Caption dan quote: Inggris |
 | Status | Tahap perencanaan |
 
 **Masalah yang diselesaikan.** Album di galeri HP sulit dinikmati dan tidak punya cerita. Dokumentasinya juga hanya ada di momen tertentu, yaitu puncak, sabana, langit cerah, dan sunrise, tanpa footage tracking, sehingga galeri kronologis biasa akan terasa bolong.
@@ -27,7 +27,7 @@ Tujuan utamanya adalah membuat kenangan pendakian terasa seperti pengalaman yang
 **Tujuan**
 
 1. Menyajikan seluruh media terbaik dalam empat bab bertema tempat dan satu bagian pribadi.
-2. Memberi kesan sinematik lewat animasi scroll dan elemen 3D ringan.
+2. Memberi kesan sinematik lewat animasi scroll, video pendek, dan efek cahaya ringan.
 3. Tetap ringan dan lancar di HP kelas menengah dengan koneksi seluler biasa.
 4. Menjaga privasi: tanpa data lokasi (GPS) di file publik dan dengan persetujuan pacar atas foto yang tampil.
 5. Menjadi proyek portofolio GitHub yang rapi dan terdokumentasi.
@@ -63,7 +63,7 @@ Ada tiga kelompok pengunjung, dan masing-masing membuka website dengan tujuan se
 **Skenario penggunaan**
 
 1. **Dibuka dari tautan di HP.** Pengunjung masuk, melihat layar pembuka dengan judul dan satu video latar. Mereka scroll ke bawah dan bab demi bab muncul. Mereka mengetuk foto untuk memperbesar, lalu menggeser ke foto berikutnya.
-2. **Dibuka di laptop.** Pengunjung mendapat animasi penuh: smooth scroll, efek cahaya 3D di bab langit cerah, dan musik latar yang bisa dinyalakan.
+2. **Dibuka di laptop.** Pengunjung mendapat animasi penuh: smooth scroll, efek cahaya di bab langit cerah, dan musik latar yang bisa dinyalakan.
 3. **Pacar membuka bagian pribadi.** Di akhir halaman ada tombol menuju bagian rahasia. Setelah memasukkan kata sandi, ia melihat pesan pribadi dan foto yang tidak tampil di versi publik.
 4. **Pengunjung dengan koneksi lambat atau pengaturan hemat gerak.** Website tetap terbaca: video diganti gambar poster, animasi berat dimatikan, teks dan foto tetap tampil.
 
@@ -81,16 +81,16 @@ Konsepnya "kenangan per tempat": setiap bab adalah satu tempat atau suasana, dis
 
 **Urutan emosional yang diusulkan**
 
-1. **Pembuka**: judul, video latar pendek, ajakan untuk scroll.
+1. **Pembuka**: judul, video pendek (atau foto panorama), ajakan untuk scroll.
 2. **Sabana**: hangat dan santai, foto berdua, suasana lega setelah menanjak.
-3. **Puncak**: pencapaian, foto "akhirnya sampai", pemandangan puncak.
-4. **Langit cerah**: bab utama dan paling dramatis dengan pemandangan terbuka yang lapang.
-5. **Sunrise**: nuansa fajar hangat dari terang emas ke biru muda, menutup dengan tenang dan penuh harapan.
+3. **Puncak**: pencapaian, foto "we made it", dan foto panorama dari atas.
+4. **Langit Cerah**: bab pemandangan paling luas. Hari itu tidak ada lautan awan, dan justru itu yang diceritakan.
+5. **Sunrise**: dari gelap ke terang, nuansa hangat dan penuh harapan, menutup dengan tenang.
 6. **Penutup dan bagian pribadi**: ucapan terima kasih dan pintu ke halaman rahasia.
 
-**Nada tulisan.** Santai, jujur, sedikit humor, memakai bahasa Indonesia sehari-hari. Caption pendek, satu sampai dua kalimat, dan menyebut perasaan nyata, bukan deskripsi foto. Contoh gaya: "Lima menit setelah aku bilang mau menyerah."
+**Nada tulisan.** Santai, jujur, sedikit humor. Caption dan quote ditulis dalam bahasa Inggris yang sederhana dan natural, bukan puitis berlebihan, supaya tidak terkesan lebay. Judul bab dan label antarmuka tetap berbahasa Indonesia. Caption pendek, satu sampai dua kalimat, dan menyebut perasaan nyata, bukan deskripsi foto. Contoh gaya: "Five minutes after I said I wanted to give up."
 
-**Bagian "yang tidak terdokumentasi".** Satu section singkat di antara sabana dan puncak berlatar gelap dengan teks seperti "Bagian ini tidak ada dokumentasinya karena kami terlalu capek." Ini mengisi celah tanpa footage dan menambah karakter.
+**Bagian "yang tidak terdokumentasi".** Satu section singkat di antara sabana dan puncak berlatar gelap dengan teks seperti "No footage of this part. We were too tired." Ini mengisi celah tanpa footage dan menambah karakter.
 
 **Aturan konten**
 
@@ -104,28 +104,28 @@ Halaman publik berupa satu halaman panjang berisi enam bagian berurutan, ditamba
 
 | No | Bagian | Isi media | Animasi utama | Suasana |
 | --- | --- | --- | --- | --- |
-| 0 | Pembuka (hero) | 1 video pendek, judul | Judul muncul huruf per huruf, video latar, ikon scroll berdenyut | Tenang, penasaran |
+| 0 | Pembuka (hero) | 1 video pendek (atau foto panorama), judul | Judul muncul huruf per huruf, video latar, ikon scroll berdenyut | Tenang, penasaran |
 | 1 | Sabana | 15 sampai 20 foto | Parallax rumput, foto muncul bergantian saat scroll | Hangat, segar |
 | 2 | Bagian tak terdokumentasi | Teks saja | Layar gelap, teks muncul perlahan | Lucu, jujur |
-| 3 | Puncak | 12 sampai 18 foto, 1 sampai 2 video | Video layar penuh, angka ketinggian naik | Bangga, lega |
-| 4 | Langit cerah | 15 sampai 22 foto, 1 sampai 2 video | Efek cahaya/suasana cerah di belakang galeri, foto melayang | Cerah, lapang, megah |
-| 5 | Sunrise | 12 sampai 18 foto, 1 video | Warna latar berubah dari oranye keemasan ke biru muda | Hangat, penuh harapan |
+| 3 | Puncak | 12 sampai 18 foto | Foto panorama layar penuh, angka ketinggian naik | Bangga, lega |
+| 4 | Langit Cerah | 15 sampai 22 foto | Sinar matahari dan kilau lensa ringan di belakang galeri, foto melayang pelan | Luas, terang, lega |
+| 5 | Sunrise | 12 sampai 18 foto | Warna latar berubah dari indigo ke merah muda ke emas | Hening lalu hangat, penuh harapan |
 | 6 | Penutup | Teks, satu foto pilihan | Fade-out, tombol menuju bagian pribadi | Haru, hangat |
 | P | Bagian pribadi (halaman terpisah) | Foto dan pesan khusus | Kata sandi, pesan muncul bertahap | Intim |
 
 **Detail per bagian**
 
-**0. Pembuka.** Berisi judul, subjudul satu kalimat, tanggal pendakian, dan tombol untuk menyalakan musik. Video latar tanpa suara, berulang, dengan gambar poster sebagai cadangan. Tidak ada menu rumit; navigasi cukup berupa titik penunjuk bab di sisi layar.
+**0. Pembuka.** Berisi judul, subjudul satu kalimat, tanggal pendakian, dan tombol untuk menyalakan musik. Latar berupa video pendek tanpa suara dan berulang, dengan gambar poster sebagai cadangan; jika tidak ada video yang cocok, pakai foto panorama dengan gerak zoom pelan. Tidak ada menu rumit; navigasi cukup berupa titik penunjuk bab di sisi layar.
 
 **1. Sabana.** Galeri utama berupa polaroid line carousel dengan 6 sampai 8 foto, dilengkapi grid tidak simetris (masonry) sebagai pelengkap. Klik foto membuka lightbox dengan caption. Latar memakai gradien hijau lembut. Tiga atau empat foto terbaik dibuat lebih besar sebagai penekanan.
 
 **2. Bagian tak terdokumentasi.** Satu layar penuh berlatar gelap. Teks humor tampil per baris saat di-scroll. Berfungsi sebagai jeda sebelum puncak dan sebagai garis jalur ilustrasi yang menanjak.
 
-**3. Puncak.** Video mengisi layar dan terkunci (pin) selama beberapa panjang scroll, sementara teks pencapaian muncul di atasnya. Setelah itu galeri foto "akhirnya sampai". Penunjuk ketinggian di sisi layar berhenti di angka puncak.
+**3. Puncak.** Foto panorama puncak mengisi layar dan terkunci (pin) selama beberapa panjang scroll, sementara teks pencapaian muncul di atasnya. Setelah itu galeri foto "we made it". Penunjuk ketinggian di sisi layar berhenti di angka puncak.
 
-**4. Langit cerah.** Bab paling menonjol. Latar berisi efek elemen cahaya matahari dan langit cerah yang bereaksi sedikit pada kursor atau kemiringan HP. Foto tampil sebagai kartu yang melayang. Di perangkat lemah, efek diganti latar gambar langit statis.
+**4. Langit Cerah.** Bab pemandangan luas yang jujur soal hari tanpa lautan awan. Latar berisi lapisan punggung gunung dalam kabut biru tipis, sinar matahari lembut, dan kilau lensa ringan yang bergeser pelan mengikuti scroll atau kemiringan HP. Foto tampil sebagai kartu yang melayang. Caption penutupnya: "We hoped for a sea of clouds. We got a clear blue sky, and it was enough." Di perangkat lemah, efek diganti gambar latar statis.
 
-**5. Sunrise.** Warna latar halaman berubah mengikuti posisi scroll. Foto siluet fajar dan video pemandangan fajar mendapat ruang besar. Bab ini ditutup dengan latar biru terang yang segar.
+**5. Sunrise.** Warna latar halaman berubah mengikuti posisi scroll. Foto siluet dan foto langit fajar mendapat ruang besar. Bab ini dibuka dengan layar gelap yang perlahan terang dan ditutup dengan langit keemasan.
 
 **6. Penutup.** Ucapan terima kasih, daftar kredit singkat (pembuat, musik, alat yang dipakai), tautan ke GitHub, dan tombol "Buka bagian pribadi".
 
@@ -146,9 +146,9 @@ Fitur dibagi tiga tingkat: wajib (tanpa ini website tidak jadi), sebaiknya ada, 
 | F7 | Smooth scroll | Gerakan scroll halus dengan Lenis | Sebaiknya ada |
 | F8 | Animasi scroll | Teks, foto, dan latar bereaksi pada scroll dengan GSAP ScrollTrigger | Sebaiknya ada |
 | F9 | Garis jalur dan indikator ketinggian | Jalur SVG tergambar dan angka mdpl naik saat scroll | Sebaiknya ada |
-| F10 | Latar berubah (sunrise) | Warna halaman berubah bertahap mengikuti scroll fajar | Sebaiknya ada |
+| F10 | Latar berubah (sunrise) | Warna halaman berubah bertahap mengikuti scroll | Sebaiknya ada |
 | F11 | Musik latar | Tombol nyala atau mati, tidak putar otomatis dengan suara | Sebaiknya ada |
-| F12 | Efek 3D bab langit cerah | Partikel cahaya/awan cerah dengan React Three Fiber dan Drei, dimuat hanya saat terlihat | Sebaiknya ada |
+| F12 | Efek cahaya bab langit cerah | Sinar matahari, kilau lensa, dan lapisan punggung gunung dengan CSS, SVG, dan GSAP; tanpa library 3D, dimuat hanya saat terlihat | Sebaiknya ada |
 | F13 | Bagian pribadi dengan kata sandi | Halaman terpisah, tidak diindeks | Sebaiknya ada |
 | F14 | Mode hemat gerak | Menghormati pengaturan prefers-reduced-motion | Sebaiknya ada |
 | F15 | Tombol bagikan dan kartu pratinjau | Open Graph untuk WhatsApp dan media sosial | Sebaiknya ada |
@@ -167,7 +167,7 @@ Fitur dibagi tiga tingkat: wajib (tanpa ini website tidak jadi), sebaiknya ada, 
 
 ## 7. Desain Visual dan Animasi
 
-Gaya visualnya sinematik dan hangat, dengan warna yang berubah mengikuti suasana tiap bab, mirip pergantian cahaya fajar hingga pagi hari.
+Gaya visualnya sinematik dan hangat, dengan warna yang berubah mengikuti suasana tiap bab, mirip pergantian cahaya dari pagi ke malam.
 
 **Palet warna per bab (usulan, bisa disesuaikan dengan foto asli)**
 
@@ -177,9 +177,9 @@ Gaya visualnya sinematik dan hangat, dengan warna yang berubah mengikuti suasana
 | Sabana | #DCE8C8 (hijau muda) | #3E6B3A (hijau daun) | #1E2B1C |
 | Tak terdokumentasi | #0A0A0A (hitam) | #888888 (abu) | #CCCCCC |
 | Puncak | #BFD7E8 (biru langit) | #1F4E79 (biru tua) | #10233A |
-| Langit cerah | #E0F2FE (biru cerah segar) | #0284C7 (biru laut cerah) | #0F172A |
-| Sunrise | #FFEDD5 lalu #FDBA74 lalu #38BDF8 | #F97316 (oranye terbit) | #431407 |
-| Penutup dan pribadi | #1E1B4B (biru keunguan fajar) | #F59E0B (kuning fajar) | #FEF3C7 |
+| Langit Cerah | #EAF3F1 (putih kehijauan) | #2E8B8B (teal) | #1B2B2B |
+| Sunrise | #2B2250 lalu #D9627A lalu #FFD9A0 | #FFB36B (jingga cahaya pertama) | #FFF4E0 saat latar gelap, #2A1B3D saat latar terang |
+| Penutup dan pribadi | #1A1030 (ungu malam) | #F2A65A (oranye) | #FFF4E0 |
 
 **Tipografi**
 
@@ -203,11 +203,11 @@ Gaya visualnya sinematik dan hangat, dengan warna yang berubah mengikuti suasana
 | Judul muncul | Pembuka | GSAP | Huruf muncul bergantian, total di bawah 1,5 detik |
 | Foto fade dan geser naik | Semua galeri | GSAP ScrollTrigger | Muncul saat masuk 15% layar, geser 40 px, durasi 0,6 detik |
 | Parallax | Sabana, puncak | GSAP | Lapisan latar bergerak 10% sampai 30% lebih lambat dari foto |
-| Video terkunci (pin) | Puncak | GSAP ScrollTrigger | Video terkunci layar penuh selama sekitar 150% tinggi layar |
+| Foto terkunci (pin) | Puncak | GSAP ScrollTrigger | Foto panorama terkunci layar penuh selama sekitar 150% tinggi layar |
 | Jalur SVG tergambar | Antar bab | GSAP (stroke-dashoffset) | Garis menanjak tergambar sesuai posisi scroll |
 | Angka ketinggian naik | Sisi layar | GSAP | Dari angka basecamp ke angka puncak mengikuti scroll |
-| Efek Langit Cerah 3D | Langit cerah | React Three Fiber, Drei | Partikel cahaya langit cerah, bergerak pelan, jumlah dikurangi di HP |
-| Perubahan warna latar | Sunrise | GSAP | Interpolasi warna fajar mengikuti progres scroll |
+| Efek cahaya | Langit cerah | CSS, SVG, GSAP | Sinar matahari dan kilau lensa bergeser pelan, jumlah efek dikurangi di HP |
+| Perubahan warna latar | Sunrise | GSAP | Interpolasi tiga warna mengikuti progres scroll |
 | Lightbox | Galeri | Motion | Foto membesar dari posisi aslinya, transisi pegas ringan |
 | Hover kartu foto | Desktop | Motion | Sedikit miring dan terangkat, durasi 0,25 detik |
 | Polaroid line carousel | Galeri tiap bab | Komponen sendiri, tanpa library | Foto menggantung di tali melengkung, bergoyang mengikuti kecepatan geser, foto di tengah menjadi aktif; berhenti saat keluar layar |
@@ -216,7 +216,30 @@ Gaya visualnya sinematik dan hangat, dengan warna yang berubah mengikuti suasana
 
 - Durasi animasi UI antara 0,2 dan 0,8 detik; hanya animasi dekoratif besar yang boleh lebih lama.
 - Animasikan hanya transform dan opacity agar tetap lancar.
-- Jika pengunjung memilih hemat gerak, matikan parallax, efek 3D, dan animasi pin; ganti dengan fade sederhana.
+- Jika pengunjung memilih hemat gerak, matikan parallax, efek cahaya, dan animasi pin; ganti dengan fade sederhana.
+
+**Daftar animasi per bab (GSAP)**
+
+Website ini sengaja penuh animasi, dan GSAP dengan ScrollTrigger adalah alat utamanya. Tabel ini menjadi acuan agar tiap bab punya gerak yang jelas, sekaligus punya versi tenang untuk pengunjung yang mematikan animasi.
+
+| Bab | Animasi GSAP | Pemicu | Versi tenang (reduced-motion atau ringan) |
+| --- | --- | --- | --- |
+| Pembuka | Judul muncul huruf per huruf, video latar fade-in, ikon scroll berdenyut | Saat halaman dimuat | Judul langsung tampil, tanpa gerak |
+| Sabana | Parallax rumput tiga lapis, foto masuk bergantian (stagger), polaroid carousel bergoyang | ScrollTrigger dengan scrub | Foto tampil di tempat, carousel tidak bergoyang |
+| Bagian tak terdokumentasi | Layar menggelap, baris teks muncul satu per satu lewat timeline | ScrollTrigger | Semua teks langsung terbaca |
+| Puncak | Foto panorama terkunci layar penuh dengan zoom sangat pelan, angka ketinggian naik | ScrollTrigger dengan pin dan scrub | Foto statis, angka akhir langsung tampil |
+| Langit Cerah | Sinar matahari berputar pelan, kilau lensa bergeser, foto melayang | Loop pelan dan ScrollTrigger | Sinar statis, tanpa kilau |
+| Sunrise | Latar berubah dari indigo ke merah muda ke emas, lingkaran cahaya naik dari bawah, siluet bergeser | ScrollTrigger dengan scrub | Latar satu warna hangat tetap, kontras teks terjaga |
+| Penutup | Teks muncul bertahap, tombol bagian pribadi berdenyut halus | ScrollTrigger | Semua tampil langsung |
+| Antar bab | Jalur SVG tergambar mengikuti scroll, warna latar bertransisi | ScrollTrigger dengan scrub | Garis tampil penuh, warna berganti tanpa transisi |
+
+**Aturan agar animasi aman**
+
+1. Kondisi awal setiap elemen tampil normal di CSS. GSAP baru menyembunyikan dan menganimasikannya setelah ia benar-benar berjalan, sehingga kalau JavaScript gagal, konten tetap terlihat.
+2. Pakai `gsap.matchMedia()`: kondisi `(prefers-reduced-motion: no-preference)` mendapat animasi penuh, kondisi `reduce` mendapat versi tenang di kolom terakhir tabel.
+3. Versi ringan hanya untuk HP lemah atau pengunjung hemat data. Pengunjung biasa tetap mendapat animasi penuh, dan animasi tidak boleh dikurangi tanpa alasan performa.
+4. Animasikan `transform` dan `opacity` saja bila memungkinkan. Hentikan atau bersihkan animasi dan ScrollTrigger saat bab keluar layar atau komponen dilepas.
+5. Animasi baru di luar tabel boleh ditambahkan selama mengikuti aturan 1 sampai 4 dan tetap memenuhi target performa di bagian 10.
 
 **Referensi desain: Polaroid Line Carousel**
 
@@ -247,6 +270,8 @@ Desain halaman lainnya (pembuka, bagian tak terdokumentasi, penutup, bagian prib
 
 Situs dibangun sebagai situs statis dengan Astro, dan hanya bagian yang interaktif yang memuat JavaScript, sehingga halaman awal tetap ringan.
 
+&#91;embedded content: arsitektur situs · 3 tahap, 6 komponen\]
+
 Foto dan video diolah di komputer, Astro membangun situs statis dari caption dan komponen, hosting mengirim halaman, dan video dialirkan dari penyimpanan terpisah.
 
 **Stack yang dipilih**
@@ -256,10 +281,10 @@ Foto dan video diolah di komputer, Astro membangun situs statis dari caption dan
 | Kerangka | Astro | Halaman statis dan island interaktif | Ringan, optimasi gambar bawaan |
 | UI interaktif | React (lewat integrasi Astro) | Galeri, lightbox, pemutar video, musik | Sudah dikuasai |
 | Styling | Tailwind CSS | Tata letak dan tema | Cepat dan konsisten |
-| Animasi terikat scroll | GSAP dan ScrollTrigger | Pin video, jalur SVG, warna sunrise, angka ketinggian | Standar untuk animasi scroll |
+| Animasi terikat scroll | GSAP dan ScrollTrigger | Pin foto panorama, jalur SVG, warna sunrise, angka ketinggian | Standar untuk animasi scroll |
 | Smooth scroll | Lenis | Gerak scroll halus | Pasangan umum GSAP |
 | Animasi komponen | Motion (dulu Framer Motion) | Lightbox, hover kartu foto | Cocok untuk komponen React |
-| 3D | Three.js lewat React Three Fiber dan Drei | Cahaya dan elemen langit di bab langit cerah | Sudah pernah dipakai di proyek lain |
+| 3D | Three.js lewat React Three Fiber dan Drei (opsional) | Partikel cahaya halus di bab langit cerah, hanya bila diinginkan | Sudah pernah dipakai di proyek lain |
 | Pengolahan gambar | sharp dan komponen Image Astro | WebP, ukuran responsif, buang EXIF | Otomatis dan cepat |
 | Pengolahan video | ffmpeg | Kompres, poster, hapus audio | Alat standar |
 | Hosting | Vercel atau Cloudflare Pages | Deploy otomatis | Mudah untuk situs statis |
@@ -300,7 +325,7 @@ andong-berdua/
 │  │  ├─ Lightbox.tsx
 │  │  ├─ VideoPlayer.tsx
 │  │  ├─ JalurPendakian.tsx # jalur SVG dan angka ketinggian
-│  │  ├─ LangitCerahLayer.tsx # R3F, client:visible
+│  │  ├─ CahayaLayer.tsx      # efek cahaya, client:visible
 │  │  └─ MusikToggle.tsx
 │  ├─ layouts/
 │  │  └─ Layout.astro
@@ -324,7 +349,7 @@ andong-berdua/
 | Hero, teks bab | HTML statis tanpa JavaScript | Tampil secepat mungkin |
 | Galeri dan Lightbox | `client:visible` | Dimuat saat bab mendekati layar |
 | Lenis dan GSAP | Diinisialisasi sekali di Layout | Dipakai di seluruh halaman |
-| Efek 3D Langit Cerah | `client:visible` dan impor dinamis | Three.js tidak membebani halaman awal |
+| Efek cahaya | `client:visible` dan impor dinamis | Efek berat tidak membebani halaman awal |
 | Tombol musik | `client:idle` | Tidak mendesak saat halaman pertama dimuat |
 
 **Prinsip kode**
@@ -341,7 +366,7 @@ Semua foto dikonversi ke WebP tanpa metadata dan semua video dikompres sebelum m
 **Alur pengolahan media**
 
 1. **Kurasi.** Pilih media terbaik dari sekitar 80 item. Targetnya 55 sampai 70 item tampil di halaman publik.
-2. **Kelompokkan per bab.** Beri nama berpola: `sabana-01`, `puncak-03`, `langit-cerah-12`, `sunrise-05`.
+2. **Kelompokkan per bab.** Beri nama berpola: `sabana-01`, `puncak-03`, `langit-12`, `sunrise-05`.
 3. **Tulis caption** di file data sebelum coding.
 4. **Konversi foto** ke WebP, hapus metadata, buat tiga ukuran.
 5. **Kompres video**, buat gambar poster, hapus audio bila tidak dipakai.
@@ -410,21 +435,21 @@ Gambar poster lalu dikonversi ke WebP dengan skrip foto di atas.
   "bab": "langit-cerah",
   "items": [
     {
-      "id": "langit-cerah-01",
+      "id": "langit-01",
       "jenis": "foto",
-      "berkas": "langit-cerah-01",
-      "caption": "Langit biru membentang tanpa batas, membalas tuntas semua lelah.",
-      "alt": "Pemandangan langit cerah dari puncak saat pagi",
+      "berkas": "langit-01",
+      "caption": "Clear sky. We just sat and enjoyed it.",
+      "alt": "Hamparan langit biru cerah dari puncak saat pagi",
       "ukuran": "besar",
       "publik": true
     },
     {
-      "id": "langit-cerah-video-01",
+      "id": "langit-video-01",
       "jenis": "video",
-      "berkas": "langit-cerah-video-01",
-      "poster": "langit-cerah-video-01-poster",
-      "caption": "Momen saat angin berembus kencang di bawah langit terang.",
-      "alt": "Video suasana langit cerah di puncak gunung",
+      "berkas": "langit-video-01",
+      "poster": "langit-video-01-poster",
+      "caption": "Ten seconds of wind and sun.",
+      "alt": "Video pendek angin dan matahari di atas punggung gunung",
       "publik": true
     }
   ]
@@ -463,7 +488,7 @@ Website harus tetap lancar di HP kelas menengah, karena sebagian besar pengunjun
 - Gambar di bawah layar memakai `loading="lazy"`, dan gambar pembuka memakai `fetchpriority="high"`.
 - Gunakan `srcset` dan `sizes` agar HP memuat ukuran 600 atau 1200 px, bukan 1920 px.
 - Video memakai `preload="none"` atau `metadata`, dan diputar hanya saat bagiannya terlihat (Intersection Observer).
-- Canvas 3D dimuat dengan `client:visible` di Astro dan baru dibuat saat bab langit cerah mendekati layar.
+- Efek cahaya atau canvas 3D (jika dipakai) dimuat dengan `client:visible` di Astro dan baru dibuat saat bab langit cerah mendekati layar.
 - Library besar seperti Three.js dipisah ke chunk sendiri agar tidak memperlambat halaman awal.
 - Di perangkat dengan hemat data atau koneksi lambat, ganti video dengan gambar poster.
 
@@ -471,17 +496,17 @@ Website harus tetap lancar di HP kelas menengah, karena sebagian besar pengunjun
 
 | Kondisi | Perilaku |
 | --- | --- |
-| Layar sempit atau GPU lemah | Efek langit dikurangi, atau diganti gambar statis |
-| prefers-reduced-motion aktif | Parallax, pin video, dan efek 3D mati; foto muncul dengan fade sederhana |
+| Layar sempit atau GPU lemah | Efek cahaya dikurangi, atau diganti gambar latar statis |
+| prefers-reduced-motion aktif | Parallax, pin foto, dan efek cahaya mati; foto muncul dengan fade sederhana |
 | JavaScript gagal dimuat | Teks dan foto tetap tampil dalam tata letak sederhana |
 | WebGL tidak tersedia | Bab langit cerah memakai latar gambar |
 
 **Aksesibilitas**
 
-- Semua foto punya teks alternatif (`alt`) yang menjelaskan isinya.
+- Semua foto punya teks alternatif (`alt`) yang menjelaskan isinya. Caption dan quote berbahasa Inggris diberi atribut lang="en" agar dibaca benar oleh pembaca layar.
 - Video tidak berputar dengan suara otomatis, dan ada tombol jeda untuk video yang berulang.
 - Lightbox bisa dioperasikan dengan keyboard (Tab, panah, Esc) dan fokus kembali ke foto asal saat ditutup.
-- Kontras teks minimal 4,5 banding 1, termasuk di bab sunrise yang terang keemasan.
+- Kontras teks minimal 4,5 banding 1, termasuk di bab sunrise, saat warna teks berganti seiring latar berubah dari gelap ke terang.
 - Struktur judul (h1, h2) berurutan dan masuk akal bagi pembaca layar.
 - Teks tidak boleh bergantung hanya pada animasi agar terbaca.
 
@@ -593,6 +618,8 @@ Pakai analitik yang ramah privasi (misalnya Plausible atau Umami, atau fitur ana
 
 Proyek dikerjakan dalam enam fase selama sekitar delapan minggu, dengan satu gerbang kualitas di setiap pergantian fase.
 
+&#91;embedded content: roadmap · 6 fase, 5 gerbang kualitas\]
+
 Estimasi minggu adalah perkiraan untuk ritme paruh waktu di sela kuliah dan boleh digeser, asalkan urutan gerbangnya tetap.
 
 | Fase | Estimasi | Pekerjaan utama | Hasil yang bisa diperiksa |
@@ -600,7 +627,7 @@ Estimasi minggu adalah perkiraan untuk ritme paruh waktu di sela kuliah dan bole
 | 0. Persiapan | Minggu 1 | Kumpulkan 5 sampai 8 referensi, tulis dokumen satu halaman, buat storyboard per bab, kurasi media, tulis caption, minta persetujuan pacar | Daftar media final dan caption siap |
 | 1. Fondasi | Minggu 2 | Setup Astro, React, Tailwind; buat `media.json`; skrip konversi foto dan video; deploy awal | Halaman kosong berjalan di alamat pratinjau |
 | 2. Konten | Minggu 3 sampai 4 | Hero, empat bab, galeri, lightbox, pemutar video, tata letak responsif | Semua media tampil tanpa animasi |
-| 3. Animasi | Minggu 5 sampai 6 | Lenis, GSAP, jalur SVG, warna sunrise, musik, efek 3D langit cerah | Animasi lancar di HP |
+| 3. Animasi | Minggu 5 sampai 6 | Lenis, GSAP, jalur SVG, warna sunrise, musik, efek cahaya | Animasi lancar di HP |
 | 4. Poles dan uji | Minggu 7 | Performa, aksesibilitas, bagian pribadi, pemeriksaan privasi | Skor Lighthouse sesuai target |
 | 5. Rilis | Minggu 8 | SEO, Open Graph, domain, README, rilis | Website publik dan tautan dibagikan |
 
@@ -609,7 +636,7 @@ Estimasi minggu adalah perkiraan untuk ritme paruh waktu di sela kuliah dan bole
 1. Efek kursor (F18) dan hitung mundur (F20)
 2. Peta jalur interaktif (F19) dan layar pemuatan (F16)
 3. Efek shader cahaya (F17)
-4. Efek 3D langit cerah diganti latar gambar langit statis (F12)
+4. Efek cahaya diganti latar gambar langit cerah statis (F12)
 
 Fitur wajib F1 sampai F6 dan privasi tidak boleh dipotong.
 
@@ -637,7 +664,7 @@ Risiko terbesar bukan teknis, melainkan terlalu banyak ambisi animasi dalam wakt
 | Pacar tidak setuju sebagian foto | Foto harus diganti mendadak | Minta persetujuan sejak tahap kurasi, bukan setelah selesai |
 | Waktu terbatas karena kuliah | Jadwal mundur | Pecah menjadi milestone kecil; tentukan batas waktu per fase |
 | Autoplay video diblokir (mode hemat daya iOS dan lainnya) | Video latar tidak bergerak | Selalu sediakan poster; jangan bergantung pada autoplay untuk informasi penting |
-| Bundel Three.js besar | Halaman awal lambat | Muat hanya di bab langit cerah dan pisahkan sebagai chunk sendiri |
+| Bundel Three.js besar | Halaman awal lambat | Muat hanya bila dipakai, di bab langit cerah, dan pisahkan sebagai chunk sendiri |
 | Batas gratis hosting atau penyimpanan terlampaui | Video tidak tampil | Cek batas layanan sebelum memilih; siapkan layanan alternatif |
 | Musik atau font bermasalah lisensi | Konten bisa diturunkan | Pakai sumber berlisensi jelas dan simpan buktinya |
 
@@ -658,13 +685,13 @@ Caption yang baik menyebut perasaan atau cerita di balik foto, bukan isi gambarn
 
 | Bab | Pertanyaan pemantik | Contoh gaya |
 | --- | --- | --- |
-| Sabana | Apa yang kalian rasakan saat akhirnya melihat hamparan terbuka? | "Napas masih ngos-ngosan, tapi pemandangannya bayar semuanya." |
-| Puncak | Apa yang dikatakan atau ditertawakan saat sampai? | "Akhirnya. Jangan tanya soal kaki." |
-| Langit cerah | Apa yang terjadi di momen diam itu? | "Kami berhenti ngobrol. Menikmati biru yang membentang luas." |
-| Sunrise | Apa yang berubah saat cahaya pertama muncul? | "Hari itu dimulai dengan garis emas fajar yang hangat." |
+| Sabana | Apa yang kalian rasakan saat akhirnya melihat hamparan terbuka? | "Out of breath, but the view paid for everything." |
+| Puncak | Apa yang dikatakan atau ditertawakan saat sampai? | "We made it. Don't ask about my legs." |
+| Langit cerah | Apa yang kalian rasakan saat langit sebersih itu? | "We hoped for a sea of clouds. We got a clear blue sky, and it was enough." |
+| Sunrise | Apa yang kalian rasakan saat cahaya pertama muncul? | "The day began in colors no camera could get right." |
 | Foto berdua | Apa yang kalian ingat dari detik sebelum foto diambil? | Satu kalimat pendek dan jujur |
 
-Contoh di tabel hanyalah gaya; tulis ulang dengan kalimat dan kejadian nyata kalian.
+Contoh di tabel hanyalah gaya; tulis ulang dengan kalimat dan kejadian nyata kalian, dalam bahasa Inggris yang sederhana.
 
 **Lampiran B. Daftar periksa media per item**
 

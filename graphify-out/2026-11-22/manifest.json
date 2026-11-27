@@ -1,0 +1,572 @@
+{
+  ".vscode/extensions.json": {
+    "mtime": 1793629269.0,
+    "seen": 1795287087.3620746,
+    "ast_hash": "3adedb22d082dbd1ebb00b75d21403aa",
+    "semantic_hash": "3adedb22d082dbd1ebb00b75d21403aa"
+  },
+  ".vscode/launch.json": {
+    "mtime": 1793629269.0,
+    "seen": 1795287087.3620822,
+    "ast_hash": "60493763dcbc2d109e57da86d997602a",
+    "semantic_hash": "60493763dcbc2d109e57da86d997602a"
+  },
+  "astro.config.mjs": {
+    "mtime": 1793773680.139328,
+    "seen": 1795287087.3620858,
+    "ast_hash": "bee14a2544ab90e6d7189298327bb23b",
+    "semantic_hash": "bee14a2544ab90e6d7189298327bb23b"
+  },
+  "package.json": {
+    "mtime": 1794408477.5291216,
+    "seen": 1795287087.3620875,
+    "ast_hash": "3e6c283d8b35bdb153f926ee09b28d3b",
+    "semantic_hash": "3e6c283d8b35bdb153f926ee09b28d3b"
+  },
+  "public/vendor/three.r134.min.js": {
+    "mtime": 1794503764.523976,
+    "seen": 1795287087.362089,
+    "ast_hash": "7fb609398d92a04a91d9624f3063dd4e",
+    "semantic_hash": "7fb609398d92a04a91d9624f3063dd4e"
+  },
+  "public/vendor/vanta.clouds.min.js": {
+    "mtime": 1794503764.5266368,
+    "seen": 1795287087.3620903,
+    "ast_hash": "5b9bc8a54a7cb4d51243985cbf76ddeb",
+    "semantic_hash": "5b9bc8a54a7cb4d51243985cbf76ddeb"
+  },
+  "scripts/build-media.mjs": {
+    "mtime": 1794418968.4763584,
+    "seen": 1795287087.3620918,
+    "ast_hash": "2305660936cce38b7d1e9723434c614d",
+    "semantic_hash": "2305660936cce38b7d1e9723434c614d"
+  },
+  "scripts/cek-media.mjs": {
+    "mtime": 1793779038.859632,
+    "seen": 1795287087.3620932,
+    "ast_hash": "03cfd3947915c8053150a12d3bd4ed9b",
+    "semantic_hash": "03cfd3947915c8053150a12d3bd4ed9b"
+  },
+  "scripts/enkripsi-rahasia.ts": {
+    "mtime": 1793904240.0943232,
+    "seen": 1795287087.3620944,
+    "ast_hash": "7dcc4fa54bc98c4c52b634e4ffe3f6c3",
+    "semantic_hash": "7dcc4fa54bc98c4c52b634e4ffe3f6c3"
+  },
+  "scripts/siapkan-foto.mjs": {
+    "mtime": 1793776690.163648,
+    "seen": 1795287087.3620956,
+    "ast_hash": "8f64a66a69d7b6aa33919876dc367a74",
+    "semantic_hash": "8f64a66a69d7b6aa33919876dc367a74"
+  },
+  "src/components/Bab.astro": {
+    "mtime": 1795276781.1680076,
+    "seen": 1795287087.3620968,
+    "ast_hash": "6d2b642da9d7120395f576d9a25574b1",
+    "semantic_hash": "6d2b642da9d7120395f576d9a25574b1"
+  },
+  "src/components/Galeri.tsx": {
+    "mtime": 1795283385.8373895,
+    "seen": 1795287087.3620985,
+    "ast_hash": "d2253efa15711c25d4420e0ee37707f3",
+    "semantic_hash": "d2253efa15711c25d4420e0ee37707f3"
+  },
+  "src/components/Lightbox.tsx": {
+    "mtime": 1795277122.0270443,
+    "seen": 1795287087.3620996,
+    "ast_hash": "9babe778df1e01af9d26748a1afed520",
+    "semantic_hash": "9babe778df1e01af9d26748a1afed520"
+  },
+  "src/components/MediaVideos.astro": {
+    "mtime": 1794409487.2654223,
+    "seen": 1795287087.362101,
+    "ast_hash": "76d534cd33a83e1f1a1c6afc589fddbf",
+    "semantic_hash": "76d534cd33a83e1f1a1c6afc589fddbf"
+  },
+  "src/components/MusikToggle.astro": {
+    "mtime": 1795277065.229025,
+    "seen": 1795287087.3621023,
+    "ast_hash": "6f6ec2e64cf80d01faf2e0fc0ebd0527",
+    "semantic_hash": "6f6ec2e64cf80d01faf2e0fc0ebd0527"
+  },
+  "src/components/RelKetinggian.astro": {
+    "mtime": 1795283565.637326,
+    "seen": 1795287087.3621035,
+    "ast_hash": "a84a7680e7246c3b4ac32c3bdfc08755",
+    "semantic_hash": "a84a7680e7246c3b4ac32c3bdfc08755"
+  },
+  "src/components/TitikBab.astro": {
+    "mtime": 1794406532.043702,
+    "seen": 1795287087.362105,
+    "ast_hash": "bdd69c30707d7a04f2e8b8b86d821569",
+    "semantic_hash": "bdd69c30707d7a04f2e8b8b86d821569"
+  },
+  "src/components/VantaCloudsGlobal.astro": {
+    "mtime": 1794503822.1671932,
+    "seen": 1795287087.362106,
+    "ast_hash": "72c01fc52218a474d9354de7013b60f0",
+    "semantic_hash": "72c01fc52218a474d9354de7013b60f0"
+  },
+  "src/components/Video.astro": {
+    "mtime": 1795276835.0887594,
+    "seen": 1795287087.3621073,
+    "ast_hash": "25a013eae7dc2e59074dc2f93b0ccf24",
+    "semantic_hash": "25a013eae7dc2e59074dc2f93b0ccf24"
+  },
+  "src/components/bab/LangitCerah.astro": {
+    "mtime": 1794408113.833573,
+    "seen": 1795287087.3621087,
+    "ast_hash": "15f01880789c3fd6d3ca3649e5976602",
+    "semantic_hash": "15f01880789c3fd6d3ca3649e5976602"
+  },
+  "src/components/bab/Pembuka.astro": {
+    "mtime": 1795276959.3024049,
+    "seen": 1795287087.3621101,
+    "ast_hash": "eaa8cea6acbaf61a1844fb3bcadbec3e",
+    "semantic_hash": "eaa8cea6acbaf61a1844fb3bcadbec3e"
+  },
+  "src/components/bab/Penutup.astro": {
+    "mtime": 1795283457.9844575,
+    "seen": 1795287087.3621116,
+    "ast_hash": "5ff3cdd3257ea0a3c421f863f66fdbc6",
+    "semantic_hash": "5ff3cdd3257ea0a3c421f863f66fdbc6"
+  },
+  "src/components/bab/Puncak.astro": {
+    "mtime": 1795281134.5590744,
+    "seen": 1795287087.3621132,
+    "ast_hash": "73dea9d79024004de6b3408066ce25d5",
+    "semantic_hash": "73dea9d79024004de6b3408066ce25d5"
+  },
+  "src/components/bab/Sabana.astro": {
+    "mtime": 1794408113.8305721,
+    "seen": 1795287087.3621147,
+    "ast_hash": "8bb29748630b49da32b22f1583f50b00",
+    "semantic_hash": "8bb29748630b49da32b22f1583f50b00"
+  },
+  "src/components/bab/Sunrise.astro": {
+    "mtime": 1794409171.1931715,
+    "seen": 1795287087.3621156,
+    "ast_hash": "32a531c0f5806a8715b300dbffb86c33",
+    "semantic_hash": "32a531c0f5806a8715b300dbffb86c33"
+  },
+  "src/components/bab/TanpaDokumentasi.astro": {
+    "mtime": 1794408584.4375286,
+    "seen": 1795287087.362117,
+    "ast_hash": "a37b39656cba9e1545299ef9ba5d0de8",
+    "semantic_hash": "a37b39656cba9e1545299ef9ba5d0de8"
+  },
+  "src/components/ui/polaroid-line-carousel.tsx": {
+    "mtime": 1795276618.3809662,
+    "seen": 1795287087.3621182,
+    "ast_hash": "e3328f4b0bcec5456ddc9687e1d73655",
+    "semantic_hash": "e3328f4b0bcec5456ddc9687e1d73655"
+  },
+  "src/content.config.ts": {
+    "mtime": 1794587299.9614825,
+    "seen": 1795287087.3621197,
+    "ast_hash": "300841a59e777a70f5a4343320e5e672",
+    "semantic_hash": "300841a59e777a70f5a4343320e5e672"
+  },
+  "src/data/media.json": {
+    "mtime": 1795283912.9944255,
+    "seen": 1795287087.3621206,
+    "ast_hash": "ea68cd9a312295c185bdce793aeb2ae1",
+    "semantic_hash": "ea68cd9a312295c185bdce793aeb2ae1"
+  },
+  "src/layouts/Layout.astro": {
+    "mtime": 1795283502.0970657,
+    "seen": 1795287087.362122,
+    "ast_hash": "45331408b994f0bba13caff3bc3ab1d8",
+    "semantic_hash": "45331408b994f0bba13caff3bc3ab1d8"
+  },
+  "src/lib/gerak.ts": {
+    "mtime": 1794409212.939106,
+    "seen": 1795287087.3621233,
+    "ast_hash": "a7d97ae1ba5acdf7fa7ca9a4cf916990",
+    "semantic_hash": "a7d97ae1ba5acdf7fa7ca9a4cf916990"
+  },
+  "src/lib/kontras.ts": {
+    "mtime": 1794409031.9487705,
+    "seen": 1795287087.3621242,
+    "ast_hash": "e51f2ff107a7790d7a92f7aa3122a5ec",
+    "semantic_hash": "e51f2ff107a7790d7a92f7aa3122a5ec"
+  },
+  "src/lib/kripto.ts": {
+    "mtime": 1793778861.1383538,
+    "seen": 1795287087.3621259,
+    "ast_hash": "ddc81d6e7aff23bddf39a7c6130853a1",
+    "semantic_hash": "ddc81d6e7aff23bddf39a7c6130853a1"
+  },
+  "src/lib/media.ts": {
+    "mtime": 1794418968.477315,
+    "seen": 1795287087.3621268,
+    "ast_hash": "eac1943e84bcc4a631372f530934bcd6",
+    "semantic_hash": "eac1943e84bcc4a631372f530934bcd6"
+  },
+  "src/lib/scroll.ts": {
+    "mtime": 1795282236.0105858,
+    "seen": 1795287087.362128,
+    "ast_hash": "21d02cce493739b1b893124cb6e0f9f6",
+    "semantic_hash": "21d02cce493739b1b893124cb6e0f9f6"
+  },
+  "src/lib/video.ts": {
+    "mtime": 1794408767.07689,
+    "seen": 1795287087.3621292,
+    "ast_hash": "d2ad22c5e45c1f6dc22995e04a390f5b",
+    "semantic_hash": "d2ad22c5e45c1f6dc22995e04a390f5b"
+  },
+  "src/pages/index.astro": {
+    "mtime": 1794586931.9794173,
+    "seen": 1795287087.3621304,
+    "ast_hash": "d60cac987c1b3baf9e93967b9f30cb5b",
+    "semantic_hash": "d60cac987c1b3baf9e93967b9f30cb5b"
+  },
+  "src/pages/rahasia.astro": {
+    "mtime": 1793904188.62205,
+    "seen": 1795287087.3621314,
+    "ast_hash": "680b49185c383d752ef33e2a9423fc35",
+    "semantic_hash": "680b49185c383d752ef33e2a9423fc35"
+  },
+  "tests/enkripsi-script.test.ts": {
+    "mtime": 1793904272.8955579,
+    "seen": 1795287087.362133,
+    "ast_hash": "83248f9bcb0aed26ec63adabdf2e24e1",
+    "semantic_hash": "83248f9bcb0aed26ec63adabdf2e24e1"
+  },
+  "tests/galeri.test.tsx": {
+    "mtime": 1794589432.5713394,
+    "seen": 1795287087.362134,
+    "ast_hash": "5f013fd4a0c1f2a216bb84ebf5902951",
+    "semantic_hash": "5f013fd4a0c1f2a216bb84ebf5902951"
+  },
+  "tests/gerak.test.ts": {
+    "mtime": 1794335152.631384,
+    "seen": 1795287087.3621354,
+    "ast_hash": "dea1e1692db41cd46223a44aab6a2d62",
+    "semantic_hash": "dea1e1692db41cd46223a44aab6a2d62"
+  },
+  "tests/kontras.test.ts": {
+    "mtime": 1794409034.3937001,
+    "seen": 1795287087.3621366,
+    "ast_hash": "fe364a6b3d4f7b99d7e3c096af1a37c9",
+    "semantic_hash": "fe364a6b3d4f7b99d7e3c096af1a37c9"
+  },
+  "tests/kripto.test.ts": {
+    "mtime": 1793774571.2532213,
+    "seen": 1795287087.3621376,
+    "ast_hash": "fa0bed059ba09d702482aba0aa6133f6",
+    "semantic_hash": "fa0bed059ba09d702482aba0aa6133f6"
+  },
+  "tests/media-data.test.ts": {
+    "mtime": 1794404626.657257,
+    "seen": 1795287087.3621395,
+    "ast_hash": "3ce7dd777c24428477f220f0f50fde79",
+    "semantic_hash": "3ce7dd777c24428477f220f0f50fde79"
+  },
+  "tests/video.test.ts": {
+    "mtime": 1794408799.081493,
+    "seen": 1795287087.3621404,
+    "ast_hash": "7d732580f417d7a15f02fcf263415422",
+    "semantic_hash": "7d732580f417d7a15f02fcf263415422"
+  },
+  "tsconfig.json": {
+    "mtime": 1793773780.019886,
+    "seen": 1795287087.3621416,
+    "ast_hash": "c93b7111c7a82af282a501e32fffa291",
+    "semantic_hash": "c93b7111c7a82af282a501e32fffa291"
+  },
+  "AGENTS.md": {
+    "mtime": 1793773481.6401665,
+    "seen": 1795287087.3621428,
+    "ast_hash": "4d944a80d98bf8891d5b10081a86d3e1",
+    "semantic_hash": "4d944a80d98bf8891d5b10081a86d3e1"
+  },
+  "DESIGN.md": {
+    "mtime": 1793773874.4030292,
+    "seen": 1795287087.362144,
+    "ast_hash": "9aa626675da8c927cdc9ad44fb9145fd",
+    "semantic_hash": "9aa626675da8c927cdc9ad44fb9145fd"
+  },
+  "PRD Website Kenangan Gunung Andong.md": {
+    "mtime": 1794394675.285025,
+    "seen": 1795287087.3621452,
+    "ast_hash": "9d2e1ae9d21323bf730f6692f9a50d5c",
+    "semantic_hash": "9d2e1ae9d21323bf730f6692f9a50d5c"
+  },
+  "PRODUCT.md": {
+    "mtime": 1793773850.2525446,
+    "seen": 1795287087.3621466,
+    "ast_hash": "7f590f5d787a4067c357fd0986e32f59",
+    "semantic_hash": "7f590f5d787a4067c357fd0986e32f59"
+  },
+  "README.md": {
+    "mtime": 1794514929.60831,
+    "seen": 1795287087.3621478,
+    "ast_hash": "cfdd8864e5a00e0989ab529b44cef053",
+    "semantic_hash": "cfdd8864e5a00e0989ab529b44cef053"
+  },
+  "docs/audit/gerbang-2-4.md": {
+    "mtime": 1794334035.8530498,
+    "seen": 1795287087.3621492,
+    "ast_hash": "f78476b1e9031591138c43a81761d6e3",
+    "semantic_hash": "f78476b1e9031591138c43a81761d6e3"
+  },
+  "public/robots.txt": {
+    "mtime": 1793776656.1191425,
+    "seen": 1795287087.3621502,
+    "ast_hash": "0310349516df7be0b732234c071b52d1",
+    "semantic_hash": "0310349516df7be0b732234c071b52d1"
+  },
+  "public/favicon.svg": {
+    "mtime": 1793779025.1416042,
+    "seen": 1795287087.3621514,
+    "ast_hash": "0c54f775259a453f258cc6f0c8f4568f",
+    "semantic_hash": "0c54f775259a453f258cc6f0c8f4568f"
+  },
+  "public/foto/antrean_eskrim.webp": {
+    "mtime": 1795274371.55607,
+    "seen": 1795287087.3621528,
+    "ast_hash": "10bebde89f86ce6445aad9ea68c1dca8",
+    "semantic_hash": "10bebde89f86ce6445aad9ea68c1dca8"
+  },
+  "public/foto/foto_puncak1.webp": {
+    "mtime": 1794501638.5833561,
+    "seen": 1795287087.362154,
+    "ast_hash": "cd9ff152a1582f5595f43a5372ac03df",
+    "semantic_hash": "cd9ff152a1582f5595f43a5372ac03df"
+  },
+  "public/foto/foto_puncak2.webp": {
+    "mtime": 1794499528.9488244,
+    "seen": 1795287087.3621552,
+    "ast_hash": "4d22ec6f6b33e38bd6643483318184bb",
+    "semantic_hash": "4d22ec6f6b33e38bd6643483318184bb"
+  },
+  "public/foto/foto_puncak3.webp": {
+    "mtime": 1795273163.6878664,
+    "seen": 1795287087.3621566,
+    "ast_hash": "426f87ecf1cd83fbba778555e411e3bc",
+    "semantic_hash": "426f87ecf1cd83fbba778555e411e3bc"
+  },
+  "public/foto/foto_puncak4.webp": {
+    "mtime": 1795273163.5457175,
+    "seen": 1795287087.3621578,
+    "ast_hash": "c26d89b4f3dafdaa67826a5a56c68266",
+    "semantic_hash": "c26d89b4f3dafdaa67826a5a56c68266"
+  },
+  "public/foto/foto_puncak5.webp": {
+    "mtime": 1795273163.7212641,
+    "seen": 1795287087.362159,
+    "ast_hash": "a2039827343b2ca5d2a3377c11b1219e",
+    "semantic_hash": "a2039827343b2ca5d2a3377c11b1219e"
+  },
+  "public/foto/foto_sabana1.webp": {
+    "mtime": 1794496417.3510711,
+    "seen": 1795287087.3621604,
+    "ast_hash": "e6b05b95a393071953c94d3fd36d6aa8",
+    "semantic_hash": "e6b05b95a393071953c94d3fd36d6aa8"
+  },
+  "public/foto/foto_sabana2.webp": {
+    "mtime": 1794502036.4439297,
+    "seen": 1795287087.3621616,
+    "ast_hash": "b9f8ffc863cc35134cba43b2a14ab9e9",
+    "semantic_hash": "b9f8ffc863cc35134cba43b2a14ab9e9"
+  },
+  "public/foto/foto_sabana3.webp": {
+    "mtime": 1794502954.3230152,
+    "seen": 1795287087.3621633,
+    "ast_hash": "ae7e70ea8fe9829f6d66ad611c0b3b17",
+    "semantic_hash": "ae7e70ea8fe9829f6d66ad611c0b3b17"
+  },
+  "public/foto/foto_sabana5.webp": {
+    "mtime": 1794584251.317008,
+    "seen": 1795287087.3621645,
+    "ast_hash": "75cf1cad0c73504ea15e33e70bb45d3c",
+    "semantic_hash": "75cf1cad0c73504ea15e33e70bb45d3c"
+  },
+  "public/foto/foto_sabana6.webp": {
+    "mtime": 1794584250.5728538,
+    "seen": 1795287087.3621657,
+    "ast_hash": "d868a1aa0ae9cfa04f366ba00f089f12",
+    "semantic_hash": "d868a1aa0ae9cfa04f366ba00f089f12"
+  },
+  "public/foto/foto_sabana7.webp": {
+    "mtime": 1794584239.7669883,
+    "seen": 1795287087.3621671,
+    "ast_hash": "2c31a4a2bf249377c64bc698ebcfef94",
+    "semantic_hash": "2c31a4a2bf249377c64bc698ebcfef94"
+  },
+  "public/foto/foto_sabana8.webp": {
+    "mtime": 1794584562.3909073,
+    "seen": 1795287087.3621683,
+    "ast_hash": "344b4a6478fcc815def2dd5a118625d2",
+    "semantic_hash": "344b4a6478fcc815def2dd5a118625d2"
+  },
+  "public/foto/foto_sunrise1.webp": {
+    "mtime": 1794498726.7543666,
+    "seen": 1795287087.3621695,
+    "ast_hash": "8db4d8ecdbd1f3cf02cb0fd535242f24",
+    "semantic_hash": "8db4d8ecdbd1f3cf02cb0fd535242f24"
+  },
+  "public/foto/foto_sunrise2.webp": {
+    "mtime": 1794502957.4824755,
+    "seen": 1795287087.362171,
+    "ast_hash": "6e730c6c7b95a30b5dfb88ebc8118dfc",
+    "semantic_hash": "6e730c6c7b95a30b5dfb88ebc8118dfc"
+  },
+  "public/foto/front_off_merbabu.webp": {
+    "mtime": 1794498397.4237094,
+    "seen": 1795287087.3621721,
+    "ast_hash": "9186ce17cd4e1bd8f443f5dc5b4763bf",
+    "semantic_hash": "9186ce17cd4e1bd8f443f5dc5b4763bf"
+  },
+  "public/foto/langit-01.png": {
+    "mtime": 1793774708.296765,
+    "seen": 1795287087.3621736,
+    "ast_hash": "91a594c506fc103623296f6eed2e95bf",
+    "semantic_hash": "91a594c506fc103623296f6eed2e95bf"
+  },
+  "public/foto/langit-02.png": {
+    "mtime": 1793774708.0896618,
+    "seen": 1795287087.3621747,
+    "ast_hash": "99d24c7bd4bac863fa5d612a4bceaffe",
+    "semantic_hash": "99d24c7bd4bac863fa5d612a4bceaffe"
+  },
+  "public/foto/langit-cover.jpg": {
+    "mtime": 1793772578.0168755,
+    "seen": 1795287087.362176,
+    "ast_hash": "93fa32f5a9e06a2861886aa12d5feb02",
+    "semantic_hash": "93fa32f5a9e06a2861886aa12d5feb02"
+  },
+  "public/foto/langit_cerah1.webp": {
+    "mtime": 1794502527.8173816,
+    "seen": 1795287087.3621774,
+    "ast_hash": "a3b08da6aabdf1f1341159f9c6b28471",
+    "semantic_hash": "a3b08da6aabdf1f1341159f9c6b28471"
+  },
+  "public/foto/langit_cerah2.webp": {
+    "mtime": 1794502529.843817,
+    "seen": 1795287087.3621783,
+    "ast_hash": "2b2fa00a47cc243c8052f3dbb8bf7c32",
+    "semantic_hash": "2b2fa00a47cc243c8052f3dbb8bf7c32"
+  },
+  "public/foto/langit_cerah3.webp": {
+    "mtime": 1794502531.3588693,
+    "seen": 1795287087.3621795,
+    "ast_hash": "90547ab006651e02d7cb029850c34bdf",
+    "semantic_hash": "90547ab006651e02d7cb029850c34bdf"
+  },
+  "public/foto/pembuka-hero.jpg": {
+    "mtime": 1793772575.8849034,
+    "seen": 1795287087.362181,
+    "ast_hash": "5a52b675101a9b39c8072076aa4b8961",
+    "semantic_hash": "5a52b675101a9b39c8072076aa4b8961"
+  },
+  "public/foto/penutup-01.png": {
+    "mtime": 1793774707.8973339,
+    "seen": 1795287087.3621821,
+    "ast_hash": "28cc8bfdd5460aa70842730edcab773d",
+    "semantic_hash": "28cc8bfdd5460aa70842730edcab773d"
+  },
+  "public/foto/penutup-cover.jpg": {
+    "mtime": 1793772616.066301,
+    "seen": 1795287087.3621836,
+    "ast_hash": "9efa25bab1ef8919a25d6dbb514947f1",
+    "semantic_hash": "9efa25bab1ef8919a25d6dbb514947f1"
+  },
+  "public/foto/puncak-cover.jpg": {
+    "mtime": 1793772578.029186,
+    "seen": 1795287087.362185,
+    "ast_hash": "f424f2adc074f574a788c3eac7504e55",
+    "semantic_hash": "f424f2adc074f574a788c3eac7504e55"
+  },
+  "public/foto/rahasia-cover.jpg": {
+    "mtime": 1793772617.2424436,
+    "seen": 1795287087.3621862,
+    "ast_hash": "4cdb0a3b879546f396cc32be4b46c9e5",
+    "semantic_hash": "4cdb0a3b879546f396cc32be4b46c9e5"
+  },
+  "public/foto/sabana-01.png": {
+    "mtime": 1793774707.8300574,
+    "seen": 1795287087.3621876,
+    "ast_hash": "310c391b3d88f1a56090d0c1d3ce3ecf",
+    "semantic_hash": "310c391b3d88f1a56090d0c1d3ce3ecf"
+  },
+  "public/foto/sabana-02.png": {
+    "mtime": 1793774707.772281,
+    "seen": 1795287087.3621888,
+    "ast_hash": "cc508bb304f78b1930563a8a5b94fcf0",
+    "semantic_hash": "cc508bb304f78b1930563a8a5b94fcf0"
+  },
+  "public/foto/sabana-03.png": {
+    "mtime": 1793774708.017548,
+    "seen": 1795287087.36219,
+    "ast_hash": "8a7bdb99879c67c657230e48acb67b15",
+    "semantic_hash": "8a7bdb99879c67c657230e48acb67b15"
+  },
+  "public/foto/sabana-cover.jpg": {
+    "mtime": 1793772601.1237364,
+    "seen": 1795287087.3621917,
+    "ast_hash": "d310bb1b18bdc7776696931bb7e6cf12",
+    "semantic_hash": "d310bb1b18bdc7776696931bb7e6cf12"
+  },
+  "public/foto/sunrise-01.png": {
+    "mtime": 1793774708.2259967,
+    "seen": 1795287087.3621929,
+    "ast_hash": "aaaf71d03dd0ce3b612f9b34ee6330b2",
+    "semantic_hash": "aaaf71d03dd0ce3b612f9b34ee6330b2"
+  },
+  "public/foto/sunrise-02.png": {
+    "mtime": 1793774708.1460066,
+    "seen": 1795287087.3621955,
+    "ast_hash": "0a3bad649c2defa5940edadaa9d6199b",
+    "semantic_hash": "0a3bad649c2defa5940edadaa9d6199b"
+  },
+  "public/foto/sunrise-03.png": {
+    "mtime": 1793774707.9580877,
+    "seen": 1795287087.3621967,
+    "ast_hash": "6562f7bf5d692a0ffa03a37e3b13df5b",
+    "semantic_hash": "6562f7bf5d692a0ffa03a37e3b13df5b"
+  },
+  "public/foto/sunrise-cover.jpg": {
+    "mtime": 1793772615.5848408,
+    "seen": 1795287087.362198,
+    "ast_hash": "10f207beadaa8d3e1594947c92ce3c0c",
+    "semantic_hash": "10f207beadaa8d3e1594947c92ce3c0c"
+  },
+  "public/video/momen_lucu.webm": {
+    "mtime": 1795274466.6858046,
+    "seen": 1795287087.3621993,
+    "ast_hash": "724963bf5d15db380c29084a30b99b72",
+    "semantic_hash": "724963bf5d15db380c29084a30b99b72"
+  },
+  "public/video/video_beli_eskrim.webm": {
+    "mtime": 1795274517.8307054,
+    "seen": 1795287087.3622005,
+    "ast_hash": "e4686274d206e18e6cf863a334311554",
+    "semantic_hash": "e4686274d206e18e6cf863a334311554"
+  },
+  "public/video/video_puncak6.webm": {
+    "mtime": 1795273346.293598,
+    "seen": 1795287087.362202,
+    "ast_hash": "0b9bd5fd8e5452dc1c433d0a3c9765dd",
+    "semantic_hash": "0b9bd5fd8e5452dc1c433d0a3c9765dd"
+  },
+  "public/video/video_sabana1.webm": {
+    "mtime": 1794584627.9188974,
+    "seen": 1795287087.3622031,
+    "ast_hash": "3c15c6920e5edc949cbbbcdfbbefa984",
+    "semantic_hash": "3c15c6920e5edc949cbbbcdfbbefa984"
+  },
+  "public/video/video_sabana2.webm": {
+    "mtime": 1794584724.869436,
+    "seen": 1795287087.3622043,
+    "ast_hash": "f7cc79147be00e15b504ffa2ef220522",
+    "semantic_hash": "f7cc79147be00e15b504ffa2ef220522"
+  },
+  "public/video/video_sunrise.webm": {
+    "mtime": 1795274829.1748643,
+    "seen": 1795287087.3622057,
+    "ast_hash": "0abaf40d95a1a1b421e519d8d0e55716",
+    "semantic_hash": "0abaf40d95a1a1b421e519d8d0e55716"
+  }
+}

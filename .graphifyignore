@@ -1,0 +1,10 @@
+public/vendor/
+public/foto/
+public/video/
+dist/
+.astro/
+node_modules/
+graphify-out/
+PRD Website Kenangan Gunung Andong.md
+prd_website_kenangan_gunung_andong.md
+docs/
