@@ -1,5 +1,4 @@
 ---
-import mediaData from "../../data/media.json";
 import Bab from "../Bab.astro";
 import Galeri from "../Galeri";
 import type { Slide } from "../ui/polaroid-line-carousel";
@@ -9,15 +8,13 @@ interface Props {
 }
 
 const { slides } = Astro.props;
-const bab = mediaData.find(b => b.id === "sabana")!;
-
 ---
 
 <Bab
   id="sabana"
   nomor="01"
   nama="Sabana"
-  subjudul={bab.subjudul}
+  subjudul="A Pause in the Grass"
   elevasi="1.540 mdpl"
   tema="sabana"
   className="relative"
@@ -40,7 +37,7 @@ const bab = mediaData.find(b => b.id === "sabana")!;
 
   <div class="relative z-10 w-full flex flex-col items-center">
     <!-- Chapter Narrative Intro -->
-    <blockquote lang="en" class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-8 font-light">{bab.kutipan}</blockquote>
+    <blockquote data-i18n="sabana.kutipan" lang="en" class="text-center font-serif italic text-lg sm:text-xl text-[var(--teks)] max-w-xl mx-auto mb-8 font-light">Still catching our breath. A good place to stop.</blockquote>
 
     <!-- Trail Elevation SVG Curve -->
     <div class="w-full max-w-md mx-auto mb-10 flex items-center justify-between text-base font-mono text-[#1E2B1C]" aria-hidden="true">

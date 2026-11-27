@@ -31,17 +31,17 @@ const {
     {(nomor || nama || subjudul) && (
       <header class="text-center max-w-2xl mx-auto mb-10 md:mb-14 data-muncul">
         {nomor && (
-          <span class="inline-block font-mono text-xs uppercase tracking-widest text-[var(--teks)] mb-2 font-semibold px-3.5 py-1 rounded-full border border-[var(--border-subtle)]">
+          <span data-i18n={`${id}.bab`} class="inline-block font-mono text-xs uppercase tracking-widest text-[var(--teks)] mb-2 font-semibold px-3.5 py-1 rounded-full border border-[var(--border-subtle)]">
             Bab {nomor} {elevasi ? `• ${elevasi}` : ""}
           </span>
         )}
         {nama && (
-          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-[var(--teks)] mb-3">
+          <h2 data-i18n={`${id}.nama`} class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-[var(--teks)] mb-3">
             {nama}
           </h2>
         )}
         {subjudul && (
-          <p lang={subjudul === "Titik Tertinggi 1.726 mdpl" ? "id" : "en"} class="font-sans text-base text-[var(--teks-muted)] font-normal leading-relaxed">
+          <p data-i18n={`${id}.subjudul`} class="font-sans text-base text-[var(--teks-muted)] font-normal leading-relaxed">
             {subjudul}
           </p>
         )}
@@ -51,7 +51,6 @@ const {
 
     <svg aria-hidden="true" class="w-24 h-8 mb-6" viewBox="0 0 100 32"><path data-trail d="M4 28 Q30 25 48 16 T96 4" fill="none" stroke="currentColor" stroke-width="2" /></svg>
 
-    <!-- Chapter Content Slot -->
     <slot />
   </div>
 </section>
